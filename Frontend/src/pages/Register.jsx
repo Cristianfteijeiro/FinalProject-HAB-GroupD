@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../Styles/Register.css";
 
 export const Register = () => {
   const [nick, setNick] = useState("");
@@ -94,9 +95,9 @@ export const Register = () => {
           <button>Aventúrate</button>
         </form>
       </section>
-      <span>
+      <figure>
         <img src="src/assets/images/equipaje.jpg" />
-      </span>
+      </figure>
     </div>
   );
 };

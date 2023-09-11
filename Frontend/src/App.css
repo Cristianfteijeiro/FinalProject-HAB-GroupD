@@ -17,6 +17,7 @@ html {
   --action: #a6934f;
   --error: #c84d4d;
   --mainbg: #eae1c4;
+  --nav: #c84d4df5;
 }
 
 a {
@@ -26,10 +27,6 @@ a {
 
 h1 {
   font-family: var(--title);
-}
-
-h2 {
-  font-family: var(--body);
 }
 
 main.app {
@@ -58,31 +55,96 @@ main.app {
 .app header nav ul {
   font-family: var(--body);
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   list-style: none;
   gap: 1rem;
   margin-right: 2rem;
 }
 
-.app footer {
+.app header nav ul li {
   color: var(--action);
+  border: 1px solid #0000;
+  font-size: 16px;
+  border: 0.3em solid var(--action);
+  border-radius: 0.5em;
+  width: 10em;
+  height: 3em;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-align: center;
+  line-height: 3em;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: 0.5s;
+  margin: 1em;
+}
+
+.app header nav ul li span {
+  position: absolute;
+  width: 30%;
+  height: 100%;
+  background-color: var(--nav);
+  transform: translateY(150%);
+  border-radius: 50%;
+  left: calc((var(--n) - 2) * 25%);
+  transition: 0.5s;
+  transition-delay: calc((var(--n) - 2) * 0.1s);
+  z-index: -1;
+}
+
+.app header nav ul li:hover {
+  color: var(--bg);/*revisar esto*/
+}
+
+.app header nav ul li:hover span {
+  transform: translateY(0) scale(2);
+}
+
+.app header nav ul li span:nth-child(1) {
+  --n: 1;
+}
+
+.app header nav ul li span:nth-child(2) {
+  --n: 2;
+}
+
+.app header nav ul li span:nth-child(3) {
+  --n: 3;
+}
+
+.app header nav ul li span:nth-child(4) {
+  --n: 4;
+}
+
+.app footer {
+  color: var(--error);
   background-color: var(--mainbg);
 }
 
 .home {
-  background-image: url("src/assets/images/faro.jpg");
-  background-size: cover;
+  background-image: url("src/assets/images/niños.jpg");
+  background-size: 100% 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--action);
   font-size: 24px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
   padding-top: 2em;
 }
 
 .home h1 {
-  padding-bottom: 1em;
+  border: 1px solid #0000;
+  background-image: linear-gradient(to right, #a6934f, #c84d4d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: 40px;
 }
 /* 
 .register {

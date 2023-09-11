@@ -15,12 +15,31 @@ export const Header = () => {
         <ul>
           <li>
             <Link to={"/register"}>Regístrate</Link>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </li>
           <li>
             <Link to={"/login"}>Mi Cuenta</Link>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </li>
+          <li>
+            <Link to={"/register"}>Recomendaciones</Link>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </li>
           <li>
             <Link to={"/conocenos"}>Conócenos</Link>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </li>
         </ul>
       </nav>

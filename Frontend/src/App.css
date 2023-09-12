@@ -41,11 +41,15 @@ main.app {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 15vh;
+  height: 8vh;
 }
 
 .app header span {
   height: 100%;
+}
+
+.logo {
+  margin-left: 2rem;
 }
 
 .app header span img {
@@ -62,14 +66,15 @@ main.app {
   margin-right: 2rem;
 }
 
-.app header nav ul li {
+.recom {
+  font-family: var(--body);
+  font-size: 1rem;
   color: var(--action);
+  background-color: var(--bg);
   border: 1px solid #0000;
-  font-size: 16px;
   border: 0.3em solid var(--action);
   border-radius: 0.5em;
   width: 10em;
-  height: 3em;
   text-transform: uppercase;
   font-weight: bold;
   letter-spacing: 0.1em;
@@ -80,6 +85,15 @@ main.app {
   z-index: 1;
   transition: 0.5s;
   margin: 1em;
+  cursor: pointer;
+  height: 3rem;
+}
+
+.moñeco {
+  width: 3em;
+  height: 3em;
+
+  position: relative;
 }
 
 .app header nav ul li span {
@@ -96,7 +110,7 @@ main.app {
 }
 
 .app header nav ul li:hover {
-  color: var(--bg);/*revisar esto*/
+  color: var(--bg); /*revisar esto*/
 }
 
 .app header nav ul li:hover span {
@@ -119,13 +133,44 @@ main.app {
   --n: 4;
 }
 
-.app footer {
-  color: var(--error);
-  background-color: var(--mainbg);
+.buscadorHome {
+  background-color: var(--bg);
+  font-size: 1rem;
+  font-family: var(--body);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+}
+
+.buscar {
+  color: white;
+  border: 0.3em solid var(--action);
+  border-radius: 0.5em;
+  height: 3rem;
+  width: 35rem;
+  background: transparent;
+  padding-left: 1rem;
+  font-size: 1rem;
+}
+
+.contacto ul li {
+  font-size: 0.8em;
+  margin: 0.5rem;
+}
+
+.derechos {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.derechos ul {
+  display: flex;
 }
 
 .home {
-  background-image: url("src/assets/images/niños.jpg");
+  background-image: url("src/assets/images/ninos.jpg");
   background-size: 100% 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -135,7 +180,7 @@ main.app {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  padding-top: 2em;
+  height: 90vh;
 }
 
 .home h1 {
@@ -146,6 +191,7 @@ main.app {
   color: transparent;
   padding-bottom: 40px;
 }
+
 /* 
 .register {
   background-color: var(--mainbg);
@@ -264,4 +310,62 @@ main.app {
 }
 .post select {
   width: 100%;
+} */
+
+/* .container {
+  position: absolute;
+  left: 48%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+}
+
+input {
+  outline: none;
+  box-sizing: border-box;
+  height: 60px;
+  width: 0px;
+  padding: 0 20px;
+  color: #000;
+  border-radius: 50px;
+  font-size: 20px;
+  border: 1px solid #d50000;
+  transition: all 0.7s ease;
+}
+
+::placeholder {
+  color: grey;
+}
+
+.btn {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 80px;
+  height: 80px;
+  background: #d50000;
+  line-height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn i {
+  font-size: 25px;
+  color: white;
+  line-height: 80px;
+  transition: all 0.7s ease;
+}
+
+.container:hover input {
+  width: 350px;
+}
+
+.container:hover i {
+  transform: rotate(-360deg);
+}
+
+.btn:hover {
+  background: #cc0000;
 } */

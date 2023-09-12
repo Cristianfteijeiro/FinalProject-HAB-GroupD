@@ -8,6 +8,7 @@
 
 .register section {
   height: 100%;
+  flex-direction: column;
 }
 
 .register h1 {

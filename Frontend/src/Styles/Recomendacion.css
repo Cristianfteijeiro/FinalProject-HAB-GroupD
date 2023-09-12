@@ -1,0 +1,12 @@
+section {
+  display: flex;
+}
+
+.datos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 80vh;
+  margin-top: 15vh;
+}

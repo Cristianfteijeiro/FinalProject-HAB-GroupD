@@ -1,4 +1,6 @@
-export const getAllTweetsService = async () => {
+const baseURL = import.meta.env.VITE_API_URL;
+
+/* export const getAllTweetsService = async () => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}`);
 
   const json = await response.json();
@@ -8,9 +10,9 @@ export const getAllTweetsService = async () => {
   }
 
   return json.data;
-};
+}; */
 
-export const getSingleTweetService = async (id) => {
+/* export const getSingleTweetService = async (id) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/tweet/${id}`);
 
   const json = await response.json();
@@ -20,12 +22,12 @@ export const getSingleTweetService = async (id) => {
   }
 
   return json.data;
-};
+}; */
 
-export const registerUserService = async ({ email, password }) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/user`, {
+export const registerUserService = async ({ name, mail, pwd }) => {
+  const response = await fetch(`${baseURL}/registro`, {
     method: "POST",
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify({ name, mail, pwd }),
     headers: {
       "Content-Type": "application/json",
     },
@@ -38,7 +40,7 @@ export const registerUserService = async ({ email, password }) => {
   }
 };
 
-export const getMyDataService = async (token) => {
+/* export const getMyDataService = async (token) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/user`, {
     headers: {
       Authorization: token,
@@ -52,9 +54,9 @@ export const getMyDataService = async (token) => {
   }
 
   return json.data;
-};
+}; */
 
-export const getUserDataService = async (id) => {
+/* export const getUserDataService = async (id) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/user/${id}`);
 
   const json = await response.json();
@@ -64,9 +66,9 @@ export const getUserDataService = async (id) => {
   }
 
   return json.data;
-};
+}; */
 
-export const getUserTweetsService = async (id) => {
+/* export const getUserTweetsService = async (id) => {
   const response = await fetch(
     `${process.env.REACT_APP_BACKEND}/user/${id}/tweets`
   );
@@ -78,9 +80,9 @@ export const getUserTweetsService = async (id) => {
   }
 
   return json.data;
-};
+}; */
 
-export const logInUserService = async ({ email, password }) => {
+/* export const logInUserService = async ({ email, password }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/login`, {
     method: "POST",
     body: JSON.stringify({ email, password }),
@@ -96,9 +98,9 @@ export const logInUserService = async ({ email, password }) => {
   }
 
   return json.data;
-};
+}; */
 
-export const sendTweetService = async ({ data, token }) => {
+/* export const sendTweetService = async ({ data, token }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}`, {
     method: "POST",
     body: data,
@@ -114,9 +116,9 @@ export const sendTweetService = async ({ data, token }) => {
   }
 
   return json.data;
-};
+}; */
 
-export const deleteTweetService = async ({ id, token }) => {
+/* export const deleteTweetService = async ({ id, token }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/tweet/${id}`, {
     method: "DELETE",
     headers: {
@@ -129,4 +131,4 @@ export const deleteTweetService = async ({ id, token }) => {
   if (!response.ok) {
     throw new Error(json.message);
   }
-};
+}; */

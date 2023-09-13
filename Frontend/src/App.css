@@ -29,6 +29,10 @@ h1 {
   font-family: var(--title);
 }
 
+input:focus {
+  outline: none;
+}
+
 main.app {
   min-height: 100vh;
   display: grid;
@@ -67,26 +71,27 @@ main.app {
 }
 
 .recom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--body);
   font-size: 1rem;
+  font-weight: bold;
   color: var(--action);
   background-color: var(--bg);
-  border: 1px solid #0000;
   border: 0.3em solid var(--action);
   border-radius: 0.5em;
+  height: 3rem;
   width: 10em;
   text-transform: uppercase;
-  font-weight: bold;
   letter-spacing: 0.1em;
   text-align: center;
-  line-height: 3em;
   position: relative;
   overflow: hidden;
   z-index: 1;
   transition: 0.5s;
   margin: 1em;
   cursor: pointer;
-  height: 3rem;
 }
 
 .moñeco {
@@ -100,17 +105,17 @@ main.app {
   position: absolute;
   width: 30%;
   height: 100%;
-  background-color: var(--nav);
+  background-color: var(--action);
   transform: translateY(150%);
   border-radius: 50%;
-  left: calc((var(--n) - 2) * 25%);
+  left: calc((var(--n) - 1.6) * 25%);
   transition: 0.5s;
   transition-delay: calc((var(--n) - 2) * 0.1s);
   z-index: -1;
 }
 
-.app header nav ul li:hover {
-  color: var(--bg); /*revisar esto*/
+.app header nav ul li a:hover {
+  color: var(--bg);
 }
 
 .app header nav ul li:hover span {
@@ -189,7 +194,7 @@ main.app {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  padding-bottom: 40px;
+  padding: 40px 0;
 }
 
 /* 

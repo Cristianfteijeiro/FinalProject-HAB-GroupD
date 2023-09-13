@@ -1,9 +1,10 @@
 .register {
+  font-family: var(--body);
+  font-size: 1.5rem;
   background-color: var(--mainbg);
   display: grid;
   grid-template-columns: 40% 60%;
   align-items: center;
-  /* height: 85vh; */
 }
 
 .register section {
@@ -12,7 +13,7 @@
 }
 
 .register h1 {
-  margin: 100px 0;
+  margin: 75px 0;
   text-align: center;
   color: var(--action);
   font-size: 2.5rem;
@@ -36,16 +37,38 @@
 }
 
 .register form input {
+  color: black;
+  border: 0.3em solid var(--action);
+  border-radius: 0.5em;
+  height: 3rem;
   width: 100%;
-  padding: 0.5rem;
+  background: transparent;
+  padding-left: 1rem;
+  font-size: 1rem;
 }
 
 .register button {
-  padding: 0.5rem 1rem;
-  background-color: var(--action);
-  color: var(--bright);
-  border: none;
+  background-color: transparent;
+  font-family: var(--body);
   font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--action);
+  border: 0.3em solid var(--action);
+  border-radius: 0.5em;
+  height: 3rem;
+  width: 10em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 1em;
+}
+
+.register p {
+  color: var(--error);
 }
 
 .register figure {

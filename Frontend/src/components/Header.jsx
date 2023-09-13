@@ -41,7 +41,7 @@ export const Header = () => {
             <span></span>
           </li>
           <li className="moñeco">
-            <Link to={"/register"}>
+            <Link to={"/registro"}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

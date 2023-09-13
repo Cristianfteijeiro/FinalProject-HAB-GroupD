@@ -1,20 +1,37 @@
 import { useState } from "react";
+import { registerUserService } from "../services";
+import { useNavigate } from "react-router-dom";
+
 import "../Styles/Register.css";
 
 export const Register = () => {
+  const navigate = useNavigate();
+
   const [nick, setNick] = useState("");
   const [avatar, setAvatar] = useState("");
-  const [email, setEmail] = useState("");
-  const [email2, setEmail2] = useState("");
+  const [mail, setEmail] = useState("");
+  const [mail2, setEmail2] = useState("");
   const [pass1, setPass1] = useState("");
   const [pass2, setPass2] = useState("");
   const [error, setError] = useState("");
 
   const handleForm = async (e) => {
     e.preventDefault();
+    if (mail !== mail2) {
+      setError("Los correos no coinciden");
+      return;
+    }
+
     if (pass1 !== pass2) {
       setError("Las contraseñas no coinciden");
       return;
+    }
+
+    try {
+      await registerUserService({ name: nick, mail, pwd: pass1 });
+      navigate("/");
+    } catch (error) {
+      setError(error.message);
     }
   };
   return (
@@ -35,23 +52,12 @@ export const Register = () => {
           </fieldset>
 
           <fieldset>
-            <label htmlFor="avatar">Avatar</label>
-            <input
-              type="file"
-              id="avatar"
-              name="avatar"
-              value={avatar}
-              onChange={(e) => setAvatar(e.target.value)}
-            />
-          </fieldset>
-
-          <fieldset>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="mail">Email</label>
             <input
               type="email"
-              id="email"
-              name="email"
-              value={email}
+              id="mail"
+              name="mail"
+              value={mail}
               required
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -61,9 +67,9 @@ export const Register = () => {
             <label htmlFor="email2">Repite tu Email</label>
             <input
               type="email"
-              id="email2"
-              name="email2"
-              value={email2}
+              id="mail2"
+              name="mail2"
+              value={mail2}
               required
               onChange={(e) => setEmail2(e.target.value)}
             />
@@ -92,7 +98,24 @@ export const Register = () => {
               onChange={(e) => setPass2(e.target.value)}
             />
           </fieldset>
+
+          {/* <fieldset>
+                <label htmlFor="avatar">Avatar</label>
+                <input
+                  type="file"
+                  id="avatar"
+                  name="avatar"
+                  value={avatar}
+                  onChange={(e) => setAvatar(e.target.value)}
+                />
+              </fieldset> */}
+
           <button>Aventúrate</button>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          {error ? <p>{JSON.stringify(error)}</p> : null}
         </form>
       </section>
       <figure>

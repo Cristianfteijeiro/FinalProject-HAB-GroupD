@@ -67,7 +67,7 @@
   margin: 1em;
 }
 
-.register p {
+.error {
   color: var(--error);
 }
 
@@ -78,4 +78,8 @@
 .register img {
   max-width: 100%;
   height: 100%;
+}
+
+.success-message {
+  color: green;
 }

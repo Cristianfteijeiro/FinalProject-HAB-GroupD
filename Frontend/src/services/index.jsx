@@ -40,8 +40,8 @@ export const registerUserService = async ({ name, mail, pwd }) => {
   }
 };
 
-/* export const getMyDataService = async (token) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/user`, {
+export const getMyDataService = async (token) => {
+  const response = await fetch(`${baseURL}/usuarios`, {
     headers: {
       Authorization: token,
     },
@@ -54,7 +54,7 @@ export const registerUserService = async ({ name, mail, pwd }) => {
   }
 
   return json.data;
-}; */
+};
 
 /* export const getUserDataService = async (id) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}/user/${id}`);
@@ -82,10 +82,10 @@ export const registerUserService = async ({ name, mail, pwd }) => {
   return json.data;
 }; */
 
-/* export const logInUserService = async ({ email, password }) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/login`, {
+export const logInUserService = async ({ mail, pwd }) => {
+  const response = await fetch(`${baseURL}/usuarios/login`, {
     method: "POST",
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify({ mail, pwd }),
     headers: {
       "Content-Type": "application/json",
     },
@@ -98,7 +98,7 @@ export const registerUserService = async ({ name, mail, pwd }) => {
   }
 
   return json.data;
-}; */
+};
 
 /* export const sendTweetService = async ({ data, token }) => {
   const response = await fetch(`${process.env.REACT_APP_BACKEND}`, {

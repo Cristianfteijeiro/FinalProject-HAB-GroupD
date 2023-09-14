@@ -14,6 +14,7 @@ export const Register = () => {
   const [pass1, setPass1] = useState("");
   const [pass2, setPass2] = useState("");
   const [error, setError] = useState("");
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -29,7 +30,11 @@ export const Register = () => {
 
     try {
       await registerUserService({ name: nick, mail, pwd: pass1 });
-      navigate("/");
+      setError("");
+      setRegistrationSuccess(true);
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
     } catch (error) {
       setError(error.message);
     }
@@ -116,6 +121,9 @@ export const Register = () => {
           <span></span>
           <span></span>
           {error ? <p>{JSON.stringify(error)}</p> : null}
+          {registrationSuccess && (
+            <p className="success-message">Usuario registrado correctamente</p>
+          )}
         </form>
       </section>
       <figure>

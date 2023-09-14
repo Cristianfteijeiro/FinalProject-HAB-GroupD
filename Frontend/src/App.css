@@ -114,8 +114,11 @@ main.app {
   z-index: -1;
 }
 
-.app header nav ul li a:hover {
+.recomButton:hover {
   color: var(--bg);
+}
+.recomButton {
+  padding: 9px 6px;
 }
 
 .app header nav ul li:hover span {

@@ -15,14 +15,12 @@ export const AuthContextProviderComponent = ({ children }) => {
     const getUserData = async () => {
       try {
         const data = await getMyDataService(token);
-
         setUser(data);
       } catch (error) {
         setToken("");
         setUser(null);
       }
     };
-
     if (token) getUserData();
   }, [token, setToken]);
 

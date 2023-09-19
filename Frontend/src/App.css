@@ -61,7 +61,7 @@ main.app {
 }
 
 .app header nav ul {
-  font-family: var(--body);
+  /* font-family: var(--body); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -142,13 +142,13 @@ main.app {
 }
 
 .buscadorHome {
-  background-color: var(--bg);
-  font-size: 1rem;
-  font-family: var(--body);
+  /* background-color: var(--bg); */
+  /* font-size: 1rem; */
+  /* font-family: var(--body); */
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   align-items: center;
-  height: 100%;
+  /* height: 100%; */
 }
 
 .buscar {
@@ -377,3 +377,7 @@ input {
 .btn:hover {
   background: #cc0000;
 } */
+
+.log {
+  color: #ffffff;
+}

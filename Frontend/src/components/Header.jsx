@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import PopUp from "./PopUp";
 import { AuthContext } from "../context/AuthContext";
+// import { Auth } from "./Auth";
 
 export const Header = () => {
   const { user, logout } = useContext(AuthContext);
@@ -35,8 +36,8 @@ export const Header = () => {
             <span></span>
           </li>
           {user ? (
-            <section>
-              Logueado como: <Link to={`/user/${user.id}`}>{user}</Link>{" "}
+            <section className="log">
+              Logueado como: {`${user.nombre}`}
               <button onClick={() => logout()}>Logout</button>
             </section>
           ) : (
@@ -58,7 +59,7 @@ export const Header = () => {
                 </svg>
               </Link>
             </li>
-          )}
+          )}{" "}
         </ul>
         {isPopupOpen && <PopUp onClose={togglePopup} />}
       </nav>

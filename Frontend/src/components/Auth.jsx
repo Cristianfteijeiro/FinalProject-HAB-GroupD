@@ -4,6 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 
 export const Auth = () => {
   const { user, logout } = useContext(AuthContext);
+  console.log(user);
 
   return user ? (
     <section>

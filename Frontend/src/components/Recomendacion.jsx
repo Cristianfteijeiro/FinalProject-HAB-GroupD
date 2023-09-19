@@ -1,6 +1,11 @@
+// import { use } from "../../../Backend/src/router/userRouter";
 import "../Styles/Recomendacion.css";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
 
 export default function Recomendacion() {
+  const { user, token } = useContext(AuthContext);
+
   return (
     <section>
       <div className="datos">
@@ -16,7 +21,7 @@ export default function Recomendacion() {
         </ul>
       </div>
       <div>
-        <img src="../src/assets/images/playa.jpg" />"
+        <img src="../src/assets/images/playa.jpg" />
       </div>
     </section>
   );

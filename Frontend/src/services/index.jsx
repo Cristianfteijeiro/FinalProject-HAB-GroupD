@@ -43,6 +43,7 @@ export const registerUserService = async ({ name, mail, pwd }) => {
 export const getMyDataService = async (token) => {
   const response = await fetch(`${baseURL}/usuarios`, {
     headers: {
+      // Authorization: `Bearer ${token}`,
       Authorization: token,
     },
   });
@@ -56,17 +57,18 @@ export const getMyDataService = async (token) => {
   return json.data;
 };
 
-/* export const getUserDataService = async (id) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/user/${id}`);
+// export const getUserDataService = async (id) => {
+//   const response = await fetch(`${baseURL}/usuarios/${id}`);
 
-  const json = await response.json();
+//   const json = await response.json();
+//   console.log(json);
 
-  if (!response.ok) {
-    throw new Error(json.message);
-  }
+//   if (!response.ok) {
+//     throw new Error(json.message);
+//   }
 
-  return json.data;
-}; */
+//   return json.data;
+// };
 
 /* export const getUserTweetsService = async (id) => {
   const response = await fetch(

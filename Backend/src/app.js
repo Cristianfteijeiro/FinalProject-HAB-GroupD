@@ -12,11 +12,11 @@ const entriesRouter = require("../src/router/entriesRouter");
 
 const server = express();
 
+server.use(cors());
+
 server.use(express.json());
 server.use(morgan("dev"));
 server.use(fileupload());
-
-server.use(cors());
 
 const staticDir = path.join(__dirname, "uploads");
 
@@ -31,7 +31,7 @@ server.get("/", (req, res) => {
 server.use(userRouter);
 server.use(entriesRouter);
 
-/* server.use(function (req, res, next) {
+server.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:5173");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.header(
@@ -44,7 +44,7 @@ server.use(entriesRouter);
   } else {
     next();
   }
-}); */
+});
 
 server.use((err, _req, res, _next) => {
   const status = err.status || 500;

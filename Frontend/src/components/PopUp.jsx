@@ -7,20 +7,22 @@ import { AuthContext } from "../context/AuthContext";
 
 const PopUp = ({ onClose }) => {
   const navigate = useNavigate();
-  const { login } = useContext(AuthContext);
+
   const [mail, setMail] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState("");
+  const { user, login } = useContext(AuthContext);
 
   const handleForm = async (e) => {
     e.preventDefault();
 
     try {
-      const token = await logInUserService({ mail, pwd: pass });
+      const data = await logInUserService({ mail, pwd: pass });
+      login(data);
 
-      login(token);
+      console.log(data);
       onClose();
-      navigate("/recomendaciones");
+      // navigate("/recomendaciones");
     } catch (error) {
       setError(error.message);
     }
@@ -54,6 +56,7 @@ const PopUp = ({ onClose }) => {
               onChange={(e) => setPass(e.target.value)}
             />
           </fieldset>
+
           <button>Login</button>
           {error ? <p>{error}</p> : null}
         </form>

@@ -10,7 +10,6 @@ const loginUser = async (req, res) => {
     const { mail, pwd } = req.body;
 
     if (!mail || !pwd) return res.status(400).send("Faltan datos");
-
     const [user] = await connect.query(
       `
                 SELECT id, role, active
@@ -30,15 +29,12 @@ const loginUser = async (req, res) => {
 
     const token = jwt.sign(info, process.env.SECRET_TOKEN, { expiresIn: "1d" });
 
-    connect.release();
-
     res.status(200).send({
       status: "OK",
       message: "Login",
-      data: {
-        token,
-      },
+      data: token,
     });
+    connect.release();
   } catch (error) {
     console.log(error);
   } finally {

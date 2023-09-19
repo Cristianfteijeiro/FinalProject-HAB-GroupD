@@ -29,6 +29,10 @@ h1 {
   font-family: var(--title);
 }
 
+input:focus {
+  outline: none;
+}
+
 main.app {
   min-height: 100vh;
   display: grid;
@@ -41,11 +45,15 @@ main.app {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 15vh;
+  height: 8vh;
 }
 
 .app header span {
   height: 100%;
+}
+
+.logo {
+  margin-left: 2rem;
 }
 
 .app header span img {
@@ -53,7 +61,7 @@ main.app {
 }
 
 .app header nav ul {
-  font-family: var(--body);
+  /* font-family: var(--body); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,41 +70,54 @@ main.app {
   margin-right: 2rem;
 }
 
-.app header nav ul li {
+.recom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: bold;
   color: var(--action);
-  border: 1px solid #0000;
-  font-size: 16px;
+  background-color: var(--bg);
   border: 0.3em solid var(--action);
   border-radius: 0.5em;
+  height: 3rem;
   width: 10em;
-  height: 3em;
   text-transform: uppercase;
-  font-weight: bold;
   letter-spacing: 0.1em;
   text-align: center;
-  line-height: 3em;
   position: relative;
   overflow: hidden;
   z-index: 1;
   transition: 0.5s;
   margin: 1em;
+  cursor: pointer;
+}
+
+.moñeco {
+  width: 3em;
+  height: 3em;
+  position: relative;
 }
 
 .app header nav ul li span {
   position: absolute;
   width: 30%;
   height: 100%;
-  background-color: var(--nav);
+  background-color: var(--action);
   transform: translateY(150%);
   border-radius: 50%;
-  left: calc((var(--n) - 2) * 25%);
+  left: calc((var(--n) - 1.6) * 25%);
   transition: 0.5s;
   transition-delay: calc((var(--n) - 2) * 0.1s);
   z-index: -1;
 }
 
-.app header nav ul li:hover {
-  color: var(--bg);/*revisar esto*/
+.recomButton:hover {
+  color: var(--bg);
+}
+.recomButton {
+  padding: 9px 6px;
 }
 
 .app header nav ul li:hover span {
@@ -119,13 +140,44 @@ main.app {
   --n: 4;
 }
 
-.app footer {
-  color: var(--error);
-  background-color: var(--mainbg);
+.buscadorHome {
+  /* background-color: var(--bg); */
+  /* font-size: 1rem; */
+  /* font-family: var(--body); */
+  display: flex;
+  /* flex-direction: row; */
+  align-items: center;
+  /* height: 100%; */
+}
+
+.buscar {
+  color: white;
+  border: 0.3em solid var(--action);
+  border-radius: 0.5em;
+  height: 3rem;
+  width: 35rem;
+  background: transparent;
+  padding-left: 1rem;
+  font-size: 1rem;
+}
+
+.contacto ul li {
+  font-size: 0.8em;
+  margin: 0.5rem;
+}
+
+.derechos {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.derechos ul {
+  display: flex;
 }
 
 .home {
-  background-image: url("src/assets/images/niños.jpg");
+  background-image: url("src/assets/images/ninos.jpg");
   background-size: 100% 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -135,7 +187,7 @@ main.app {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  padding-top: 2em;
+  height: 90vh;
 }
 
 .home h1 {
@@ -144,124 +196,19 @@ main.app {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  padding-bottom: 40px;
-}
-/* 
-.register {
-  background-color: var(--mainbg);
-  display: grid;
-  grid-template-columns: 40% 60%;
-  align-items: center;
-
+  padding: 40px 0;
 }
 
-.register section {
-  height: 100%;
-}
 
-.register h1 {
-  margin: 100px 0;
-  text-align: center;
+.log {
   color: var(--action);
-  font-size: 2.5rem;
+  font-family: var(--body);
+  font-size: 1rem;
+  /*font-weight: bold;*/
 }
 
-.register form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.logout{
+  width: 1em;
+  height: 1em;
 }
 
-.register form fieldset {
-  border: none;
-  margin-bottom: 1rem;
-  width: 70%;
-}
-
-.register form label {
-  display: flex;
-  margin-bottom: 0.5rem;
-}
-
-.register form input {
-  width: 100%;
-  padding: 0.5rem;
-}
-
-.register button {
-  padding: 0.5rem 1rem;
-  background-color: var(--action);
-  color: var(--bright);
-  border: none;
-  font-size: 1.3rem;
-}
-
-.register figure {
-  height: 100%;
-}
-
-.register img {
-  max-width: 100%;
-  height: 100%;
-}
-
-.post {
-  background-color: var(--mainbg);
-  display: grid;
-  grid-template-columns: 40% 60%;
-  align-items: center;
-}
-.post section {
-  height: 100%;
-}
-.post form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.post form fieldset {
-  border: none;
-  margin-bottom: 1rem;
-  width: 70%;
-}
-
-.post h1 {
-  margin: 100px 0;
-  text-align: center;
-  color: var(--action);
-  font-size: 2.5rem;
-}
-
-.post form label {
-  display: flex;
-  margin-bottom: 0.5rem;
-}
-
-.post form input {
-  width: 100%;
-  padding: 0.5rem;
-}
-
-.post figure {
-  height: 100%;
-}
-
-.post img {
-  max-width: 100%;
-  height: 100%;
-}
-
-.post button {
-  padding: 0.5rem 1rem;
-  background-color: var(--action);
-  color: var(--bright);
-  border: none;
-  font-size: 1.3rem;
-}
-.inputText {
-  height: 8rem;
-}
-.post select {
-  width: 100%;
-} */

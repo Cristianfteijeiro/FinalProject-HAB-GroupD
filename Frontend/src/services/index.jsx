@@ -24,6 +24,7 @@ export const getSingleRecService = async (id) => {
   return json.data;
 }; 
 
+
 export const registerUserService = async ({ name, mail, pwd }) => {
   const response = await fetch(`${baseURL}/registro`, {
     method: "POST",
@@ -71,6 +72,7 @@ export const getMyDataService = async (token) => {
 // };
 
 export const getUserRecsService = async (id) => {
+
   const response = await fetch(
     `${baseURL}/usuarios/${id}/recs`
   );
@@ -83,6 +85,7 @@ export const getUserRecsService = async (id) => {
 
   return json.data;
 }; 
+
 
 export const logInUserService = async ({ mail, pwd }) => {
   const response = await fetch(`${baseURL}/usuarios/login`, {
@@ -122,6 +125,7 @@ export const logInUserService = async ({ mail, pwd }) => {
 
 export const deleteRecService = async ({ id, token }) => {
   const response = await fetch(`${baseURL}/recomendaciones/${id}`, {
+
     method: "DELETE",
     headers: {
       Authorization: token,
@@ -133,4 +137,4 @@ export const deleteRecService = async ({ id, token }) => {
   if (!response.ok) {
     throw new Error(json.message);
   }
-};
+}; */

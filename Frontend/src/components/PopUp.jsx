@@ -22,7 +22,7 @@ const PopUp = ({ onClose }) => {
 
       console.log(data);
       onClose();
-      // navigate("/recomendaciones");
+      navigate("/recomendaciones");
     } catch (error) {
       setError(error.message);
     }

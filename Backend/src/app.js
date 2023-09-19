@@ -20,7 +20,7 @@ server.use(fileupload());
 
 const staticDir = path.join(__dirname, "uploads");
 
-server.use(express.static(staticDir));
+server.use("/uploads", express.static(staticDir));
 
 createStaticDir(staticDir);
 

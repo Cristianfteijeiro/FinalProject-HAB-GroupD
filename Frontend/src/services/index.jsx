@@ -1,7 +1,7 @@
 const baseURL = import.meta.env.VITE_API_URL;
 
-/* export const getAllTweetsService = async () => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}`);
+export const getAllRecsService = async () => {
+  const response = await fetch(`${baseURL}/recomendaciones`);
 
   const json = await response.json();
 
@@ -10,10 +10,10 @@ const baseURL = import.meta.env.VITE_API_URL;
   }
 
   return json.data;
-}; */
+}; 
 
-/* export const getSingleTweetService = async (id) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/tweet/${id}`);
+export const getSingleRecService = async (id) => {
+  const response = await fetch(`${baseURL}/recomendaciones/${id}`);
 
   const json = await response.json();
 
@@ -22,7 +22,8 @@ const baseURL = import.meta.env.VITE_API_URL;
   }
 
   return json.data;
-}; */
+}; 
+
 
 export const registerUserService = async ({ name, mail, pwd }) => {
   const response = await fetch(`${baseURL}/registro`, {
@@ -70,9 +71,10 @@ export const getMyDataService = async (token) => {
 //   return json.data;
 // };
 
-/* export const getUserTweetsService = async (id) => {
+export const getUserRecsService = async (id) => {
+
   const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/user/${id}/tweets`
+    `${baseURL}/usuarios/${id}/recs`
   );
 
   const json = await response.json();
@@ -82,7 +84,8 @@ export const getMyDataService = async (token) => {
   }
 
   return json.data;
-}; */
+}; 
+
 
 export const logInUserService = async ({ mail, pwd }) => {
   const response = await fetch(`${baseURL}/usuarios/login`, {
@@ -120,8 +123,9 @@ export const logInUserService = async ({ mail, pwd }) => {
   return json.data;
 }; */
 
-/* export const deleteTweetService = async ({ id, token }) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}/tweet/${id}`, {
+export const deleteRecService = async ({ id, token }) => {
+  const response = await fetch(`${baseURL}/recomendaciones/${id}`, {
+
     method: "DELETE",
     headers: {
       Authorization: token,

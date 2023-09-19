@@ -50,7 +50,7 @@ export const Login = () => {
         </fieldset>
 
         <button>Login</button>
-        {error ? <p>{error}</p> : null}
+        {error ? <p>{JSON.stringify(error)}</p> : null}
       </form>
     </section>
   );

@@ -28,10 +28,15 @@ export const Rec = ({ rec, removeRec }) => {
 
   return (
     <article className="rec">
-      <h2>{rec.titulo}</h2>
-      {rec.foto ? (
-        <img src={`${baseURL}/uploads/recPhoto/${rec.foto}`} alt={rec.texto} />
-      ) : null}
+      <Link to={`/recomendaciones/${rec.id}`}>
+        <h2>{rec.titulo}</h2>
+        {rec.foto ? (
+          <img
+            src={`${baseURL}/uploads/recPhoto/${rec.foto}`}
+            alt={rec.texto}
+          />
+        ) : null}
+      </Link>
       <p>{rec.texto}</p>
       {rec.avatar ? (
         <img
@@ -46,11 +51,10 @@ export const Rec = ({ rec, removeRec }) => {
           alt="Avatar"
         />
       )}
+
       <p>
         <Link to={`/usuarios/${rec.user_id}/recs`}>{rec.nombre}</Link> hace{" "}
-        <Link to={`/recomendaciones/${rec.id}`}>
-          {new Date(rec.fecha_creacion).toLocaleString()}
-        </Link>
+        {new Date(rec.fecha_creacion).toLocaleString()}
       </p>
       {user && user.id === rec.user_id ? (
         <section>

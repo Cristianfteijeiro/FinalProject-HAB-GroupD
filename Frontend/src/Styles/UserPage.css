@@ -16,6 +16,7 @@
 .user-recs {
   max-width: 500px;
   list-style: none;
+  overflow-y: auto;
 }
 
 .user-page-avatar {

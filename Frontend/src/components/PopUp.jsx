@@ -20,7 +20,6 @@ const PopUp = ({ onClose }) => {
       const data = await logInUserService({ mail, pwd: pass });
       login(data);
 
-      console.log(data);
       onClose();
       navigate("/recomendaciones");
     } catch (error) {

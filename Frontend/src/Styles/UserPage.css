@@ -1,0 +1,24 @@
+.user-page {
+  display: flex;
+  justify-content: space-evenly;
+  max-height: 80vh;
+}
+
+.user-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+  width: 480px;
+  padding: 2rem;
+}
+
+.user-recs {
+  max-width: 500px;
+  list-style: none;
+}
+
+.user-page-avatar {
+  width: 200px;
+  height: 200px;
+}

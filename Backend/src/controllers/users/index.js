@@ -3,6 +3,7 @@ const loginUser = require("./loginUser");
 const avatarUser = require("./avatarUser");
 const getUser = require("./getUser");
 const getMe = require("./getMe");
+const getUserRecsController = require("./getUserRecsController");
 
 module.exports = {
   createUser,
@@ -10,4 +11,5 @@ module.exports = {
   avatarUser,
   getUser,
   getMe,
+  getUserRecsController,
 };

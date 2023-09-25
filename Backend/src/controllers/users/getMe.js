@@ -7,7 +7,7 @@ const getUserById = async (req, res, id) => {
     connection = await getDB();
 
     const [result] = await connection.query(
-      `SELECT fecha_registro, email, nombre, avatar FROM usuarios WHERE id=?`,
+      `SELECT id, fecha_registro, email, nombre, avatar FROM usuarios WHERE id=?`,
       [id]
     );
 

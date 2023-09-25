@@ -18,6 +18,8 @@ const userExists = async (req, res, next) => {
       res.status(404).send("No existe el usuario");
     }
 
+    connect.release();
+
     next();
   } catch (error) {
     console.log(error);

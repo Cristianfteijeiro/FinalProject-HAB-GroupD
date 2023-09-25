@@ -40,127 +40,6 @@ main.app {
   font-family: sans-serif;
 }
 
-.app header {
-  background-color: var(--bg);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 8vh;
-}
-
-.app header span {
-  height: 100%;
-}
-
-.logo {
-  margin-left: 2rem;
-}
-
-.app header span img {
-  height: 100%;
-}
-
-.app header nav ul {
-  /* font-family: var(--body); */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  list-style: none;
-  gap: 1rem;
-  margin-right: 2rem;
-}
-
-.recom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--body);
-  font-size: 1rem;
-  font-weight: bold;
-  color: var(--action);
-  background-color: var(--bg);
-  border: 0.3em solid var(--action);
-  border-radius: 0.5em;
-  height: 3rem;
-  width: 10em;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  transition: 0.5s;
-  margin: 1em;
-  cursor: pointer;
-}
-
-.moñeco {
-  width: 3em;
-  height: 3em;
-  position: relative;
-}
-
-.app header nav ul li span {
-  position: absolute;
-  width: 30%;
-  height: 100%;
-  background-color: var(--action);
-  transform: translateY(150%);
-  border-radius: 50%;
-  left: calc((var(--n) - 1.6) * 25%);
-  transition: 0.5s;
-  transition-delay: calc((var(--n) - 2) * 0.1s);
-  z-index: -1;
-}
-
-.recomButton:hover {
-  color: var(--bg);
-}
-.recomButton {
-  padding: 9px 6px;
-}
-
-.app header nav ul li:hover span {
-  transform: translateY(0) scale(2);
-}
-
-.app header nav ul li span:nth-child(1) {
-  --n: 1;
-}
-
-.app header nav ul li span:nth-child(2) {
-  --n: 2;
-}
-
-.app header nav ul li span:nth-child(3) {
-  --n: 3;
-}
-
-.app header nav ul li span:nth-child(4) {
-  --n: 4;
-}
-
-.buscadorHome {
-  /* background-color: var(--bg); */
-  /* font-size: 1rem; */
-  /* font-family: var(--body); */
-  display: flex;
-  /* flex-direction: row; */
-  align-items: center;
-  /* height: 100%; */
-}
-
-.buscar {
-  color: white;
-  border: 0.3em solid var(--action);
-  border-radius: 0.5em;
-  height: 3rem;
-  width: 35rem;
-  background: transparent;
-  padding-left: 1rem;
-  font-size: 1rem;
-}
-
 .contacto ul li {
   font-size: 0.8em;
   margin: 0.5rem;
@@ -177,7 +56,7 @@ main.app {
 }
 
 .home {
-  background-image: url("src/assets/images/ninos.jpg");
+  background-image: url("ninos.jpg");
   background-size: 100% 100vh;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -199,15 +78,9 @@ main.app {
   padding: 40px 0;
 }
 
-.log {
-  color: var(--action);
-  font-family: var(--body);
-  font-size: 1rem;
-  /*font-weight: bold;*/
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: solid 1px;
 }
-
-.logout{
-  width: 1em;
-  height: 1em;
-}
-

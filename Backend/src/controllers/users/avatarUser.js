@@ -1,7 +1,5 @@
 const getDB = require("../../database/db");
 
-const { body } = require("express-validator");
-
 const savePhoto = require("../../service/savePhoto");
 
 const avatarUser = async (req, res) => {

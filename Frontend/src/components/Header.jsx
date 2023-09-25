@@ -1,7 +1,11 @@
+import "../Styles/header.css";
+
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import PopUp from "./PopUp";
 import { AuthContext } from "../context/AuthContext";
+const baseURL = import.meta.env.VITE_API_URL;
+
 // import { Auth } from "./Auth";
 
 export const Header = () => {
@@ -15,7 +19,7 @@ export const Header = () => {
     <header>
       <span className="logo">
         <Link to={"/"}>
-          <img src="../src/assets/images/HAT3.png" />
+          <img src="/src/assets/images/HAT3.png" />
         </Link>
       </span>
 
@@ -37,8 +41,25 @@ export const Header = () => {
           </li>
           {user ? (
             <section className="log">
-              ¡Hola {`${user.nombre}`}!
-              <Link className="logout" onClick={() => logout()}>
+              {user.avatar ? (
+                <Link to={`/usuarios/${user.id}/recs`}>
+                  <img
+                    className="user-avatar"
+                    src={`${baseURL}/uploads/avatarUser/${user.avatar}`}
+                    alt={user.nombre}
+                  />
+                </Link>
+              ) : (
+                <Link to={`/usuarios/${user.id}/recs`}>
+                  <img
+                    className="user-avatar"
+                    src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                    alt="Avatar"
+                  />
+                </Link>
+              )}
+
+              <Link className="logout" onClick={() => logout()} to="/">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

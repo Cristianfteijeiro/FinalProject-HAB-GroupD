@@ -16,6 +16,7 @@ const getAllRec = async (req, res) => {
             r.fecha_creacion,
             r.user_id,
             u.nombre,
+            u.avatar,
             ROUND(IFNULL(AVG(v.votos), 0), 2) AS promedio_votos,
             COUNT(c.comentarios) AS cantidad_comentarios
     FROM recomendaciones r

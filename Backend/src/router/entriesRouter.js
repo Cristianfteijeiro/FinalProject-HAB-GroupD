@@ -11,6 +11,7 @@ const {
   getRecomendationById,
   getRecomendationByPlace,
   getRecomendationByCategory,
+  getUserRecsController,
   voteRec,
   getRecByVote,
   postComment,

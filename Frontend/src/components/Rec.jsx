@@ -1,4 +1,3 @@
-
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { deleteRecService } from "../services";
@@ -9,8 +8,6 @@ export const Rec = ({ rec, removeRec }) => {
   const navigate = useNavigate();
   const { token, user } = useContext(AuthContext);
   const [error, setError] = useState("");
-
-
   if (!rec) {
     return null;
   }
@@ -18,7 +15,6 @@ export const Rec = ({ rec, removeRec }) => {
   const deleteRec = async (id) => {
     try {
       await deleteRecService({ id, token });
-      console.log(`${baseURL}/uploads/recPhoto/${rec.foto}`);
 
       if (removeRec) {
         removeRec(id);
@@ -33,15 +29,25 @@ export const Rec = ({ rec, removeRec }) => {
   return (
     <article className="rec">
       <h2>{rec.titulo}</h2>
-      <p>{rec.texto}</p>
       {rec.foto ? (
-        <img
-          src={`${baseURL}/uploads/recPhoto/${rec.foto}`}
-          alt={rec.texto}
-        />
+        <img src={`${baseURL}/uploads/recPhoto/${rec.foto}`} alt={rec.texto} />
       ) : null}
+      <p>{rec.texto}</p>
+      {rec.avatar ? (
+        <img
+          className="user-avatar"
+          src={`${baseURL}/uploads/avatarUser/${rec.avatar}`}
+          alt={rec.nombre}
+        />
+      ) : (
+        <img
+          className="user-avatar"
+          src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+          alt="Avatar"
+        />
+      )}
       <p>
-        By <Link to={`/usuarios/${rec.user_id}`}>{rec.nombre}</Link> on{" "}
+        <Link to={`/usuarios/${rec.user_id}/recs`}>{rec.nombre}</Link> hace{" "}
         <Link to={`/recomendaciones/${rec.id}`}>
           {new Date(rec.fecha_creacion).toLocaleString()}
         </Link>
@@ -53,7 +59,7 @@ export const Rec = ({ rec, removeRec }) => {
               if (window.confirm("¿Estás seguro?")) deleteRec(rec.id);
             }}
           >
-            Recomendación eliminada.
+            Eliminar recomendación
           </button>
           {error ? <p>{JSON.stringify(error)}</p> : null}
         </section>

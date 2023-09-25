@@ -1,7 +1,9 @@
 const jwt = require("jsonwebtoken");
+const getDB = require("../database/db");
 // const { generateError } = require("../helpers");
 
-const authUser = (req, res, next) => {
+const authUser = async (req, res, next) => {
+  const connect = await getDB();
   try {
     const { authorization } = req.headers;
 
@@ -22,6 +24,8 @@ const authUser = (req, res, next) => {
 
     // Metemos la información del token en la request para usarla en el controlador
     req.userId = token.id;
+
+    connect.release();
 
     // Saltamos al controlador
     next();

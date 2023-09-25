@@ -57,21 +57,30 @@ export const getMyDataService = async (token) => {
   return json.data;
 };
 
-// export const getUserDataService = async (id) => {
-//   const response = await fetch(`${baseURL}/usuarios/${id}`);
+export const getUserDataService = async (id, token) => {
+  const response = await fetch(`${baseURL}/usuarios/${id}`, {
+    headers: {
+      // Authorization: `Bearer ${token}`,
+      Authorization: token,
+    },
+  });
 
-//   const json = await response.json();
-//   console.log(json);
+  const json = await response.json();
 
-//   if (!response.ok) {
-//     throw new Error(json.message);
-//   }
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
 
-//   return json.data;
-// };
+  return json.data;
+};
 
-export const getUserRecsService = async (id) => {
-  const response = await fetch(`${baseURL}/usuarios/${id}/recs`);
+export const getUserRecsService = async (id, token) => {
+  const response = await fetch(`${baseURL}/usuarios/${id}/recs`, {
+    headers: {
+      Authorization: token,
+      "Content-Type": "application/json",
+    },
+  });
 
   const json = await response.json();
 

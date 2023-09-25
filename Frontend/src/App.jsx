@@ -12,6 +12,7 @@ import { Recomendaciones } from "./pages/Recomendaciones";
 import { Footer } from "./components/Footer";
 import { NotFound } from "./pages/NotFound";
 import { Login } from "./pages/Login";
+import { UserPage } from "./pages/UserPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/post" element={<Post />} />
         <Route path="/buscador" element={<Buscador />} />
         <Route path="/misposts" element={<MisPosts />} />
+        <Route path="usuarios/:id/recs" element={<UserPage />} />"
         <Route path="/recomendaciones" element={<Recomendaciones />} />
         <Route path="/Login" element={<Login />} />"
         <Route path="*" element={<NotFound />} />

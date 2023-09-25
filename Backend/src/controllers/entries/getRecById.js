@@ -10,17 +10,25 @@ const getRecomendationById = async (req, res) => {
     const [recomendationResult] = await connect.query(
       `
       SELECT
-        r.titulo,
-        r.categoria,
-        r.lugar,
-        r.entradilla,
-        r.texto,
-        r.foto,
-        ROUND(IFNULL(AVG(v.votos), 0), 2) AS promedio_votos
-      FROM recomendaciones r
-      LEFT JOIN votos v ON r.id = v.recomendacion_id
-      WHERE r.id = ?
-      GROUP BY r.titulo, r.categoria, r.lugar, r.entradilla, r.texto, r.foto;
+            r.id,
+            r.titulo,
+            r.categoria,
+            r.lugar,
+            r.entradilla,
+            r.texto,
+            r.foto,
+            r.fecha_creacion,
+            r.user_id,
+            u.nombre,
+            u.avatar,
+            ROUND(IFNULL(AVG(v.votos), 0), 2) AS promedio_votos,
+            COUNT(c.comentarios) AS cantidad_comentarios
+    FROM recomendaciones r
+    LEFT JOIN votos v ON r.id = v.recomendacion_id
+    LEFT JOIN usuarios u ON r.user_id = u.id
+    LEFT JOIN comentarios c ON r.id = c.recomendacion_id
+    WHERE r.id = ?
+    GROUP BY r.id, r.titulo, r.categoria, r.lugar, r.entradilla, r.texto, r.foto, r.fecha_creacion, r.user_id;
       `,
       [idRec]
     );
@@ -31,7 +39,9 @@ const getRecomendationById = async (req, res) => {
       SELECT
         u.nombre AS nombre_usuario,
         u.avatar AS avatar_usuario,
-        c.comentarios AS comentario
+        c.comentarios AS comentario,
+        c.fecha_creacion,
+        c.id
       FROM comentarios c
       LEFT JOIN usuarios u ON c.user_id = u.id
       WHERE c.recomendacion_id = ?;

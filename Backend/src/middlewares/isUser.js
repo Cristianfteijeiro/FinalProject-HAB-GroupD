@@ -36,6 +36,8 @@ const isUser = async (req, res, next) => {
     //añadir la informacion del token a la request
     req.userInfo = tokenInfo;
 
+    connect.release();
+
     next();
   } catch (error) {
     console.log(error);

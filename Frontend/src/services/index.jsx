@@ -109,8 +109,8 @@ export const logInUserService = async ({ mail, pwd }) => {
   return json.data;
 };
 
-/* export const sendTweetService = async ({ data, token }) => {
-  const response = await fetch(`${process.env.REACT_APP_BACKEND}`, {
+export const sendRecService = async ({ data, token }) => {
+  const response = await fetch(`${baseURL}/recomendaciones`, {
     method: "POST",
     body: data,
     headers: {
@@ -125,7 +125,7 @@ export const logInUserService = async ({ mail, pwd }) => {
   }
 
   return json.data;
-}; */
+};
 
 export const deleteRecService = async ({ id, token }) => {
   const response = await fetch(`${baseURL}/recomendaciones/${id}`, {

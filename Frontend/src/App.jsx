@@ -13,6 +13,7 @@ import { Footer } from "./components/Footer";
 import { NotFound } from "./pages/NotFound";
 import { Login } from "./pages/Login";
 import { UserPage } from "./pages/UserPage";
+import { RecPage } from "./pages/RecPage";
 
 function App() {
   return (
@@ -24,9 +25,11 @@ function App() {
         <Route path="/post" element={<Post />} />
         <Route path="/buscador" element={<Buscador />} />
         <Route path="/misposts" element={<MisPosts />} />
-        <Route path="usuarios/:id/recs" element={<UserPage />} />"
+        <Route path="usuarios/:id/recs" element={<UserPage />} />
         <Route path="/recomendaciones" element={<Recomendaciones />} />
-        <Route path="/Login" element={<Login />} />"
+        <Route path="/Login" element={<Login />} />
+        <Route path="/recomendaciones/:id" element={<RecPage />} />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

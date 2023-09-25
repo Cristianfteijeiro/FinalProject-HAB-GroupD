@@ -15,6 +15,7 @@ export const Header = () => {
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
   };
+
   return (
     <header>
       <span className="logo">
@@ -25,7 +26,9 @@ export const Header = () => {
 
       <form className="buscadorHome" action="">
         <input type="search" placeholder=" Buscar..." className="buscar" />
-        <button className="recom">Buscar</button>
+        <button onClick="" className="recom">
+          Buscar
+        </button>
       </form>
 
       <nav>

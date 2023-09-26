@@ -1,4 +1,4 @@
-import "../styles/UserPage.css";
+import "../Styles/UserPage.css";
 
 import { useParams } from "react-router-dom";
 import useUser from "../hooks/useUser";

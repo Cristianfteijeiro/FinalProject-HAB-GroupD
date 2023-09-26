@@ -1,4 +1,4 @@
-import "../Styles/header.css";
+import "../Styles/Header.css";
 import React, { useEffect, useState, useContext } from "react";
 import { Link, useLocation } from "react-router-dom"; // Importa useLocation
 import PopUp from "./PopUp";

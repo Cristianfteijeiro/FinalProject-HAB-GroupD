@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Rec } from "../components/Recomendacion";
+import { Rec } from "../components/Rec";
 import { MensajeError } from "../components/MensajeError";
 import { Loading } from "../components/Loading";
 import { getAllRecsService } from "../services";

@@ -1,36 +1,21 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-
-const baseURL = import.meta.env.VITE_API_URL;
+import { ratingSerivice } from "../services"; // Importa la función desde services/index.js
+/* import "../Styles/Rating.css"; */
 
 export const Rating = ({ initialValue, onRate, recId }) => {
   const [rating, setRating] = useState(initialValue);
   const { token, user } = useContext(AuthContext);
-  const handleRatingChange = async (newRating) => {
-    try {
-      const response = await fetch(
-        `${baseURL}/recomendaciones/${recId}/votar`,
-        {
-          method: "POST",
-          body: JSON.stringify({ vote: newRating }),
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: token,
-          },
-        }
-      );
 
-      if (!response.ok) {
-        // Puedes manejar el error aquí
-        console.error("Error al enviar el voto:", response.statusText);
-        return;
-      }
+  const handleRatingChangeLocal = async (newRating) => {
+    // Usa la función importada desde services
+    ratingSerivice(newRating, recId, token, setRating, onRate);
+  };
 
-      setRating(newRating);
-      onRate(newRating);
-    } catch (error) {
-      console.error("Error al enviar el voto:", error);
-    }
+  const handleInputChange = (newRating) => {
+    // Al hacer clic en el input, cambia la calificación y recarga la página
+    handleRatingChangeLocal(newRating);
+    window.location.reload();
   };
 
   return (
@@ -43,9 +28,9 @@ export const Rating = ({ initialValue, onRate, recId }) => {
             name="rating"
             value={value}
             checked={value === rating}
-            onChange={() => handleRatingChange(value)}
+            onChange={() => handleInputChange(value)}
           />
-          {value}
+          <span className="star" data-rating={value}></span>
         </label>
       ))}
     </div>

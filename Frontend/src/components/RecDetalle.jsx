@@ -1,11 +1,12 @@
-import "../Styles/recomendacion.css";
+import "../Styles/Recomendacion.css";
 import "../Styles/RecDetalle.css";
 
 import { Link, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { deleteRecService } from "../services";
 import { AuthContext } from "../context/AuthContext";
 import { Rating } from "./Rating";
+import { FormatoFecha } from "./FormatoFecha";
 
 export const RecDetalle = ({ rec, removeRec }) => {
   const baseURL = import.meta.env.VITE_API_URL;
@@ -13,9 +14,18 @@ export const RecDetalle = ({ rec, removeRec }) => {
   const { token, user } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [userRating, setUserRating] = useState(rec.userRating || 1);
+  const [userVoted, setUserVoted] = useState(false);
+
+  useEffect(() => {
+    if (user && rec.votos) {
+      const userVotedRec = rec.votos.find(
+        (voto) => voto.id_usuario === user.id
+      );
+      setUserVoted(!!userVotedRec);
+    }
+  }, [user, rec.votos]);
 
   const handleUserRating = (newRating) => {
-    // Aquí puedes implementar la lógica para enviar la puntuación al servidor o actualizarla en algún otro lugar
     setUserRating(newRating);
   };
 
@@ -23,7 +33,6 @@ export const RecDetalle = ({ rec, removeRec }) => {
     return null;
   }
 
-  console.log(rec);
   const deleteRec = async (id) => {
     try {
       await deleteRecService({ id, token });
@@ -76,10 +85,7 @@ export const RecDetalle = ({ rec, removeRec }) => {
           <Link to={`/usuarios/${rec.recomendacion.user_id}/recs`}>
             {rec.recomendacion.nombre}
           </Link>{" "}
-          hace{" "}
-          <Link to={`/recomendaciones/${rec.recomendacion.id}`}>
-            {new Date(rec.recomendacion.fecha_creacion).toLocaleString()}
-          </Link>
+          {FormatoFecha(rec.recomendacion.fecha_creacion)}
         </p>
         {user && user.id === rec.recomendacion.user_id ? (
           <section>
@@ -95,18 +101,38 @@ export const RecDetalle = ({ rec, removeRec }) => {
           </section>
         ) : null}
       </article>
-      <Rating
-        initialValue={userRating}
-        onRate={handleUserRating}
-        recId={rec.recomendacion.id}
-      />
+
+      {/*   {user && user.id !== rec.recomendacion.user_id ? (
+        <Rating
+          initialValue={userRating}
+          onRate={handleUserRating}
+          recId={rec.recomendacion.id}
+        />
+      ) : null} */}
+
+      {!userVoted && user && user.id !== rec.recomendacion.user_id && (
+        <Rating
+          initialValue={userRating}
+          onRate={handleUserRating}
+          recId={rec.recomendacion.id}
+        />
+      )}
+
       <p>
         Media de votos:{" "}
         {rec.recomendacion.promedio_votos === "0.00"
           ? "Esta recomendación aún no tiene votos"
-          : rec.recomendacion.promedio_votos}
+          : rec.recomendacion.promedio_votos}{" "}
+        ({rec.recomendacion.cantidad_votos} valoraciones)
       </p>
-      <p>Ver {rec.recomendacion.cantidad_comentarios} comentarios</p>
+
+      <p>
+        Esta recomendación tiene {rec.recomendacion.cantidad_comentarios}{" "}
+        comentario
+        {rec.recomendacion.cantidad_comentarios === 1 ? "" : "s"}
+        {":"}
+      </p>
+
       {rec.comentarios && rec.comentarios.length > 0 && (
         <div className="comentarios">
           {rec.comentarios.map((comentario) => (
@@ -116,8 +142,9 @@ export const RecDetalle = ({ rec, removeRec }) => {
                 src={`${baseURL}/uploads/avatarUser/${comentario.avatar_usuario}`}
                 alt={comentario.nombre_usuario}
               />
+              <p>{comentario.nombre_usuario}</p>
               <p>{comentario.comentario}</p>
-              <p>{new Date(comentario.fecha_creacion).toLocaleString()}</p>
+              <p>{FormatoFecha(comentario.fecha_creacion)}</p>
             </article>
           ))}
         </div>

@@ -60,7 +60,7 @@ const PopUp = ({ onClose }) => {
           {error ? <p>{error}</p> : null}
         </form>
         <Link to={"/registro"}>
-          <button>Registrate</button>
+          <button onClick={onClose}>Registrate</button>
         </Link>
       </div>
     </div>

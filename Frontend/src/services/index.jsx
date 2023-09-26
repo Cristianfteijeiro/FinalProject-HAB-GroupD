@@ -43,7 +43,6 @@ export const registerUserService = async ({ name, mail, pwd }) => {
 export const getMyDataService = async (token) => {
   const response = await fetch(`${baseURL}/usuarios`, {
     headers: {
-      // Authorization: `Bearer ${token}`,
       Authorization: token,
     },
   });
@@ -60,7 +59,6 @@ export const getMyDataService = async (token) => {
 export const getUserDataService = async (id, token) => {
   const response = await fetch(`${baseURL}/usuarios/${id}`, {
     headers: {
-      // Authorization: `Bearer ${token}`,
       Authorization: token,
     },
   });
@@ -142,7 +140,13 @@ export const deleteRecService = async ({ id, token }) => {
   }
 };
 
-export const handleRatingChange = async (newRating) => {
+export const ratingSerivice = async (
+  newRating,
+  recId,
+  token,
+  setRating,
+  onRate
+) => {
   try {
     const response = await fetch(`${baseURL}/recomendaciones/${recId}/votar`, {
       method: "POST",
@@ -154,7 +158,6 @@ export const handleRatingChange = async (newRating) => {
     });
 
     if (!response.ok) {
-      // Puedes manejar el error aquí
       console.error("Error al enviar el voto:", response.statusText);
       return;
     }

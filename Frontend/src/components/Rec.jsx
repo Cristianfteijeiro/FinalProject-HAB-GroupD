@@ -1,9 +1,10 @@
-import "../Styles/recomendacion.css";
+import "../Styles/Recomendacion.css";
 
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { deleteRecService } from "../services";
 import { AuthContext } from "../context/AuthContext";
+import { FormatoFecha } from "./FormatoFecha";
 
 export const Rec = ({ rec, removeRec }) => {
   const baseURL = import.meta.env.VITE_API_URL;
@@ -63,12 +64,7 @@ export const Rec = ({ rec, removeRec }) => {
           )}
           <Link to={`/usuarios/${rec.user_id}/recs`}>{rec.nombre}</Link>
         </div>
-        <p>
-          hace{" "}
-          <Link to={`/recomendaciones/${rec.id}`}>
-            {new Date(rec.fecha_creacion).toLocaleString()}
-          </Link>
-        </p>
+        <p>{FormatoFecha(rec.fecha_creacion)}</p>
         {user && user.id === rec.user_id ? (
           <section>
             <button

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useRec } from "../hooks/UseRec";
+import { useRec } from "../hooks/useRec";
 import { RecDetalle } from "../components/RecDetalle";
 // import { Comentarios } from "../components/Comentarios";
 import { MensajeError } from "../components/MensajeError";

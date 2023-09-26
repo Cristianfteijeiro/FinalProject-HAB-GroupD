@@ -5,6 +5,7 @@ import { NewRec } from "../components/NewRec";
 import { AuthContext } from "../context/AuthContext";
 import { Loading } from "../components/Loading";
 import { MensajeError } from "../components/MensajeError";
+import { Link } from "react-router-dom";
 
 export const Post = () => {
   //   const { token } = useContext(AuthContext);
@@ -14,5 +15,21 @@ export const Post = () => {
   if (loading) return <Loading />;
   if (error) return <MensajeError message={error} />;
 
-  return <>{user ? <NewRec addRec={addRec} /> : null}</>;
+  return (
+    <>
+      {user ? (
+        <NewRec addRec={addRec} />
+      ) : (
+        <>
+          {" "}
+          <p>
+            Necesitas estar registrado para poder publicar una recomendación
+          </p>{" "}
+          <Link to="/registro">
+            <button>Regístrate</button>
+          </Link>
+        </>
+      )}
+    </>
+  );
 };

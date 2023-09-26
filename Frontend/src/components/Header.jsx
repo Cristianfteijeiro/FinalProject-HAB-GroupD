@@ -1,16 +1,26 @@
 import "../Styles/header.css";
-
-import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState, useContext } from "react";
+import { Link, useLocation } from "react-router-dom"; // Importa useLocation
 import PopUp from "./PopUp";
 import { AuthContext } from "../context/AuthContext";
+import { SearchBar } from "./SearchBar";
 const baseURL = import.meta.env.VITE_API_URL;
-
-// import { Auth } from "./Auth";
 
 export const Header = () => {
   const { user, logout } = useContext(AuthContext);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const location = useLocation(); // Usa useLocation para obtener la ubicación
+  const [query, setQuery] = useState("");
+
+  const handleSearch = (searchQuery) => {
+    // Redirige a la página de búsqueda con el término de búsqueda como parámetro
+    window.location.href = `/search?query=${searchQuery}`;
+  };
+
+  useEffect(() => {
+    const searchQuery = new URLSearchParams(location.search).get("query");
+    setQuery(searchQuery || "");
+  }, [location]);
 
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
@@ -20,16 +30,11 @@ export const Header = () => {
     <header>
       <span className="logo">
         <Link to={"/"}>
-          <img src="/src/assets/images/HAT3.png" />
+          <img src="HAT3.png" alt="Logo" />
         </Link>
       </span>
 
-      <form className="buscadorHome" action="">
-        <input type="search" placeholder=" Buscar..." className="buscar" />
-        <button onClick="" className="recom">
-          Buscar
-        </button>
-      </form>
+      <SearchBar query={query} onSearch={handleSearch} />
 
       <nav>
         <ul>

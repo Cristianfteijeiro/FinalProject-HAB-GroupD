@@ -70,7 +70,7 @@ header nav ul li span:nth-child(4) {
 
 .buscar {
   color: white;
-  border: 0.3em solid var(--action);
+  border: 0.12em solid var(--action);
   border-radius: 0.5em;
   height: 3rem;
   width: 35rem;
@@ -102,10 +102,9 @@ header nav ul li span:nth-child(4) {
   justify-content: center;
   font-family: var(--body);
   font-size: 1rem;
-  font-weight: bold;
   color: var(--action);
   background-color: var(--bg);
-  border: 0.3em solid var(--action);
+  border: 0.12em solid var(--action);
   border-radius: 0.5em;
   height: 3rem;
   width: 10em;

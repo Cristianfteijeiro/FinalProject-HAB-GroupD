@@ -19,7 +19,7 @@ const getRecomendationByPlace = async (req, res) => {
     if (result.length === 0)
       return res
         .status(404)
-        .send("No existe ninguna recomendación de ese lugar");
+        .json({ message: "No existe ninguna recomendación de ese lugar" });
     connect.release();
     res.status(200).send({
       status: "OK",

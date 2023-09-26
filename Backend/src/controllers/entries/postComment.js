@@ -9,7 +9,7 @@ const postComment = async (req, res) => {
     const { comment } = req.body;
 
     if (!comment) {
-      return res.status(400).send("El comentario es obligatorio");
+      return res.status(400).json({ message: "El comentario es obligatorio" });
     }
 
     await connect.query(

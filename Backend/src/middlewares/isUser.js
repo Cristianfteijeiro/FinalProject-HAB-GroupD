@@ -7,13 +7,15 @@ const isUser = async (req, res, next) => {
     const authorization = req.headers["authorization"];
 
     if (!authorization)
-      return res.status(401).send("Falta cabecera de autorizacion");
+      return res
+        .status(401)
+        .json({ message: "Falta cabecera de autorizacion" });
 
     let tokenInfo;
     try {
       tokenInfo = jwt.verify(authorization, process.env.SECRET_TOKEN);
     } catch (error) {
-      return res.status(401).send("Token no valido");
+      return res.status(401).json({ message: "Token no valido" });
     }
 
     /**cmprobar que la fecha del token sea valida respecto a lastAuthUpdate */

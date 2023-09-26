@@ -17,7 +17,7 @@ const getAllRec = async (req, res) => {
             r.user_id,
             u.nombre,
             u.avatar,
-            ROUND(IFNULL(AVG(v.votos), 0), 2) AS promedio_votos,
+            ROUND(IFNULL(AVG(v.votos), 0), 1) AS promedio_votos,
             COUNT(c.comentarios) AS cantidad_comentarios
     FROM recomendaciones r
     LEFT JOIN votos v ON r.id = v.recomendacion_id

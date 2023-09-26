@@ -9,17 +9,21 @@ const postRecomendation = async (req, res) => {
     const { id } = req.userInfo;
 
     if (!title || !category || !place || !intro || !text) {
-      return res.status(400).send("Todos los campos son obligatorios");
+      return res
+        .status(400)
+        .json({ message: "Todos los campos son obligatorios" });
     }
 
     let photoName = null;
     if (!req.files || !req.files.photo) {
-      return res.status(400).send("Todos los campos son obligatorios");
+      return res
+        .status(400)
+        .json({ message: "Todos los campos son obligatorios" });
     }
 
     photoName = await savePhoto(req.files.photo, "/recPhoto");
     if (!photoName) {
-      return res.status(400).send("Error al guardar la foto");
+      return res.status(400).json({ message: "Error al guardar la foto" });
     }
 
     const [result] = await connect.query(
@@ -36,7 +40,7 @@ const postRecomendation = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
-    res.status(500).send("Error al crear la recomendación");
+    res.status(500).json({ message: "Error al crear la recomendación" });
   }
 };
 

@@ -14,6 +14,7 @@ import { NotFound } from "./pages/NotFound";
 import { Login } from "./pages/Login";
 import { UserPage } from "./pages/UserPage";
 import { RecPage } from "./pages/RecPage";
+import { RecSearchPage } from "./pages/RecSearchPage";
 
 function App() {
   return (
@@ -21,15 +22,15 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/recomendaciones" element={<Recomendaciones />} />
         <Route path="/registro" element={<Register />} />
+        <Route path="/Login" element={<Login />} />"
         <Route path="/post" element={<Post />} />
         <Route path="/buscador" element={<Buscador />} />
         <Route path="/misposts" element={<MisPosts />} />
-        <Route path="usuarios/:id/recs" element={<UserPage />} />
-        <Route path="/recomendaciones" element={<Recomendaciones />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/recomendaciones/:id" element={<RecPage />} />
-
+        <Route path="usuarios/:id/recs" element={<UserPage />} />"
+        <Route path="recomendaciones/:id" element={<RecPage />} />"
+        <Route path="/search" element={<RecSearchPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

@@ -8,7 +8,7 @@ const authUser = async (req, res, next) => {
     const { authorization } = req.headers;
 
     if (!authorization) {
-      res.status(401).send("Falta cabecera de autenticación");
+      res.status(401).json({ message: "Falta cabecera de autenticación" });
     }
 
     // Comprobamos que el token sea correcto

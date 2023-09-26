@@ -141,3 +141,27 @@ export const deleteRecService = async ({ id, token }) => {
     throw new Error(json.message);
   }
 };
+
+export const handleRatingChange = async (newRating) => {
+  try {
+    const response = await fetch(`${baseURL}/recomendaciones/${recId}/votar`, {
+      method: "POST",
+      body: JSON.stringify({ vote: newRating }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    });
+
+    if (!response.ok) {
+      // Puedes manejar el error aquí
+      console.error("Error al enviar el voto:", response.statusText);
+      return;
+    }
+
+    setRating(newRating);
+    onRate(newRating);
+  } catch (error) {
+    console.error("Error al enviar el voto:", error);
+  }
+};

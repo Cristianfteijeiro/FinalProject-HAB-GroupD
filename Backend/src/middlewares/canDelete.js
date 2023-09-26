@@ -19,7 +19,9 @@ const canDelete = async (req, res, next) => {
     if (req.userInfo.id !== rec[0].user_id && req.userInfo.role !== "admin") {
       return res
         .status(401)
-        .send("No tiene permisos para eliminar esta recomendación");
+        .json({
+          message: "No tiene permisos para eliminar esta recomendación",
+        });
     }
 
     next();

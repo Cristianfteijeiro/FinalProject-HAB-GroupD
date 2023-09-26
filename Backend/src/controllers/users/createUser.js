@@ -5,7 +5,8 @@ const createUser = async (req, res) => {
     const connect = await getDB();
     const { name, mail, pwd } = req.body;
 
-    if (!name || !mail || !pwd) return res.status(400).send("Faltan datos");
+    if (!name || !mail || !pwd)
+      return res.status(400).json({ message: "Faltan datos" });
 
     const [existingUser] = await connect.query(
       `SELECT id FROM usuarios WHERE email = ? LIMIT 1`,

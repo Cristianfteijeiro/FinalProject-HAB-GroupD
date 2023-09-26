@@ -15,7 +15,7 @@ const userExists = async (req, res, next) => {
     );
 
     if (user.length === 0) {
-      res.status(404).send("No existe el usuario");
+      res.status(404).json({ message: "No existe el usuario" });
     }
 
     connect.release();

@@ -9,7 +9,9 @@ const voteRec = async (req, res) => {
     const { vote } = req.body;
 
     if (!vote || vote > 10 || vote < 1) {
-      return res.status(400).send("Voto no válido, debe ser entre 1 y 10");
+      return res
+        .status(400)
+        .json({ message: "Voto no válido, debe ser entre 1 y 10" });
     }
 
     const [rec] = await connect.query(
@@ -22,7 +24,9 @@ const voteRec = async (req, res) => {
     );
 
     if (rec[0].user_id === idUser) {
-      return res.status(403).send("No puedes votar tu propia entrada");
+      return res
+        .status(403)
+        .json({ message: "No puedes votar tu propia entrada" });
     }
 
     const [existingVote] = await connect.query(
@@ -37,7 +41,7 @@ const voteRec = async (req, res) => {
     if (existingVote.length > 0)
       return res
         .status(403)
-        .send("No puedes votar dos veces la misma recomendación");
+        .json({ message: "No puedes votar dos veces la misma recomendación" });
 
     await connect.query(
       `

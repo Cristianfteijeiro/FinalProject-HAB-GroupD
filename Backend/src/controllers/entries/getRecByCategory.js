@@ -20,7 +20,9 @@ const getRecomendationByCategory = async (req, res) => {
     if (result.length === 0)
       return res
         .status(404)
-        .send("No existe ninguna recomendación para esa categoría");
+        .json({
+          message: "No existe ninguna recomendación para esa categoría",
+        });
     connect.release();
     res.status(200).send({
       status: "OK",

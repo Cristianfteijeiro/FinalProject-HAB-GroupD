@@ -21,7 +21,7 @@ const PopUp = ({ onClose }) => {
       login(data);
 
       onClose();
-      navigate("/recomendaciones");
+      navigate("/");
     } catch (error) {
       setError(error.message);
     }

@@ -6,8 +6,8 @@ dayjs.extend(relativeTime);
 
 dayjs.locale("es", {
   relativeTime: {
-    future: "en %s",
-    past: "hace %s",
+    future: "En %s",
+    past: "Hace %s",
     s: "unos segundos",
     m: "un minuto",
     mm: "%d minutos",

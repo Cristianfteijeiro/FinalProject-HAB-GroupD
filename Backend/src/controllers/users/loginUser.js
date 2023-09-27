@@ -29,7 +29,9 @@ const loginUser = async (req, res) => {
       role: user[0].role,
     };
 
-    const token = jwt.sign(info, process.env.SECRET_TOKEN, { expiresIn: "1M" });
+    const token = jwt.sign(info, process.env.SECRET_TOKEN, {
+      expiresIn: "30d"
+    });
 
     res.status(200).send({
       status: "OK",

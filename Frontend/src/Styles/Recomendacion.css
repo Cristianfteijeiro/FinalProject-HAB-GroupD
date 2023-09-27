@@ -1,15 +1,16 @@
 .recomendacion {
+  font-family: var(--title);
   display: flex;
   flex-direction: column;
   /* max-width: 20vw; */
   padding: 2rem;
-  justify-content: center;
+  /*justify-content: center;*/
   align-items: center;
   gap: 20px;
-  background-color: var(--action);
-  border: 2px solid var(--gold);
+  /*background-color: var(--action);*/
+  border: 2.5px solid var(--bg);
   border-radius: 5px;
-  color: #222;
+  color: var(--bg);
 }
 
 .recomendacion-img {
@@ -19,7 +20,7 @@
 .recomendacion-info {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+   justify-content: space-around; 
   width: 100%;
 }
 
@@ -29,8 +30,23 @@
 }
 
 .recomendacion a {
-  color: var(--border);
+  color: var(--bg);
 }
+
+.avatar-rec {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.recomendacion h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.entradilla-rec {
+  font-size: 1.5rem;
+}
+
 
 .btn-eliminar {
   width: 2rem;
@@ -38,6 +54,8 @@
   background: none;
   border: none;
 }
+
+
 /* .datos {
   display: flex;
   flex-direction: column;

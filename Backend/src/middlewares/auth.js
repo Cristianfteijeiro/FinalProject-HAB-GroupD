@@ -25,12 +25,14 @@ const authUser = async (req, res, next) => {
     // Metemos la información del token en la request para usarla en el controlador
     req.userId = token.id;
 
-    connect.release();
-
     // Saltamos al controlador
-    next();
   } catch (error) {
     next(error);
+  } finally {
+    if (connect) {
+      connect.release();
+    }
+    next();
   }
 };
 

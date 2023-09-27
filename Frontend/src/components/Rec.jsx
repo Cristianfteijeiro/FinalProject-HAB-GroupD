@@ -41,7 +41,7 @@ export const Rec = ({ rec, removeRec }) => {
             alt={rec.texto}
           />
         ) : null}
-        <p>{rec.entradilla}</p>
+        <p className="entradilla-rec">{rec.entradilla}</p>
         <p>
           {rec.promedio_votos === "0.0" ? null : rec.promedio_votos}{" "}
           {rec.promedio_votos === "0.0" ? null : "/10"}
@@ -57,12 +57,12 @@ export const Rec = ({ rec, removeRec }) => {
             />
           ) : (
             <img
-              className="user-avatar"
+              className="user-avatar "
               src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
               alt="Avatar"
             />
           )}
-          <Link to={`/usuarios/${rec.user_id}/recs`}>{rec.nombre}</Link>
+          <Link className="avatar-rec" to={`/usuarios/${rec.user_id}/recs`}>{rec.nombre}</Link>
         </div>
         <p>{FormatoFecha(rec.fecha_creacion)}</p>
         {user && user.id === rec.user_id ? (

@@ -38,6 +38,9 @@
 
 .mispost figure {
   height: 100%;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 
 .mispost img {
@@ -58,3 +61,5 @@
 .mispost select {
   width: 100%;
 }
+
+

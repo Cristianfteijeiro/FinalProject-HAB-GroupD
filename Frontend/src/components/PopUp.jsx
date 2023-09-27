@@ -33,6 +33,7 @@ const PopUp = ({ onClose }) => {
           X
         </button>
         <form onSubmit={handleForm}>
+          <h2>Bienvenido</h2>
           <fieldset>
             <input
               placeholder="Email"
@@ -56,12 +57,16 @@ const PopUp = ({ onClose }) => {
             />
           </fieldset>
 
-          <button>Login</button>
-          {error ? <p>{error}</p> : null}
+          <div className="button-container">
+            <button className="recom">Ingresar</button>
+            {error ? <p>{error}</p> : null}
+            <Link to={"/registro"}>
+              <button className="recom" onClick={onClose}>
+                Registrarse
+              </button>
+            </Link>
+          </div>
         </form>
-        <Link to={"/registro"}>
-          <button onClick={onClose}>Registrate</button>
-        </Link>
       </div>
     </div>
   );

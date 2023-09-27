@@ -1,7 +1,7 @@
 .footerMini {
   color: var(--action);
   background-color: var(--bg);
-  height: 19px;
+  height: 2vh;
   display: flex;
   justify-content: space-around;
 }

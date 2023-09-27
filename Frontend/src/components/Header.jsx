@@ -30,7 +30,7 @@ export const Header = () => {
     <header>
       <span className="logo">
         <Link to={"/"}>
-          <img src="HAT3.png" alt="Logo" />
+          <img src="/HAT3.png" alt="Logo" />
         </Link>
       </span>
 

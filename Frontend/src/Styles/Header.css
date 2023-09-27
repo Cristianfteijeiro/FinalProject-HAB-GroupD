@@ -107,7 +107,9 @@ header nav ul li span:nth-child(4) {
   border: 0.12em solid var(--action);
   border-radius: 0.5em;
   height: 3rem;
-  width: 10em;
+  max-width: 10em;
+  min-width: 5rem;
+  width:fit-content;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-align: center;

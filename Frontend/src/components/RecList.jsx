@@ -23,10 +23,10 @@ export const RecList = ({ recs, removeRec }) => {
   ); */
 
   return (
-    <>
-      <h1 className="rec-list-title">Últimas recomendaciones.</h1>
+    <div className="recomendaciones">
+      <h1 className="rec-list-title">Experiencias de nuestros usuarios.</h1>
       <Link to="/post">
-        <button className="post-button">Crear una recomendación</button>
+        <button className="recom">Cuéntanos tu experiencia.</button>
       </Link>
       {recs.length ? (
         <ul className="rec-list">
@@ -41,6 +41,7 @@ export const RecList = ({ recs, removeRec }) => {
       ) : (
         <h1 className="rec-list-title">No hay recomendaciones...</h1>
       )}
-    </>
+      <Link className="recom" onClick="navigate(/)">Volver arriba</Link>
+    </div>
   );
 };

@@ -6,7 +6,7 @@ const uuid = require("uuid");
 const savePhoto = async (dataPhoto, dir) => {
   const img = sharp(dataPhoto.data);
 
-  img.resize({ width: 500, withoutEnlargement: true });
+  img.resize({ width: 500, withoutEnlargement: false });
 
   const photoNameUniq = `${uuid.v4()}_${dataPhoto.name}`;
 

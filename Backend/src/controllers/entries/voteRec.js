@@ -8,10 +8,10 @@ const voteRec = async (req, res) => {
     const idUser = req.userInfo.id;
     const { vote } = req.body;
 
-    if (!vote || vote > 10 || vote < 1) {
+    if (!vote || vote > 5 || vote < 1) {
       return res
         .status(400)
-        .json({ message: "Voto no válido, debe ser entre 1 y 10" });
+        .json({ message: "Voto no válido, debe ser entre 1 y 5" });
     }
 
     const [rec] = await connect.query(

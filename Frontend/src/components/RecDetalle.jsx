@@ -7,6 +7,7 @@ import { deleteRecService } from "../services";
 import { AuthContext } from "../context/AuthContext";
 import { Rating } from "./Rating";
 import { FormatoFecha } from "./FormatoFecha";
+import { NewComment } from "./NewComentario";
 
 export const RecDetalle = ({ rec, removeRec }) => {
   const baseURL = import.meta.env.VITE_API_URL;
@@ -15,6 +16,7 @@ export const RecDetalle = ({ rec, removeRec }) => {
   const [error, setError] = useState("");
   const [userRating, setUserRating] = useState(rec.userRating || 1);
   const [userVoted, setUserVoted] = useState(false);
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     if (user && rec.votos) {
@@ -45,6 +47,10 @@ export const RecDetalle = ({ rec, removeRec }) => {
     } catch (error) {
       setError(error.message);
     }
+  };
+
+  const addComment = (comment) => {
+    setComments([...comments, comment]);
   };
 
   return (
@@ -122,8 +128,13 @@ export const RecDetalle = ({ rec, removeRec }) => {
         Media de votos:{" "}
         {rec.recomendacion.promedio_votos === "0.00"
           ? "Esta recomendación aún no tiene votos"
-          : rec.recomendacion.promedio_votos}{" "}
-        ({rec.recomendacion.cantidad_votos} valoraciones)
+          : `${rec.recomendacion.promedio_votos} (${
+              rec.recomendacion.cantidad_votos
+            } ${
+              rec.recomendacion.cantidad_votos === 1
+                ? "valoración"
+                : "valoraciones"
+            })`}
       </p>
 
       <p>
@@ -132,6 +143,7 @@ export const RecDetalle = ({ rec, removeRec }) => {
         {rec.recomendacion.cantidad_comentarios === 1 ? "" : "s"}
         {":"}
       </p>
+      <NewComment id={rec.recomendacion.id} addComment={addComment} />
 
       {rec.comentarios && rec.comentarios.length > 0 && (
         <div className="comentarios">

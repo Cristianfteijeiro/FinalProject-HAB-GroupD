@@ -66,7 +66,7 @@ export const NewRec = ({ addRec }) => {
             <label className="upload-image">
               <input
                 type="file"
-                name="image"
+                name="photo"
                 accept="image/"
                 onChange={(e) => setImage(e.target.files[0])}
                 className="input-file"
@@ -79,7 +79,7 @@ export const NewRec = ({ addRec }) => {
                   fill="none"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
-                  stroke= "var(--action)"
+                  stroke="var(--action)"
                   className="recom"
                 >
                   <path

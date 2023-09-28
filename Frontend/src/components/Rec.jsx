@@ -28,6 +28,7 @@ export const Rec = ({ rec, removeRec }) => {
       setError(error.message);
     }
   };
+  console.log(rec);
 
   // Envuelve todo el contenido en un Link adicional
   return (
@@ -43,8 +44,17 @@ export const Rec = ({ rec, removeRec }) => {
         ) : null}
         <p className="entradilla-rec">{rec.entradilla}</p>
         <p>
-          {rec.promedio_votos === "0.0" ? null : rec.promedio_votos}{" "}
-          {rec.promedio_votos === "0.0" ? null : "/10"}
+          {rec.promedio_votos === "0.00"
+            ? "Esta recomendación aún no tiene votos"
+            : `${rec.promedio_votos}`}
+          {"/5"}
+        </p>
+        <p>
+          {rec.cantidad_comentarios === 0
+            ? null
+            : `${rec.cantidad_comentarios} comentario${
+                rec.cantidad_comentarios === 1 ? "" : "s"
+              }`}
         </p>
       </Link>
       <div className="recomendacion-info">
@@ -62,7 +72,9 @@ export const Rec = ({ rec, removeRec }) => {
               alt="Avatar"
             />
           )}
-          <Link className="avatar-rec" to={`/usuarios/${rec.user_id}/recs`}>{rec.nombre}</Link>
+          <Link className="avatar-rec" to={`/usuarios/${rec.user_id}/recs`}>
+            {rec.nombre}
+          </Link>
         </div>
         <p>{FormatoFecha(rec.fecha_creacion)}</p>
         {user && user.id === rec.user_id ? (

@@ -1,3 +1,5 @@
+import { NewComment } from "../components/NewComentario";
+
 const baseURL = import.meta.env.VITE_API_URL;
 
 export const getAllRecsService = async () => {
@@ -140,7 +142,7 @@ export const deleteRecService = async ({ id, token }) => {
   }
 };
 
-export const ratingSerivice = async (
+export const ratingService = async (
   newRating,
   recId,
   token,
@@ -167,4 +169,22 @@ export const ratingSerivice = async (
   } catch (error) {
     console.error("Error al enviar el voto:", error);
   }
+};
+
+export const sendCommentService = async ({ id, data, token }) => {
+  const response = await fetch(`${baseURL}/recomendaciones/${id}/comentarios`, {
+    method: "POST",
+    body: data,
+    headers: {
+      Authorization: token,
+    },
+  });
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+
+  return json.data;
 };

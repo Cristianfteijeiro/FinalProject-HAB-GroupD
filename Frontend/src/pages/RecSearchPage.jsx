@@ -4,8 +4,10 @@ import { Rec } from "../components/Rec";
 import { MensajeError } from "../components/MensajeError";
 import { Loading } from "../components/Loading";
 import { getAllRecsService } from "../services";
+import useRecs from "../hooks/useRecs";
 
 export const RecSearchPage = () => {
+  const { removeRec } = useRecs();
   const [recs, setRecs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -34,20 +36,28 @@ export const RecSearchPage = () => {
     setQuery(newQuery);
   };
 
-  const filteredRecs = recs.filter((rec) =>
-    rec.titulo.toLowerCase().includes(query.toLowerCase())
+  const filteredRecs = recs.filter(
+    (rec) =>
+      rec.titulo.toLowerCase().includes(query.toLowerCase()) ||
+      rec.categoria.toLowerCase().includes(query.toLowerCase())
   );
 
   if (loading) return <Loading />;
   if (error) return <MensajeError message={error} />;
 
   return (
-    <section>
+    <section className="recomendaciones">
       <h1>Recomendaciones</h1>
       {/* <RecSearchBar query={query} onSearch={handleSearch} /> */}
-      {filteredRecs.map((rec) => (
-        <Rec key={rec.id} rec={rec} />
-      ))}
+      <ul className="rec-list">
+        {filteredRecs.map((rec) => {
+          return (
+            <li key={rec.id} className="rec-list-items">
+              <Rec rec={rec} removeRec={removeRec} />
+            </li>
+          );
+        })}
+      </ul>
     </section>
   );
 };

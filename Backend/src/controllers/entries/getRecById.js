@@ -21,7 +21,11 @@ const getRecomendationById = async (req, res) => {
             r.user_id,
             u.nombre,
             u.avatar,
-            ROUND(IFNULL(AVG(v.votos), 0), 2) AS promedio_votos,
+            CASE 
+              WHEN ROUND(IFNULL(AVG(v.votos), 0), 1) = ROUND(IFNULL(AVG(v.votos), 0), 0) 
+              THEN CAST(ROUND(IFNULL(AVG(v.votos), 0), 0) AS UNSIGNED)
+              ELSE ROUND(IFNULL(AVG(v.votos), 0), 1)
+            END AS promedio_votos,
             COUNT(v.votos) AS cantidad_votos,
             COUNT(c.comentarios) AS cantidad_comentarios
     FROM recomendaciones r
@@ -45,7 +49,8 @@ const getRecomendationById = async (req, res) => {
         c.id
       FROM comentarios c
       LEFT JOIN usuarios u ON c.user_id = u.id
-      WHERE c.recomendacion_id = ?;
+      WHERE c.recomendacion_id = ?
+      ORDER BY c.fecha_creacion DESC;
       `,
       [idRec]
     );

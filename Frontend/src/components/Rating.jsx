@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { ratingSerivice } from "../services"; // Importa la función desde services/index.js
-/* import "../Styles/Rating.css"; */
+import { ratingService } from "../services"; // Importa la función desde services/index.js
+import "../Styles/Estrellas.css";
 
 export const Rating = ({ initialValue, onRate, recId }) => {
   const [rating, setRating] = useState(initialValue);
@@ -9,7 +9,7 @@ export const Rating = ({ initialValue, onRate, recId }) => {
 
   const handleRatingChangeLocal = async (newRating) => {
     // Usa la función importada desde services
-    ratingSerivice(newRating, recId, token, setRating, onRate);
+    ratingService(newRating, recId, token, setRating, onRate);
   };
 
   const handleInputChange = (newRating) => {
@@ -18,19 +18,31 @@ export const Rating = ({ initialValue, onRate, recId }) => {
     window.location.reload();
   };
 
+  const handleMouseOver = (value) => {
+    setRating(value);
+  };
+
+  const handleMouseLeave = () => {
+    setRating(0);
+  };
+
   return (
-    <div className="rating">
-      <span className="rating-label">Puntúa esta recomendación: </span>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
-        <label key={value}>
+    <div className="rating" onMouseLeave={handleMouseLeave}>
+      {[1, 2, 3, 4, 5].map((value) => (
+        <label key={value} onMouseOver={() => handleMouseOver(value)}>
           <input
             type="radio"
-            name="rating"
-            value={value}
-            checked={value === rating}
+            name="star-radio"
+            value={`star-${value}`}
             onChange={() => handleInputChange(value)}
           />
-          <span className="star" data-rating={value}></span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              pathLength="360"
+              d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"
+              fill={value <= rating ? "var(--fill)" : "none"}
+            ></path>
+          </svg>
         </label>
       ))}
     </div>

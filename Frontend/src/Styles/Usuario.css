@@ -2,6 +2,9 @@
   display: flex;
   justify-content: space-evenly;
   max-height: 80vh;
+  ::-webkit-scrollbar {
+    border-radius: 0.5rem;
+  }
 }
 
 .user-data {
@@ -23,4 +26,12 @@
 .user-page-avatar {
   width: 200px;
   height: 200px;
+}
+
+.user-page::-webkit-scrollbar {
+  border-radius: 0.5rem;
+}
+
+.user-page::-webkit-scrollbar {
+  border-radius: 0.5rem;
 }

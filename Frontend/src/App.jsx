@@ -1,20 +1,17 @@
-import "./App.css";
-import { Route } from "react-router-dom";
-import { Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
-import { Home } from "./pages/Home";
-import { Post } from "./pages/Post";
 import { Header } from "./components/Header";
-import { Register } from "./pages/Register";
-import { Buscador } from "./pages/Buscador";
-import { MisPosts } from "./pages/MisPosts";
+import { Home } from "./pages/Inicio";
+import { Register } from "./pages/Registro";
 import { Recomendaciones } from "./pages/Recomendaciones";
+import { Post } from "./pages/Recomendar";
+import { UserPage } from "./pages/Usuario";
+import { RecPage } from "./pages/Recomendacion";
+import { RecSearchPage } from "./pages/Busqueda";
 import { Footer } from "./components/Footer";
 import { NotFound } from "./pages/NotFound";
-import { Login } from "./pages/Login";
-import { UserPage } from "./pages/UserPage";
-import { RecPage } from "./pages/RecPage";
-import { RecSearchPage } from "./pages/RecSearchPage";
+
+import "./App.css";
 
 function App() {
   return (
@@ -22,15 +19,12 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/recomendaciones" element={<Recomendaciones />} />
         <Route path="/registro" element={<Register />} />
-        <Route path="/Login" element={<Login />} />"
-        <Route path="/post" element={<Post />} />
-        <Route path="/buscador" element={<Buscador />} />
-        <Route path="/misposts" element={<MisPosts />} />
-        <Route path="usuarios/:id/recs" element={<UserPage />} />"
-        <Route path="recomendaciones/:id" element={<RecPage />} />"
-        <Route path="/search" element={<RecSearchPage />} />
+        <Route path="/recomendaciones" element={<Recomendaciones />} />
+        <Route path="/recomendar" element={<Post />} />
+        <Route path="/usuarios/:id/recomendaciones" element={<UserPage />} />
+        <Route path="/recomendaciones/:id" element={<RecPage />} />
+        <Route path="/busqueda" element={<RecSearchPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

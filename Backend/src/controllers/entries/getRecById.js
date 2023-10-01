@@ -1,10 +1,9 @@
 const getDB = require("../../database/db");
 
 const getRecomendationById = async (req, res) => {
+  const connect = await getDB();
   try {
     const { idRec } = req.params;
-
-    const connect = await getDB();
 
     // Consulta para obtener los datos de la recomendación
     const [recomendationResult] = await connect.query(
@@ -27,11 +26,10 @@ const getRecomendationById = async (req, res) => {
               ELSE ROUND(IFNULL(AVG(v.votos), 0), 1)
             END AS promedio_votos,
             COUNT(v.votos) AS cantidad_votos,
-            COUNT(c.comentarios) AS cantidad_comentarios
+            (SELECT COUNT(*) FROM comentarios c WHERE c.recomendacion_id = r.id) AS cantidad_comentarios
     FROM recomendaciones r
     LEFT JOIN votos v ON r.id = v.recomendacion_id
     LEFT JOIN usuarios u ON r.user_id = u.id
-    LEFT JOIN comentarios c ON r.id = c.recomendacion_id
     WHERE r.id = ?
     GROUP BY r.id, r.titulo, r.categoria, r.lugar, r.entradilla, r.texto, r.foto, r.fecha_creacion, r.user_id;
       `,
@@ -68,8 +66,6 @@ const getRecomendationById = async (req, res) => {
       [idRec]
     );
 
-    connect.release();
-
     const responseData = {
       status: "OK",
       data: {
@@ -82,6 +78,10 @@ const getRecomendationById = async (req, res) => {
     res.status(200).send(responseData);
   } catch (error) {
     console.log(error);
+  } finally {
+    if (connect) {
+      connect.release();
+    }
   }
 };
 

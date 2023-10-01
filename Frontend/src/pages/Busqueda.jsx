@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Rec } from "../components/Rec";
+
+import { Rec } from "../components/Recomendacion";
 import { MensajeError } from "../components/MensajeError";
 import { Loading } from "../components/Loading";
+
 import { getAllRecsService } from "../services";
 import useRecs from "../hooks/useRecs";
 
@@ -32,7 +34,6 @@ export const RecSearchPage = () => {
   }, [query]);
 
   const handleSearch = (newQuery) => {
-    // Actualiza la URL cuando el usuario realiza una búsqueda
     setQuery(newQuery);
   };
 

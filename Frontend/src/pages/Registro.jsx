@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { registerUserService } from "../services";
 import { useNavigate } from "react-router-dom";
 
-import "../Styles/Register.css";
+import { registerUserService } from "../services";
+
+import "../Styles/Registro.css";
 
 export const Register = () => {
   const navigate = useNavigate();
 
   const [nick, setNick] = useState("");
-  const [avatar, setAvatar] = useState("");
   const [mail, setEmail] = useState("");
   const [mail2, setEmail2] = useState("");
   const [pass1, setPass1] = useState("");
@@ -103,23 +103,7 @@ export const Register = () => {
               onChange={(e) => setPass2(e.target.value)}
             />
           </fieldset>
-
-          {/* <fieldset>
-                <label htmlFor="avatar">Avatar</label>
-                <input
-                  type="file"
-                  id="avatar"
-                  name="avatar"
-                  value={avatar}
-                  onChange={(e) => setAvatar(e.target.value)}
-                />
-              </fieldset> */}
-
           <button>Aventúrate</button>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
           {error ? <p>{JSON.stringify(error)}</p> : null}
           {registrationSuccess && (
             <p className="success-message">Usuario registrado correctamente</p>

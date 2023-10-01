@@ -2,9 +2,8 @@ const getDB = require("../../database/db");
 const savePhoto = require("../../service/savePhoto");
 
 const postRecomendation = async (req, res) => {
+  const connect = await getDB();
   try {
-    const connect = await getDB();
-
     const { title, category, place, intro, text } = req.body;
     const { id } = req.userInfo;
 
@@ -32,15 +31,16 @@ const postRecomendation = async (req, res) => {
       [title, category, place, intro, text, photoName, id]
     );
 
-    connect.release();
-
     res.status(200).send({
       status: "OK",
       message: "Recomendación creada correctamente",
     });
   } catch (error) {
-    console.log(error);
     res.status(500).json({ message: "Error al crear la recomendación" });
+  } finally {
+    if (connect) {
+      connect.release();
+    }
   }
 };
 

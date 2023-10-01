@@ -1,10 +1,8 @@
 .recomendaciones {
   display: flex;
   flex-direction: column;
-  /*justify-content: center;*/
   align-items: center;
   margin-top: 1rem;
-
 }
 
 .rec-list {
@@ -13,7 +11,6 @@
   align-items: center;
   justify-content: center;
   gap: 10vh;
-  /* margin: 3rem; */
   padding: 3rem;
   background-color: var(--action);
 }

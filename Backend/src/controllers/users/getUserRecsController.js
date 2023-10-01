@@ -10,14 +10,16 @@ const getUserRecsController = async (req, res, next) => {
 
     const user = await getRecsByUserId(idUser);
 
-    connect.release();
-
     res.send({
       status: "ok",
       data: user,
     });
   } catch (error) {
     next(error);
+  } finally {
+    if (connect) {
+      connect.release();
+    }
   }
 };
 

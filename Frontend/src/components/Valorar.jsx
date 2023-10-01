@@ -1,19 +1,19 @@
 import React, { useState, useContext } from "react";
+
 import { AuthContext } from "../context/AuthContext";
-import { ratingService } from "../services"; // Importa la función desde services/index.js
+import { ratingService } from "../services";
+
 import "../Styles/Estrellas.css";
 
 export const Rating = ({ initialValue, onRate, recId }) => {
   const [rating, setRating] = useState(initialValue);
-  const { token, user } = useContext(AuthContext);
+  const { token } = useContext(AuthContext);
 
   const handleRatingChangeLocal = async (newRating) => {
-    // Usa la función importada desde services
     ratingService(newRating, recId, token, setRating, onRate);
   };
 
   const handleInputChange = (newRating) => {
-    // Al hacer clic en el input, cambia la calificación y recarga la página
     handleRatingChangeLocal(newRating);
     window.location.reload();
   };

@@ -7,6 +7,10 @@ header {
   width: 100%;
 }
 
+header a {
+  color: var(--action);
+}
+
 header span img {
   height: 100%;
 }
@@ -59,13 +63,8 @@ header nav ul li span:nth-child(4) {
 }
 
 .buscadorHome {
-  /* background-color: var(--bg); */
-  /* font-size: 1rem; */
-  /* font-family: var(--body); */
   display: flex;
-  /* flex-direction: row; */
   align-items: center;
-  /* height: 100%; */
 }
 
 .buscar {
@@ -84,7 +83,6 @@ header nav ul li span:nth-child(4) {
   font-family: var(--body);
   font-size: 1rem;
   display: flex;
-  /*font-weight: bold;*/
 }
 
 .logout {
@@ -109,7 +107,7 @@ header nav ul li span:nth-child(4) {
   height: 3rem;
   max-width: 10em;
   min-width: 5rem;
-  width:fit-content;
+  width: fit-content;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-align: center;

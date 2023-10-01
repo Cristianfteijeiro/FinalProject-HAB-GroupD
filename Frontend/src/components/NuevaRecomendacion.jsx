@@ -1,7 +1,10 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { AuthContext } from "../context/AuthContext";
 import { sendRecService } from "../services";
-import { useNavigate } from "react-router-dom";
+
+import "../Styles/NuevaRecomendacion.css";
 
 export const NewRec = ({ addRec }) => {
   const navigate = useNavigate();
@@ -33,37 +36,66 @@ export const NewRec = ({ addRec }) => {
   return (
     <div className="mispost">
       <section>
-        <h1>Añadir nueva recomendación</h1>
-        <form className="new-post" onSubmit={handleForm}>
+        <h1>Cuéntanos tu experiencia.</h1>
+        <form className="new-post" autoComplete="off" onSubmit={handleForm}>
           <fieldset>
-            <label htmlFor="titulo">Título</label>
-            <input type="text" name="title" id="title" required />
+            <label>
+              <input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="Título"
+                required
+              />
+            </label>
           </fieldset>
           <fieldset>
-            <label htmlFor="entradilla">Entradilla</label>
-            <input type="text" name="intro" id="intro" required />
+            <label>
+              <input
+                type="text"
+                name="intro"
+                id="intro"
+                placeholder="Entradilla"
+                required
+              />
+            </label>
           </fieldset>
           <fieldset>
-            <label htmlFor="lugar">Lugar</label>
-            <input type="text" name="place" id="place" required />
+            <label>
+              <input
+                type="text"
+                name="place"
+                id="place"
+                placeholder="Lugar"
+                required
+              />
+            </label>
           </fieldset>
           <fieldset>
-            <label htmlFor="categoria">Categoría</label>
-            {/* <input type="text" name="categoria" id="categoria" required /> */}
-            <input type="text" name="category" id="category" required></input>
+            <label>
+              <input
+                type="text"
+                name="category"
+                id="category"
+                placeholder="Categoría"
+                required
+              ></input>
+            </label>
           </fieldset>
           <fieldset>
-            <label htmlFor="texto">Texto</label>
-            <input
-              className="inputText"
-              type="text"
-              name="text"
-              id="text"
-              required
-            />
+            <label>
+              <textarea
+                className="inputText"
+                type="text"
+                name="text"
+                id="text"
+                placeholder="Describe aquí tu experiencia"
+                required
+              ></textarea>
+            </label>
           </fieldset>
           <fieldset>
-            <label className="upload-image">
+            <label>
               <input
                 type="file"
                 name="photo"
@@ -72,7 +104,7 @@ export const NewRec = ({ addRec }) => {
                 className="input-file"
               />
 
-              <figure>
+              <figure className="upload-image">
                 <figcaption>Subir Imagen</figcaption>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -93,11 +125,11 @@ export const NewRec = ({ addRec }) => {
           </fieldset>
           <button>Subir Recomendación</button>
           {error ? <p>{error}</p> : null}
-          {loading ? <p>añadiendo recomendación...</p> : null}
+          {loading ? <p>Añadiendo recomendación...</p> : null}
         </form>
       </section>
       {image ? (
-        <figure>
+        <figure className="preview-image">
           <img
             src={URL.createObjectURL(image)}
             className="preview"
@@ -105,7 +137,7 @@ export const NewRec = ({ addRec }) => {
           />
         </figure>
       ) : (
-        <figure>
+        <figure className="preview-image">
           <img src="src/assets/images/equipaje.jpg" />
         </figure>
       )}

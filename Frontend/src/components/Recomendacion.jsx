@@ -1,10 +1,11 @@
-import "../Styles/Recomendacion.css";
-
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
+
 import { deleteRecService } from "../services";
 import { AuthContext } from "../context/AuthContext";
 import { FormatoFecha } from "./FormatoFecha";
+
+import "../Styles/Recomendacion.css";
 
 export const Rec = ({ rec, removeRec }) => {
   const baseURL = import.meta.env.VITE_API_URL;
@@ -28,9 +29,6 @@ export const Rec = ({ rec, removeRec }) => {
       setError(error.message);
     }
   };
-  console.log(rec);
-
-  // Envuelve todo el contenido en un Link adicional
   return (
     <article className="recomendacion">
       <Link to={`/recomendaciones/${rec.id}`} className="recomendacion-link">
@@ -39,7 +37,7 @@ export const Rec = ({ rec, removeRec }) => {
           <img
             className="recomendacion-img"
             src={`${baseURL}/uploads/recPhoto/${rec.foto}`}
-            alt={rec.texto}
+            alt={rec.titulo}
           />
         ) : null}
         <p className="entradilla-rec">{rec.entradilla}</p>
@@ -72,7 +70,10 @@ export const Rec = ({ rec, removeRec }) => {
               alt="Avatar"
             />
           )}
-          <Link className="avatar-rec" to={`/usuarios/${rec.user_id}/recs`}>
+          <Link
+            className="avatar-rec"
+            to={`/usuarios/${rec.user_id}/recomendaciones`}
+          >
             {rec.nombre}
           </Link>
         </div>

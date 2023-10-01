@@ -1,10 +1,9 @@
 const getDB = require("../../database/db");
 
 const getRecomendationByPlace = async (req, res) => {
+  const connect = await getDB();
   try {
     const { place } = req.params;
-
-    const connect = await getDB();
 
     const [result] = await connect.query(
       `
@@ -14,10 +13,9 @@ const getRecomendationByPlace = async (req, res) => {
               THEN CAST(ROUND(IFNULL(AVG(v.votos), 0), 0) AS UNSIGNED)
               ELSE ROUND(IFNULL(AVG(v.votos), 0), 1)
             END AS promedio_votos,
-            COUNT(c.comentarios) AS cantidad_comentarios
+            (SELECT COUNT(*) FROM comentarios c WHERE c.recomendacion_id = r.id) AS cantidad_comentarios
             FROM recomendaciones r
             LEFT JOIN votos v ON r.id = v.recomendacion_id
-            LEFT JOIN comentarios c ON r.id = c.recomendacion_id
             WHERE r.lugar=?
             GROUP BY r.titulo, r.categoria, r.lugar, r.entradilla, r.texto, r.foto`,
       [place]
@@ -26,13 +24,17 @@ const getRecomendationByPlace = async (req, res) => {
       return res
         .status(404)
         .json({ message: "No existe ninguna recomendación de ese lugar" });
-    connect.release();
+
     res.status(200).send({
       status: "OK",
       data: result,
     });
   } catch (error) {
     console.log(error);
+  } finally {
+    if (connect) {
+      connect.release();
+    }
   }
 };
 

@@ -1,20 +1,22 @@
-import "../Styles/Header.css";
 import React, { useEffect, useState, useContext } from "react";
-import { Link, useLocation } from "react-router-dom"; // Importa useLocation
-import PopUp from "./PopUp";
+import { Link, useLocation } from "react-router-dom";
+
+import { PopUp } from "./PopUp";
 import { AuthContext } from "../context/AuthContext";
-import { SearchBar } from "./SearchBar";
+import { SearchBar } from "./BarraBusqueda";
+
+import "../Styles/Header.css";
+
 const baseURL = import.meta.env.VITE_API_URL;
 
 export const Header = () => {
   const { user, logout } = useContext(AuthContext);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const location = useLocation(); // Usa useLocation para obtener la ubicación
+  const location = useLocation();
   const [query, setQuery] = useState("");
 
   const handleSearch = (searchQuery) => {
-    // Redirige a la página de búsqueda con el término de búsqueda como parámetro
-    window.location.href = `/search?query=${searchQuery}`;
+    window.location.href = `/busqueda?query=${searchQuery}`;
   };
 
   useEffect(() => {
@@ -50,7 +52,7 @@ export const Header = () => {
           {user ? (
             <section className="log">
               {user.avatar ? (
-                <Link to={`/usuarios/${user.id}/recs`}>
+                <Link to={`/usuarios/${user.id}/recomendaciones`}>
                   <img
                     className="user-avatar"
                     src={`${baseURL}/uploads/avatarUser/${user.avatar}`}
@@ -58,7 +60,7 @@ export const Header = () => {
                   />
                 </Link>
               ) : (
-                <Link to={`/usuarios/${user.id}/recs`}>
+                <Link to={`/usuarios/${user.id}/recomendaciones`}>
                   <img
                     className="user-avatar"
                     src="https://cdn-icons-png.flaticon.com/512/149/149071.png"

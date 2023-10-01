@@ -1,9 +1,8 @@
 const getDB = require("../../database/db");
 
 const voteRec = async (req, res) => {
+  const connect = await getDB();
   try {
-    const connect = await getDB();
-
     const { idRec } = req.params;
     const idUser = req.userInfo.id;
     const { vote } = req.body;
@@ -51,14 +50,16 @@ const voteRec = async (req, res) => {
       [vote, idUser, idRec]
     );
 
-    connect.release();
-
     res.status(200).send({
       status: "OK",
       message: "Has votado correctamente",
     });
   } catch (error) {
     console.log(error);
+  } finally {
+    if (connect) {
+      connect.release();
+    }
   }
 };
 

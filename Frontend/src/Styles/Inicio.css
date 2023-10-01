@@ -1,0 +1,22 @@
+.home {
+  background-image: url("/ninos.jpg");
+  background-size: 100% 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--action);
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.home h1 {
+  border: 1px solid #0000;
+  background-image: linear-gradient(to right, #a6934f, #c84d4d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding: 40px 0;
+}

@@ -2,11 +2,9 @@ const getDB = require("../../database/db");
 const jwt = require("jsonwebtoken");
 
 const loginUser = async (req, res) => {
-  let connect;
+  const connect = await getDB();
 
   try {
-    connect = await getDB();
-
     const { mail, pwd } = req.body;
 
     if (!mail || !pwd) return res.status(400).json({ message: "Faltan datos" });
@@ -30,7 +28,7 @@ const loginUser = async (req, res) => {
     };
 
     const token = jwt.sign(info, process.env.SECRET_TOKEN, {
-      expiresIn: "30d"
+      expiresIn: "30d",
     });
 
     res.status(200).send({
@@ -38,7 +36,6 @@ const loginUser = async (req, res) => {
       message: "Login",
       data: token,
     });
-    connect.release();
   } catch (error) {
     console.log(error);
   } finally {

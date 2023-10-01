@@ -1,11 +1,11 @@
-import useRecs from "../hooks/useRecs";
 import { useContext } from "react";
-import "../Styles/Post.css";
-import { NewRec } from "../components/NewRec";
+import { Link } from "react-router-dom";
+
+import useRecs from "../hooks/useRecs";
+import { NewRec } from "../components/NuevaRecomendacion";
 import { AuthContext } from "../context/AuthContext";
 import { Loading } from "../components/Loading";
 import { MensajeError } from "../components/MensajeError";
-import { Link } from "react-router-dom";
 
 export const Post = () => {
   //   const { token } = useContext(AuthContext);

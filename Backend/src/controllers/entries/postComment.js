@@ -1,9 +1,8 @@
 const getDB = require("../../database/db");
 
 const postComment = async (req, res) => {
+  const connect = await getDB();
   try {
-    const connect = await getDB();
-
     const { idRec } = req.params;
     const idUser = req.userInfo.id;
     const { comment } = req.body;
@@ -20,14 +19,16 @@ const postComment = async (req, res) => {
       [comment, idUser, idRec]
     );
 
-    connect.release();
-
     res.status(200).send({
       status: "OK",
       message: "Comentario registrado",
     });
   } catch (error) {
     console.log(error);
+  } finally {
+    if (connect) {
+      connect.release();
+    }
   }
 };
 

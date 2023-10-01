@@ -1,17 +1,18 @@
-import { Link } from "react-router-dom";
-import "../Styles/PopUp.css";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
+
 import { logInUserService } from "../services";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
-const PopUp = ({ onClose }) => {
+import "../Styles/PopUp.css";
+
+export const PopUp = ({ onClose }) => {
   const navigate = useNavigate();
 
   const [mail, setMail] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState("");
-  const { user, login } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -71,5 +72,3 @@ const PopUp = ({ onClose }) => {
     </div>
   );
 };
-
-export default PopUp;

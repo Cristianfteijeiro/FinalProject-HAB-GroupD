@@ -4,9 +4,11 @@
   grid-template-columns: 40% 60%;
   align-items: center;
 }
+
 .buscador section {
   height: 100%;
 }
+
 .buscador form {
   display: flex;
   flex-direction: column;
@@ -52,9 +54,11 @@
   border: none;
   font-size: 1.3rem;
 }
+
 .inputText {
   height: 8rem;
 }
+
 .buscador select {
   width: 100%;
 }

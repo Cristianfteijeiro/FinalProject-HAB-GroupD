@@ -11,6 +11,16 @@
   --body: "Patrick Hand SC", cursive;
 }
 
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mainbg);
+  border-radius: 0.5rem;
+}
+
 html {
   --bg: #020202;
   --bright: #ffffff;
@@ -21,7 +31,6 @@ html {
 }
 
 a {
-  color: var(--action);
   text-decoration: none;
 }
 
@@ -39,44 +48,6 @@ main.app {
   grid-template-rows: auto 1fr auto;
   font-family: sans-serif;
   background-color: var(--action);
-}
-
-.contacto ul li {
-  font-size: 0.8em;
-  margin: 0.5rem;
-}
-
-.derechos {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-}
-
-.derechos ul {
-  display: flex;
-}
-
-.home {
-  background-image: url("/ninos.jpg");
-  background-size: 100% 100vh;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: var(--action);
-  font-size: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.home h1 {
-  border: 1px solid #0000;
-  background-image: linear-gradient(to right, #a6934f, #c84d4d);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding: 40px 0;
 }
 
 .user-avatar {

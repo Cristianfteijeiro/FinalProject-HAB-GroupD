@@ -1,4 +1,4 @@
-import { NewComment } from "../components/NewComentario";
+import { NewComment } from "../components/NuevoComentario";
 
 const baseURL = import.meta.env.VITE_API_URL;
 

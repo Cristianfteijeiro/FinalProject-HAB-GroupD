@@ -1,9 +1,8 @@
 const getDB = require("../../database/db");
 
 const getRecsByUserId = async (idUser) => {
+  const connect = await getDB();
   try {
-    const connect = await getDB();
-
     const [result] = await connect.query(
       `
           SELECT r.*, u.nombre, u.avatar, 
@@ -26,6 +25,10 @@ const getRecsByUserId = async (idUser) => {
     return result;
   } catch (error) {
     console.log(error);
+  } finally {
+    if (connect) {
+      connect.release();
+    }
   }
 };
 

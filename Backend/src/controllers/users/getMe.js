@@ -1,12 +1,10 @@
 const getDB = require("../../database/db");
 
 const getUserById = async (req, res, id) => {
-  let connection;
+  const connect = await getDB();
 
   try {
-    connection = await getDB();
-
-    const [result] = await connection.query(
+    const [result] = await connect.query(
       `SELECT id, fecha_registro, email, nombre, avatar FROM usuarios WHERE id=?`,
       [id]
     );
@@ -17,7 +15,7 @@ const getUserById = async (req, res, id) => {
 
     return result[0];
   } finally {
-    if (connection) connection.release();
+    if (connect) connect.release();
   }
 };
 

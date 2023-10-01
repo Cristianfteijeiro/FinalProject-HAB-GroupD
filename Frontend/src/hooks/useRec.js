@@ -5,7 +5,6 @@ export const useRec = (id) => {
   const [rec, setRec] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  // console.log(rec);
 
   useEffect(() => {
     const loadRec = async () => {

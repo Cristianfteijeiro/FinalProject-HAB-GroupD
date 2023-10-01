@@ -3,9 +3,8 @@ const getDB = require("../../database/db");
 const savePhoto = require("../../service/savePhoto");
 
 const avatarUser = async (req, res) => {
+  const connect = await getDB();
   try {
-    const connect = await getDB();
-
     const { idUser } = req.params;
 
     if (req.userInfo.id !== parseInt(idUser) && req.userInfo.role !== "admin") {
@@ -25,14 +24,16 @@ const avatarUser = async (req, res) => {
       );
     }
 
-    connect.release();
-
     res.status(200).send({
       status: "OK",
       message: "Avatar modificado correctamente",
     });
   } catch (error) {
     console.log(error);
+  } finally {
+    if (connect) {
+      connect.release();
+    }
   }
 };
 

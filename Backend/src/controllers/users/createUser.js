@@ -1,8 +1,8 @@
 const getDB = require("../../database/db");
 
 const createUser = async (req, res) => {
+  const connect = await getDB();
   try {
-    const connect = await getDB();
     const { name, mail, pwd } = req.body;
 
     if (!name || !mail || !pwd)
@@ -26,14 +26,16 @@ const createUser = async (req, res) => {
       [name, mail, pwd]
     );
 
-    connect.release();
-
     res.status(200).send({
       status: "OK",
       message: "Usuario creado correctamente",
     });
   } catch (error) {
     console.log(error);
+  } finally {
+    if (connect) {
+      connect.release();
+    }
   }
 };
 

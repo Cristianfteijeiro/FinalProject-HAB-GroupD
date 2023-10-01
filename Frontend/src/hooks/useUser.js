@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+
 import { getUserDataService } from "../services";
-import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 const useUser = (id) => {

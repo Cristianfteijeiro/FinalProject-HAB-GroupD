@@ -1,5 +1,3 @@
-import { NewComment } from "../components/NuevoComentario";
-
 const baseURL = import.meta.env.VITE_API_URL;
 
 export const getAllRecsService = async () => {
@@ -26,13 +24,16 @@ export const getSingleRecService = async (id) => {
   return json.data;
 };
 
-export const registerUserService = async ({ name, mail, pwd }) => {
+export const registerUserService = async ({ name, mail, pwd, avatar }) => {
+  const data = new FormData();
+  data.append("name", name);
+  data.append("mail", mail);
+  data.append("pwd", pwd);
+  data.append("avatar", avatar);
+
   const response = await fetch(`${baseURL}/registro`, {
     method: "POST",
-    body: JSON.stringify({ name, mail, pwd }),
-    headers: {
-      "Content-Type": "application/json",
-    },
+    body: data,
   });
 
   const json = await response.json();
@@ -187,4 +188,28 @@ export const sendCommentService = async ({ id, data, token }) => {
   }
 
   return json.data;
+};
+
+export const uploadAvatarService = async (file, idUser, token) => {
+  try {
+    const formData = new FormData();
+    formData.append("avatar", file);
+
+    const response = await fetch(`${baseURL}/usuarios/${idUser}`, {
+      method: "PUT",
+      body: formData,
+      headers: {
+        Authorization: token,
+      },
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      throw new Error("Error al subir el avatar");
+    }
+  } catch (error) {
+    throw error;
+  }
 };

@@ -158,11 +158,23 @@ export const RecDetalle = ({ rec, removeRec }) => {
         <div className="comentarios">
           {rec.comentarios.map((comentario) => (
             <article key={comentario.id} className="comentario">
-              <img
-                className="user-avatar"
-                src={`${baseURL}/uploads/avatarUser/${comentario.avatar_usuario}`}
-                alt={comentario.nombre_usuario}
-              />
+              {comentario.avatar_usuario ? (
+                <Link to={`/usuarios/${comentario.id_usuario}/recomendaciones`}>
+                  <img
+                    className="user-avatar"
+                    src={`${baseURL}/uploads/avatarUser/${comentario.avatar_usuario}`}
+                    alt={comentario.nombre_usuario}
+                  />
+                </Link>
+              ) : (
+                <Link to={`/usuarios/${comentario.id_usuario}/recomendaciones`}>
+                  <img
+                    className="user-avatar"
+                    src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                    alt="Avatar"
+                  />
+                </Link>
+              )}
               <p>{comentario.nombre_usuario}</p>
               <p>{comentario.comentario}</p>
               <p>{FormatoFecha(comentario.fecha_creacion)}</p>

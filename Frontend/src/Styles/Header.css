@@ -117,6 +117,7 @@ header nav ul li span:nth-child(4) {
   transition: 0.5s;
   margin: 1em;
   cursor: pointer;
+  padding: 10px;
 }
 
 .moñeco {

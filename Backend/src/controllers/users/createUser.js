@@ -1,8 +1,16 @@
 const getDB = require("../../database/db");
+const savePhoto = require("../../service/savePhoto");
 
 const createUser = async (req, res) => {
   const connect = await getDB();
   try {
+    let avatarName = null;
+
+    avatarName = await savePhoto(req.files.avatar, "/avatarUser");
+    if (!avatarName) {
+      return res.status(400).json({ message: "Error al guardar la foto" });
+    }
+
     const { name, mail, pwd } = req.body;
 
     if (!name || !mail || !pwd)
@@ -22,8 +30,8 @@ const createUser = async (req, res) => {
     }
 
     const [user] = await connect.query(
-      `INSERT INTO usuarios (nombre, email, contraseña) VALUES (?,?,SHA2(?,512))`,
-      [name, mail, pwd]
+      `INSERT INTO usuarios (nombre, email, contraseña, avatar) VALUES (?,?,SHA2(?,512),?)`,
+      [name, mail, pwd, avatarName]
     );
 
     res.status(200).send({

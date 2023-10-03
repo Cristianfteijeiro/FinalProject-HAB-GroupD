@@ -8,7 +8,7 @@
 
 ### Indice 
 
-- [Descripción del proyecto](#descripcion-dl-proyecto)
+- [Descripción del proyecto](#descripcion-del-proyecto)
 
 - [Funcionalidades](#funcionalidades)
 
@@ -49,7 +49,8 @@
 <a href="https://www.html.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="html" width="40" height="40"/> </a> 
 <a href="https://www.css3.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="css" width="40" height="40"/> </a> 
 <a href="https://www.mysql.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="mysql" width="40" height="40"/> </a> 
-<a href="https://www.postman.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postman/postman-original.svg" alt="postman" width="40" height="40"/> </a> 
+<a href="https://www.postman.com" target="_blank"> <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/ddea97b0-1a80-4c46-9ef7-2f6bca3a84da" alt="postman" width="40" height="40"/> </a> 
+<a href="https://www.nodejs.org" target="_blank"> <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/83f39d79-6b86-4d65-9831-07ddcc0cfbb6" alt="nodejs" width="40" height="40"/> </a>
 
   
   ## Despliegue
@@ -65,4 +66,4 @@ npm run dev
 <a href="https://www.linkedin.com/in/danielnovootero" target ="_blank"> <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/96bb316b-6a0b-4549-ac7c-46b3ce3f7c64"/></a>
 <a href="https://www.linkedin.com/in/fran-bana-vazquez" target="_blank"> <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/65d7fe12-776e-4b12-87c7-bd369d02416c"/></a>
 <a href="https://www.linkedin.com/in/cristianfteijeiro" target="_blank"> <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/31b3a523-8cb1-4228-b7dc-e237569035bf"/></a>
-<a href="https://www.linkedin.com/in/angelalonghigarcia" target="_blank"> <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/7ce0b109-2044-41c9-b1b7-27c5be6682a9"/></a>
+<a href="https://www.linkedin.com/in/angelalonghigarcia" target="_blank"> <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/ea73f916-d267-4567-a850-8dc041207627"/></a>

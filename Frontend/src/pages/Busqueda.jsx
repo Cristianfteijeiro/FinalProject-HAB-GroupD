@@ -33,14 +33,17 @@ export const RecSearchPage = () => {
     fetchData();
   }, [query]);
 
-  const handleSearch = (newQuery) => {
-    setQuery(newQuery);
-  };
+  // const handleSearch = (newQuery) => {
+  //   setQuery(newQuery);
+  // };
 
   const filteredRecs = recs.filter(
     (rec) =>
       rec.titulo.toLowerCase().includes(query.toLowerCase()) ||
-      rec.categoria.toLowerCase().includes(query.toLowerCase())
+      rec.categoria.toLowerCase().includes(query.toLowerCase()) ||
+      rec.entradilla.toLowerCase().includes(query.toLowerCase()) ||
+      rec.lugar.toLowerCase().includes(query.toLowerCase()) ||
+      rec.texto.toLowerCase().includes(query.toLowerCase())
   );
 
   if (loading) return <Loading />;

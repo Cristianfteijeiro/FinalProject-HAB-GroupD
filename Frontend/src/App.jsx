@@ -10,6 +10,9 @@ import { RecPage } from "./pages/Recomendacion";
 import { RecSearchPage } from "./pages/Busqueda";
 import { Footer } from "./components/Footer";
 import { NotFound } from "./pages/NotFound";
+import { PoliticaPrivacidad } from "./pages/PoliticaPrivacidad";
+// import { Conocenos } from "./pages/Conocenos";
+import { Cookies } from "./pages/Cookies";
 
 import "./App.css";
 
@@ -25,6 +28,12 @@ function App() {
         <Route path="/usuarios/:id/recomendaciones" element={<UserPage />} />
         <Route path="/recomendaciones/:id" element={<RecPage />} />
         <Route path="/busqueda" element={<RecSearchPage />} />
+        <Route
+          path="/politica-de-privacidad"
+          element={<PoliticaPrivacidad />}
+        />
+        {/* <Route path="/conocenos" element={<Conocenos />} /> */}
+        <Route path="/cookies" element={<Cookies />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

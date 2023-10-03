@@ -210,10 +210,11 @@ export const deleteCommentService = async ({ recId, idComment, token }) => {
   }
 };
 
-export const uploadAvatarService = async (file, idUser, token) => {
+export const uploadAvatarService = async (file, idUser, nuevoNombre, token) => {
   try {
     const formData = new FormData();
     formData.append("avatar", file);
+    formData.append("nuevoNombre", nuevoNombre); // Agrega el nuevo nombre al cuerpo de la solicitud
 
     const response = await fetch(`${baseURL}/usuarios/${idUser}`, {
       method: "PUT",

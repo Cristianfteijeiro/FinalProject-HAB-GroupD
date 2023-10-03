@@ -1,6 +1,6 @@
 const createUser = require("./createUser");
 const loginUser = require("./loginUser");
-const avatarUser = require("./avatarUser");
+const updateUser = require("./updateUser");
 const getUser = require("./getUser");
 const getMe = require("./getMe");
 const getUserRecsController = require("./getUserRecsController");
@@ -8,7 +8,7 @@ const getUserRecsController = require("./getUserRecsController");
 module.exports = {
   createUser,
   loginUser,
-  avatarUser,
+  updateUser,
   getUser,
   getMe,
   getUserRecsController,

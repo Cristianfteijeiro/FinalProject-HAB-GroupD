@@ -86,39 +86,45 @@ export const Register = () => {
           </fieldset>
 
           <fieldset>
-            <label htmlFor="email2">Repite tu Email</label>
-            <input
-              type="email"
-              id="mail2"
-              name="mail2"
-              value={mail2}
-              required
-              onChange={(e) => setEmail2(e.target.value)}
-            />
+            <label htmlFor="email2">
+              <input
+                type="email"
+                id="mail2"
+                placeholder="Repite tu Email"
+                name="mail2"
+                value={mail2}
+                required
+                onChange={(e) => setEmail2(e.target.value)}
+              />
+            </label>
           </fieldset>
 
           <fieldset>
-            <label htmlFor="pass1">Contraseña</label>
-            <input
-              type="password"
-              id="pass1"
-              name="pass1"
-              value={pass1}
-              required
-              onChange={(e) => setPass1(e.target.value)}
-            />
+            <label htmlFor="pass1">
+              <input
+                type="password"
+                id="pass1"
+                placeholder="Contraseña"
+                name="pass1"
+                value={pass1}
+                required
+                onChange={(e) => setPass1(e.target.value)}
+              />
+            </label>
           </fieldset>
 
           <fieldset>
-            <label htmlFor="pass2">Repite tu Contraseña</label>
-            <input
-              type="password"
-              id="pass2"
-              name="pass2"
-              value={pass2}
-              required
-              onChange={(e) => setPass2(e.target.value)}
-            />
+            <label htmlFor="pass2">
+              <input
+                type="password"
+                id="pass2"
+                placeholder="Repite tu Contraseña"
+                name="pass2"
+                value={pass2}
+                required
+                onChange={(e) => setPass2(e.target.value)}
+              />
+            </label>
           </fieldset>
 
           <fieldset>

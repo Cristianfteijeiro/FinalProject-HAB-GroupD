@@ -16,6 +16,7 @@ const {
   postComment,
   deleteRec,
   getAllRec,
+  deleteComment,
 } = require("../controllers/entries");
 
 router.post("/recomendaciones", userLogged, postRecomendation);
@@ -39,6 +40,12 @@ router.delete(
   recExists,
   canDelete,
   deleteRec
+);
+
+router.delete(
+  "/recomendaciones/:idRec/comentarios/:idCom",
+  userLogged,
+  deleteComment
 );
 
 module.exports = router;

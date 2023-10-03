@@ -1,11 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 
-import { deleteRecService } from "../services";
+import { deleteRecService, deleteCommentService } from "../services";
 import { AuthContext } from "../context/AuthContext";
 import { Rating } from "./Valorar";
 import { FormatoFecha } from "./FormatoFecha";
 import { NewComment } from "./NuevoComentario";
+import { EliminarComentario } from "./EliminarComentario";
 
 import "../Styles/Recomendacion.css";
 import "../Styles/DetalleRecomendacion.css";
@@ -17,7 +18,7 @@ export const RecDetalle = ({ rec, removeRec }) => {
   const [error, setError] = useState("");
   const [userRating, setUserRating] = useState(rec.userRating || 1);
   const [userVoted, setUserVoted] = useState(false);
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState(rec.comentarios || []);
 
   useEffect(() => {
     if (user && rec.votos) {
@@ -52,6 +53,20 @@ export const RecDetalle = ({ rec, removeRec }) => {
 
   const addComment = (comment) => {
     setComments([...comments, comment]);
+  };
+
+  const deleteRecComment = async (commentId) => {
+    try {
+      await deleteCommentService({ idCom: commentId, token });
+      setComments((prevComments) =>
+        prevComments.filter((comment) => comment.id !== commentId)
+      );
+
+      window.location.reload();
+    } catch (error) {
+      setError(error.message);
+      console.error(error);
+    }
   };
 
   return (
@@ -178,6 +193,14 @@ export const RecDetalle = ({ rec, removeRec }) => {
               <p>{comentario.nombre_usuario}</p>
               <p>{comentario.comentario}</p>
               <p>{FormatoFecha(comentario.fecha_creacion)}</p>
+
+              <EliminarComentario
+                commentId={comentario.id}
+                recId={rec.recomendacion.id} // Asegúrate de que recId se pase correctamente desde las props de RecDetalle
+                commentOwnerId={comentario.id_usuario}
+                recOwnerId={rec.recomendacion.user_id}
+                onDelete={() => deleteRecComment(comentario.id)}
+              />
             </article>
           ))}
         </div>

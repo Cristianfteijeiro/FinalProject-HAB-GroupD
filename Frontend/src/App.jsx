@@ -11,7 +11,7 @@ import { RecSearchPage } from "./pages/Busqueda";
 import { Footer } from "./components/Footer";
 import { NotFound } from "./pages/NotFound";
 import { PoliticaPrivacidad } from "./pages/PoliticaPrivacidad";
-// import { Conocenos } from "./pages/Conocenos";
+import { Conocenos } from "./pages/Conocenos";
 import { Cookies } from "./pages/Cookies";
 
 import "./App.css";
@@ -32,7 +32,7 @@ function App() {
           path="/politica-de-privacidad"
           element={<PoliticaPrivacidad />}
         />
-        {/* <Route path="/conocenos" element={<Conocenos />} /> */}
+        <Route path="/conocenos" element={<Conocenos />} />
         <Route path="/cookies" element={<Cookies />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

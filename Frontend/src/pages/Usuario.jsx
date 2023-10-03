@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useContext } from "react";
-import { uploadAvatarService } from "../services";
+import { updateUserService } from "../services";
 
 import { UserRecs } from "../components/RecomendacionesUsuario";
 import { MensajeError } from "../components/MensajeError";
@@ -39,7 +39,7 @@ export const UserPage = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      const response = await uploadAvatarService(
+      const response = await updateUserService(
         avatarFile,
         user[0].id,
         isNameEdited ? newUserName : user[0].nombre, // Usa el nuevo nombre solo si ha sido editado
@@ -61,29 +61,32 @@ export const UserPage = () => {
   return (
     <section className="user-page">
       <section className="user-data">
-        {user[0].avatar ? (
-          <img
-            className="user-page-avatar"
-            src={`${baseURL}/uploads/avatarUser/${user[0].avatar}`}
-            alt={user[0].nombre}
-          />
-        ) : (
-          <img
-            className="user-page-avatar"
-            src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-            alt="Avatar"
-          />
-        )}
+        <div className="foto-y-datos">
+          {user[0].avatar ? (
+            <img
+              className="user-page-avatar"
+              src={`${baseURL}/uploads/avatarUser/${user[0].avatar}`}
+              alt={user[0].nombre}
+            />
+          ) : (
+            <img
+              className="user-page-avatar"
+              src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
+              alt="Avatar"
+            />
+          )}
+          <div className="datos">
+            <p>Nick: {user[0].nombre}</p>
 
-        <p>Nick: {user[0].nombre}</p>
-
-        <p>
-          Usuario desde: {new Date(user[0].fecha_registro).toLocaleString()}
-        </p>
+            <p>
+              Usuario desde: {new Date(user[0].fecha_registro).toLocaleString()}
+            </p>
+          </div>
+        </div>
         {loggedUser.id === user[0].id ? (
           <section className="user-update">
             <label>
-              Nuevo Nombre:{" "}
+              Nuevo Nick:{" "}
               {/* Agrega un campo de entrada para el nuevo nombre */}
               <input
                 type="text"
@@ -91,61 +94,65 @@ export const UserPage = () => {
                 onChange={handleNameChange}
               />
             </label>
-            <label>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleAvatarChange}
-                className="input-file"
-              />
-
-              <figure>
-                <figcaption>Editar avatar</figcaption>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="recom"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            <div className="inputs-y-foto">
+              <div className="inputs">
+                <label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleAvatarChange}
+                    className="input-file"
                   />
-                </svg>
-              </figure>
-            </label>
-            {/* <input type="file" accept="image/*" onChange={handleAvatarChange} /> */}
-            <figure onClick={handleAvatarUpload}>
-              <figcaption>Confirmar cambios</figcaption>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="var(--action)"
-                className="recom userUpdate-button"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
-                />
-              </svg>
-            </figure>
-            {avatarError && <p>{avatarError}</p>}
+
+                  <figure>
+                    <figcaption>Selecionar avatar</figcaption>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="recom"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                      />
+                    </svg>
+                  </figure>
+                </label>
+                {/* <input type="file" accept="image/*" onChange={handleAvatarChange} /> */}
+                <figure onClick={handleAvatarUpload}>
+                  <figcaption>Confirmar cambios</figcaption>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="var(--action)"
+                    className="recom userUpdate-button"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
+                    />
+                  </svg>
+                </figure>
+              </div>
+              {avatarFile ? (
+                <figure>
+                  <img
+                    src={URL.createObjectURL(avatarFile)}
+                    className="user-page-avatar preview-avatar"
+                    alt="Preview"
+                  />
+                </figure>
+              ) : null}
+              {avatarError && <p>{avatarError}</p>}
+            </div>
           </section>
-        ) : null}
-        {avatarFile ? (
-          <figure className="preview-image">
-            <img
-              src={URL.createObjectURL(avatarFile)}
-              className="preview"
-              alt="Preview"
-            />
-          </figure>
         ) : null}
       </section>
       <section className="user-recs">

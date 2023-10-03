@@ -210,7 +210,7 @@ export const deleteCommentService = async ({ recId, idComment, token }) => {
   }
 };
 
-export const uploadAvatarService = async (file, idUser, nuevoNombre, token) => {
+export const updateUserService = async (file, idUser, nuevoNombre, token) => {
   try {
     const formData = new FormData();
     formData.append("avatar", file);

@@ -1,12 +1,21 @@
 import "../Styles/Footer.css";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
     <footer className="footer">
-      <p>©️HACK A TRAVEL - 2023</p>
-      <p>Política de privacidad</p>
-      <p>Conócenos</p>
-      <p>Cookies</p>
+      <Link to={"/"}>
+        <p>©️HACK A TRAVEL - 2023</p>
+      </Link>
+      <Link to={"/politica-de-privacidad"}>
+        <p>Política de privacidad</p>
+      </Link>
+      <Link to={"/conocenos"}>
+        <p>Conócenos</p>
+      </Link>
+      <Link to={"/cookies"}>
+        <p>Cookies</p>
+      </Link>
     </footer>
   );
 };

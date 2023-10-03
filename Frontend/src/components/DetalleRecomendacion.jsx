@@ -167,7 +167,9 @@ export const RecDetalle = ({ rec, removeRec }) => {
         {rec.recomendacion.cantidad_comentarios === 1 ? "" : "s"}
         {":"}
       </p>
-      <NewComment id={rec.recomendacion.id} addComment={addComment} />
+      {token ? (
+        <NewComment id={rec.recomendacion.id} addComment={addComment} />
+      ) : null}
 
       {rec.comentarios && rec.comentarios.length > 0 && (
         <div className="comentarios">
@@ -193,14 +195,16 @@ export const RecDetalle = ({ rec, removeRec }) => {
               <p>{comentario.nombre_usuario}</p>
               <p>{comentario.comentario}</p>
               <p>{FormatoFecha(comentario.fecha_creacion)}</p>
-
-              <EliminarComentario
-                commentId={comentario.id}
-                recId={rec.recomendacion.id} // Asegúrate de que recId se pase correctamente desde las props de RecDetalle
-                commentOwnerId={comentario.id_usuario}
-                recOwnerId={rec.recomendacion.user_id}
-                onDelete={() => deleteRecComment(comentario.id)}
-              />
+              {rec.recomendacion?.user_id === user?.id ||
+              comentario?.id_usuario === user?.id ? (
+                <EliminarComentario
+                  commentId={comentario.id}
+                  recId={rec.recomendacion.id}
+                  commentOwnerId={comentario.id_usuario}
+                  recOwnerId={rec.recomendacion.user_id}
+                  onDelete={() => deleteRecComment(comentario.id)}
+                />
+              ) : null}
             </article>
           ))}
         </div>

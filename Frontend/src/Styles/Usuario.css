@@ -37,3 +37,8 @@
 .user-page::-webkit-scrollbar {
   border-radius: 0.5rem;
 }
+
+.user-update {
+  display: flex;
+  flex-direction: column;
+}

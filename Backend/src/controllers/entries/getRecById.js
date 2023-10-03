@@ -42,6 +42,7 @@ const getRecomendationById = async (req, res) => {
       SELECT
         u.nombre AS nombre_usuario,
         u.avatar AS avatar_usuario,
+        u.id AS id_usuario,
         c.comentarios AS comentario,
         c.fecha_creacion,
         c.id

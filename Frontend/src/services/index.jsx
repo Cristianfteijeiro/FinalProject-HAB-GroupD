@@ -190,6 +190,26 @@ export const sendCommentService = async ({ id, data, token }) => {
   return json.data;
 };
 
+export const deleteCommentService = async ({ recId, idComment, token }) => {
+  const response = await fetch(
+    `${baseURL}/recomendaciones/${recId}/comentarios/${idComment}`,
+    {
+      method: "DELETE",
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ idComment }),
+    }
+  );
+
+  const json = await response.json();
+
+  if (!response.ok) {
+    throw new Error(json.message);
+  }
+};
+
 export const uploadAvatarService = async (file, idUser, token) => {
   try {
     const formData = new FormData();

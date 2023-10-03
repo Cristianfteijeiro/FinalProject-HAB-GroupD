@@ -27,8 +27,10 @@
  así como comentar y valorar las experiencias de otros usuarios.
 </p>
 
- ![Captura](https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/f12338d8-eac3-4aa5-b362-aafc2b9856e3)
+ <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/f12338d8-eac3-4aa5-b362-aafc2b9856e3" alt="home" width="800" height="600"/>
 
+
+  
   ## Funcionalidades
 
 :heavy_check_mark: `Funcionalidad 1:` Registrate para votar y publicar o, accede sin registro solo para ver otras publicaciones.

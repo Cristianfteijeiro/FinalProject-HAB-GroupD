@@ -62,7 +62,7 @@ npm run dev
 ```
 
   ## Desarrolladores
-<a href="https://www.linkedin.com/in/danielnovootero" target ="blank"> <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/96bb316b-6a0b-4549-ac7c-46b3ce3f7c64"/></a>
-<a href="https://www.linkedin.com/in/fran-bana-vazquez" target="blank"> <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/65d7fe12-776e-4b12-87c7-bd369d02416c"/></a>
-<a href="https://www.linkedin.com/in/cristianfteijeiro" target="blank"> <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/31b3a523-8cb1-4228-b7dc-e237569035bf"/></a>
-<a href="https://www.linkedin.com/in/angelalonghigarcia" target="blank"> <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/7ce0b109-2044-41c9-b1b7-27c5be6682a9"/></a>
+<a href="https://www.linkedin.com/in/danielnovootero" target ="_blank"> <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/96bb316b-6a0b-4549-ac7c-46b3ce3f7c64"/></a>
+<a href="https://www.linkedin.com/in/fran-bana-vazquez" target="_blank"> <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/65d7fe12-776e-4b12-87c7-bd369d02416c"/></a>
+<a href="https://www.linkedin.com/in/cristianfteijeiro" target="_blank"> <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/31b3a523-8cb1-4228-b7dc-e237569035bf"/></a>
+<a href="https://www.linkedin.com/in/angelalonghigarcia" target="_blank"> <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/7ce0b109-2044-41c9-b1b7-27c5be6682a9"/></a>

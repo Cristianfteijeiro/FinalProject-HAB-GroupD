@@ -7,9 +7,7 @@ const isUser = async (req, res, next) => {
     const authorization = req.headers["authorization"];
 
     if (!authorization)
-      return res
-        .status(401)
-        .json({ message: "Falta cabecera de autorizacion" });
+      return res.status(401).json({ message: "Debes estar logueado" });
 
     let tokenInfo;
     try {

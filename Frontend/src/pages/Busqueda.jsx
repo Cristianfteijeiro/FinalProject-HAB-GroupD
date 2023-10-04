@@ -22,6 +22,7 @@ export const RecSearchPage = () => {
       try {
         setLoading(true);
         const data = await getAllRecsService(query);
+        await new Promise((resolve) => setTimeout(resolve, 750));
         setRecs(data);
         setLoading(false);
       } catch (error) {
@@ -32,10 +33,7 @@ export const RecSearchPage = () => {
 
     fetchData();
   }, [query]);
-
-  // const handleSearch = (newQuery) => {
-  //   setQuery(newQuery);
-  // };
+  if (loading) return <Loading />;
 
   const filteredRecs = recs.filter(
     (rec) =>

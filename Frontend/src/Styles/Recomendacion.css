@@ -1,5 +1,10 @@
+/* .pagina-recomendaciones {
+  display: flex;
+  justify-content: center;
+} */
+
 .recomendacion {
-  font-family: var(--title);
+  font-family: var(--body);
   display: flex;
   flex-direction: column;
   /* max-width: 20vw; */
@@ -7,10 +12,15 @@
   /*justify-content: center;*/
   align-items: center;
   gap: 20px;
-  /*background-color: var(--action);*/
+  /* background-color: #d3ae284f; */
   border: 2.5px solid var(--bg);
   border-radius: 5px;
   color: var(--bg);
+  box-shadow: 11px 11px 4px rgba(0, 0, 0, 0.2);
+}
+
+.recomendacion h2 {
+  font-family: var(--title);
 }
 
 .recomendacion-img {
@@ -40,7 +50,6 @@
 
 .recomendacion h2 {
   font-size: 2rem;
-  margin-bottom: 1rem;
 }
 
 .entradilla-rec {
@@ -52,6 +61,11 @@
   cursor: pointer;
   background: none;
   border: none;
+}
+
+.scroll-button {
+  display: flex;
+  justify-content: center;
 }
 
 /* .datos {

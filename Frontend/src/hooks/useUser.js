@@ -48,7 +48,7 @@ const useUser = (id) => {
       try {
         const data = await getUserDataService(id, token);
 
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 2000));
         setUser(data);
         setLoading(false);
       } catch (error) {

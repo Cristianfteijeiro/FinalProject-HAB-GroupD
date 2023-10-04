@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { Rec } from "./Recomendacion";
-import { ScrollToTopButton } from "./Scroll";
 
 import "../Styles/ListaRecomendacion.css";
 
@@ -26,10 +25,6 @@ export const RecList = ({ recs, removeRec }) => {
       ) : (
         <h1 className="rec-list-title">No hay recomendaciones...</h1>
       )}
-      {/* <Link className="recom" onClick="navigate(/)">
-        Volver arriba
-      </Link> */}
-      <ScrollToTopButton />
     </div>
   );
 };

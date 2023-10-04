@@ -23,13 +23,13 @@ export const ScrollToTopButton = () => {
   window.addEventListener("scroll", handleScroll);
 
   return (
-    <button
-      className={`recom scroll-to-top-button ${
-        isVisible ? "visible" : "hidden"
-      }`}
-      onClick={scrollToTop}
-    >
-      Volver Arriba
-    </button>
+    <div className="scroll-button">
+      <button
+        className={`recom  ${isVisible ? "visible" : "hidden"}`}
+        onClick={scrollToTop}
+      >
+        Volver Arriba
+      </button>
+    </div>
   );
 };

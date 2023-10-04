@@ -57,3 +57,11 @@ main.app {
   border: solid 1px;
   margin-right: 1rem;
 }
+
+.error-new-rec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #b52a2a;
+}

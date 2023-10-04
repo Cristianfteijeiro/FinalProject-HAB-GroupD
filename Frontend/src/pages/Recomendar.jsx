@@ -8,7 +8,6 @@ import { Loading } from "../components/Loading";
 import { MensajeError } from "../components/MensajeError";
 
 export const Post = () => {
-  //   const { token } = useContext(AuthContext);
   const { error, loading, addRec } = useRecs();
   const { user } = useContext(AuthContext);
 
@@ -20,15 +19,14 @@ export const Post = () => {
       {user ? (
         <NewRec addRec={addRec} />
       ) : (
-        <>
-          {" "}
-          <p>
-            Necesitas estar registrado para poder publicar una recomendación
-          </p>{" "}
+        <div className="error-new-rec">
+          <h1>
+            Necesitas estar registrado para poder publicar una recomendación 🤦🏻‍♂️
+          </h1>
           <Link to="/registro">
-            <button>Regístrate</button>
+            <button className="recom">Regístrate</button>
           </Link>
-        </>
+        </div>
       )}
     </>
   );

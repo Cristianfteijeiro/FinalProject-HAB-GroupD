@@ -37,11 +37,11 @@ export const NewComment = ({ id, addComment }) => {
               className="inputText"
               type="text"
               name="comment"
-              placeholder="Comentar"
+              placeholder="Añade tu comentario..."
               required
             />
           </label>
-          <button className="btn-submit">Enviar</button>
+          <button className="recom">Publicar</button>
         </fieldset>
       </form>
     </div>

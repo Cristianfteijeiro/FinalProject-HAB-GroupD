@@ -66,6 +66,10 @@
   margin-top: 2.5rem;
 }
 
+.button-container p {
+  color: #fff;
+}
+
 .popup-content input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #000000af inset !important;
   -webkit-text-fill-color: #fff !important;

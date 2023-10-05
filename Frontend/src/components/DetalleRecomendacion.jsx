@@ -75,8 +75,9 @@ export const RecDetalle = ({ rec, removeRec }) => {
         <h2>{rec.recomendacion.titulo}</h2>
         {rec.recomendacion.foto ? (
           <img
+            className="rec-detalle-foto"
             src={`${baseURL}/uploads/recPhoto/${rec.recomendacion.foto}`}
-            alt={rec.recomendacion.texto}
+            alt={rec.recomendacion.titulo}
           />
         ) : null}
         <h3>{rec.recomendacion.entradilla}</h3>
@@ -224,13 +225,13 @@ export const RecDetalle = ({ rec, removeRec }) => {
                       commentOwnerId={comentario.id_usuario}
                       recOwnerId={rec.recomendacion.user_id}
                       onDelete={() => {
+                        // if (window.confirm("¿Estás seguro?"))
+                        deleteRecComment(comentario.id);
+                      }}
+                      onClick={() => {
                         if (window.confirm("¿Estás seguro?"))
                           deleteRecComment(comentario.id);
                       }}
-                      // onClick={() => {
-                      //   if (window.confirm("¿Estás seguro?"))
-                      //     deleteRecComment(comentario.id);
-                      // }}
                     />
                   ) : null}
                 </div>

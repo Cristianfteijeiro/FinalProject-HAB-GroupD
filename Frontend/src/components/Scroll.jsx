@@ -25,7 +25,9 @@ export const ScrollToTopButton = () => {
   return (
     <div className="scroll-button">
       <button
-        className={`recom  ${isVisible ? "visible" : "hidden"}`}
+        className={`recom scroll-button-logo  ${
+          isVisible ? "visible" : "hidden"
+        }`}
         onClick={scrollToTop}
       >
         Volver Arriba

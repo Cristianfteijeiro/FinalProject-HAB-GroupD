@@ -34,3 +34,9 @@
   margin-top: 0.3rem;
   margin-left: 1rem;
 }
+
+@media (max-width: 450px) {
+  .politica {
+    margin-bottom: 9vh;
+  }
+}

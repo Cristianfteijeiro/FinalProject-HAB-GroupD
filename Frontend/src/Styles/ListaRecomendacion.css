@@ -24,3 +24,13 @@
   width: 40vw;
   list-style: none;
 }
+
+@media (max-width: 450px) {
+  .rec-list {
+    width: 100vw;
+  }
+
+  .rec-list-items {
+    width: 80vw;
+  }
+}

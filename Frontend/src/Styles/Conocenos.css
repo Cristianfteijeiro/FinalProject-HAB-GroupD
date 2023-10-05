@@ -135,3 +135,29 @@
 .card .links a:nth-child(2) svg:hover {
   color: #5d277d;
 }
+
+@media (max-width: 450px) {
+  .conocenos-card {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8vh;
+    height: auto;
+  }
+
+  .conocenos-titulo {
+    height: 15vh;
+  }
+
+  .card .links {
+    right: -50px;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .card .links a:nth-child(1) svg {
+    color: #0a66c2;
+  }
+
+  .card .links a:nth-child(2) svg {
+    color: #5d277d;
+  }
+}

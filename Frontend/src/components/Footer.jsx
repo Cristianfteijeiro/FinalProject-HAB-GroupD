@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <footer className="footer">
       <Link to={"/"}>
-        <p>©️HACK A TRAVEL - 2023</p>
+        <p>©️HACK A TRAVEL</p>
       </Link>
       <Link to={"/politica-de-privacidad"}>
         <p>Política de privacidad</p>

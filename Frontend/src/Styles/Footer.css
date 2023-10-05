@@ -10,3 +10,10 @@
   text-decoration: none;
   color: var(--action);
 }
+
+@media (max-width: 450px) {
+  .footer {
+    font-size: 0.7rem;
+    width: 100vw;
+  }
+}

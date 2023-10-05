@@ -76,3 +76,17 @@
   height: 80vh;
   margin-top: 15vh;
 } */
+
+@media (max-width: 450px) {
+  .recomendacion {
+    width: 80vw;
+  }
+
+  .recomendacion h2 {
+    font-size: 1.5rem;
+  }
+
+  .entradilla-rec {
+    font-size: 1rem;
+  }
+}

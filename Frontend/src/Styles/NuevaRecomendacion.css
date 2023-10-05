@@ -97,3 +97,18 @@
   align-items: center;
   justify-content: space-around;
 }
+
+@media (max-width: 450px) {
+  .mispost {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    height: auto;
+    margin-bottom: 8vh;
+    background-color: var(--mainbg);
+  }
+
+  .mispost h1 {
+    margin: 4vh;
+  }
+}

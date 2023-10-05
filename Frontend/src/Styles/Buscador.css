@@ -62,3 +62,22 @@
 .buscador select {
   width: 100%;
 }
+
+@media (max-width: 450px) {
+  .buscador-movil fieldset {
+    margin-bottom: 2rem;
+    border: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .buscador-movil input {
+    width: 30vw;
+    color: var(--bg);
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    background: transparent;
+    font-size: 1.6rem;
+  }
+}

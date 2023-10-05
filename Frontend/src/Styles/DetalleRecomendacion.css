@@ -109,3 +109,46 @@
   background: transparent;
   font-size: 1.6rem;
 }
+
+@media (max-width: 450px) {
+  .rec-detalle-page {
+    flex-direction: column;
+  }
+
+  .rec-detalle {
+    width: 80vw;
+  }
+
+  .rec-detalle-foto {
+    max-width: 70vw;
+  }
+
+  .recDetalle-texto {
+    width: 70vw;
+  }
+
+  .comentarios {
+    width: 80vw;
+  }
+
+  .comentario {
+    flex-direction: column;
+    width: 62vw;
+  }
+
+  .avatar-nombre {
+    flex-direction: column;
+    width: 70vw;
+  }
+
+  .comentario-nombre {
+    max-width: 70vw;
+  }
+
+  .tiempo-borrar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70vw;
+  }
+}

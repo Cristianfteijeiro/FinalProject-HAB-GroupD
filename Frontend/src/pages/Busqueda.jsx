@@ -7,6 +7,7 @@ import { Loading } from "../components/Loading";
 
 import { getAllRecsService } from "../services";
 import useRecs from "../hooks/useRecs";
+import { SearchBarMovil } from "../components/BarraBusquedaMovil";
 
 export const RecSearchPage = () => {
   const { removeRec } = useRecs();
@@ -16,6 +17,10 @@ export const RecSearchPage = () => {
   const location = useLocation();
   const initialQuery = new URLSearchParams(location.search).get("query");
   const [query, setQuery] = useState(initialQuery || "");
+
+  const handleSearch = (searchQuery) => {
+    window.location.href = `/busqueda?query=${searchQuery}`;
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -49,6 +54,11 @@ export const RecSearchPage = () => {
 
   return (
     <section className="recomendaciones">
+      <SearchBarMovil
+        className="search-bar"
+        query={query}
+        onSearch={handleSearch}
+      />
       <h1>Recomendaciones</h1>
       {/* <RecSearchBar query={query} onSearch={handleSearch} /> */}
       <ul className="rec-list">

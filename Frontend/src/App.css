@@ -46,7 +46,7 @@ main.app {
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   background-color: var(--action);
 }
 
@@ -64,4 +64,17 @@ main.app {
   justify-content: center;
   align-items: center;
   color: #b52a2a;
+}
+
+@media (max-width: 450px) {
+  main.app {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    min-height: 0;
+  }
+
+  .scroll-button {
+    padding-bottom: 10vh;
+  }
 }

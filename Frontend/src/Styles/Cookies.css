@@ -35,3 +35,9 @@
   margin-top: 0.3rem;
   margin-left: 1rem;
 }
+
+@media (max-width: 450px) {
+  .cookies {
+    margin-bottom: 9vh;
+  }
+}

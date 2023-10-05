@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-import "../Styles/Header.css";
+import "../Styles/BuscadorMovil.css";
 
-export const SearchBar = ({ onSearch }) => {
+export const SearchBarMovil = ({ onSearch }) => {
   const [query, setQuery] = useState("");
 
   const handleSearch = () => {
@@ -10,9 +10,9 @@ export const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div className="buscadorHome">
+    <div className="buscador-movil">
       <input
-        className="buscar"
+        className="input-movil"
         type="search"
         placeholder="Buscar..."
         value={query}

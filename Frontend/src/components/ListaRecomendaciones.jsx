@@ -8,7 +8,7 @@ import "../Styles/ListaRecomendacion.css";
 export const RecList = ({ recs, removeRec }) => {
   return (
     <div className="recomendaciones">
-      <h1 className="rec-list-title">Experiencias de nuestros usuarios.</h1>
+      <h1 className="rec-list-title">Experiencias compartidas.</h1>
       <Link to="/recomendar">
         <button className="recom">Cuéntanos tu experiencia.</button>
       </Link>

@@ -20,3 +20,16 @@
   color: transparent;
   padding: 40px 0;
 }
+
+@media (max-width: 450px) {
+  .home {
+    font-size: 40px;
+    justify-content: flex-start;
+    height: 90vh;
+    background-image: url("/fondomovil.jpg");
+  }
+
+  .home h1 {
+    display: none;
+  }
+}

@@ -128,19 +128,21 @@ export const NewRec = ({ addRec }) => {
           {loading ? <p>Añadiendo recomendación...</p> : null}
         </form>
       </section>
-      {image ? (
-        <figure className="preview-image">
-          <img
-            src={URL.createObjectURL(image)}
-            className="preview"
-            alt="Preview"
-          />
-        </figure>
-      ) : (
-        <figure className="preview-image">
-          <img src="src/assets/images/equipaje.jpg" />
-        </figure>
-      )}
+      <section>
+        {image ? (
+          <figure className="preview-image">
+            <img
+              src={URL.createObjectURL(image)}
+              className="preview"
+              alt="Preview"
+            />
+          </figure>
+        ) : (
+          <figure className="preview-image">
+            <img src="/equipaje.jpg" />
+          </figure>
+        )}
+      </section>
     </div>
   );
 };

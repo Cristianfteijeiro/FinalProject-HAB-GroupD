@@ -164,8 +164,8 @@ export const Register = () => {
           )}
         </form>
       </section>
-      <figure>
-        <img src="src/assets/images/equipaje.jpg" />
+      <figure className="imagen-equipaje">
+        <img src="/equipaje.jpg" />
       </figure>
     </div>
   );

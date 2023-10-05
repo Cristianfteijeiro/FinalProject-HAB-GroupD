@@ -83,3 +83,17 @@
 .success-message {
   color: green;
 }
+
+@media (max-width: 450px) {
+  .register {
+    display: block;
+    height: 90vh;
+  }
+
+  .register section {
+    height: 85vh;
+  }
+  .imagen-equipaje {
+    display: none;
+  }
+}

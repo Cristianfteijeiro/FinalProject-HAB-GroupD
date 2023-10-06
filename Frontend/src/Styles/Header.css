@@ -1,5 +1,5 @@
 header {
-  background-color: var(--bg);
+  background-color: var(--bgb);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,7 +20,6 @@ header span {
 }
 
 header nav ul {
-  /* font-family: var(--body); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,7 +94,6 @@ header nav ul li span:nth-child(4) {
 }
 
 .lupa {
-  /* display: block; */
   height: 2rem;
 }
 
@@ -117,7 +115,7 @@ header nav ul li span:nth-child(4) {
   font-family: var(--body);
   font-size: 1rem;
   color: var(--action);
-  background-color: var(--bg);
+  background-color: var(--bgb);
   border: 0.12em solid var(--action);
   border-radius: 0.5em;
   height: 3rem;
@@ -143,10 +141,18 @@ header nav ul li span:nth-child(4) {
 }
 
 .recomButton:hover {
-  color: var(--bg);
+  color: var(--bgb);
 }
 .recomButton {
   padding: 9px 6px;
+}
+
+.header-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: solid 1px;
+  margin-right: 1rem;
 }
 
 @media (max-width: 450px) {
@@ -170,9 +176,7 @@ header nav ul li span:nth-child(4) {
 
   .recom {
     font-size: 0.8rem;
-    /* width: 50px; */
     height: 50px;
-    /* border-radius: 50%; */
     border: none;
     min-width: 5px;
   }
@@ -188,6 +192,53 @@ header nav ul li span:nth-child(4) {
 
   .buscar {
     display: none;
+  }
+
+  header nav ul li span {
+    display: none;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 768px) {
+  header {
+    height: 10vh;
+  }
+
+  .buscadorHome {
+    width: 45vw;
+  }
+
+  .header-avatar {
+    width: 40px;
+    height: 40px;
+    margin-top: 1vh;
+  }
+
+  .logo-recomendaciones {
+    min-width: 0;
+    height: 11vh;
+    width: 8vw;
+  }
+
+  .recom {
+    height: 2rem;
+    min-width: none;
+  }
+
+  .logo {
+    margin-left: 1rem;
+  }
+
+  .moñeco {
+    width: 2em;
+  }
+
+  .moñeco svg {
+    margin-top: 1.8vh;
+  }
+
+  .recomButton:hover {
+    color: inherit;
   }
 
   header nav ul li span {

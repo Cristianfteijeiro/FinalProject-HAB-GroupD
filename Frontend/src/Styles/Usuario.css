@@ -73,7 +73,7 @@
   margin-left: 5px;
   font-family: var(--body);
   font-size: 2rem;
-  color: var(--bg);
+  color: var(--bgb);
   border: none;
   border-bottom: 1px solid black;
   outline: none;
@@ -91,4 +91,65 @@
 .preview-avatar {
   width: 150px;
   height: 150px;
+}
+
+@media (max-width: 768px) {
+  .user-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 90vh;
+  }
+
+  .user-data {
+    width: 90vw;
+  }
+
+  .foto-y-datos {
+    width: 90vw;
+    justify-content: space-around;
+  }
+
+  .user-page-avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .datos {
+    font-size: 2rem;
+  }
+
+  .user-update input {
+    font-size: 1.8rem;
+  }
+
+  .inputs {
+    display: flex;
+    gap: 10vw;
+  }
+
+  .user-page {
+    max-height: none;
+    margin-bottom: 4vh;
+  }
+
+  .user-recs {
+    overflow-y: visible;
+    overflow-x: visible;
+    margin-top: 0;
+    max-width: none;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 768px) {
+  .recom {
+    height: 2.9rem;
+    border: none;
+  }
+
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    margin-top: 1vh;
+  }
 }

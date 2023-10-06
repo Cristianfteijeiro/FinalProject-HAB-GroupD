@@ -1,21 +1,13 @@
-/* .pagina-recomendaciones {
-  display: flex;
-  justify-content: center;
-} */
-
 .recomendacion {
   font-family: var(--body);
   display: flex;
   flex-direction: column;
-  /* max-width: 20vw; */
   padding: 2rem;
-  /*justify-content: center;*/
   align-items: center;
   gap: 20px;
-  /* background-color: #d3ae284f; */
-  border: 2.5px solid var(--bg);
+  border: 2.5px solid var(--bgb);
   border-radius: 5px;
-  color: var(--bg);
+  color: var(--bgb);
   box-shadow: 11px 11px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -40,7 +32,7 @@
 }
 
 .recomendacion a {
-  color: var(--bg);
+  color: var(--bgb);
 }
 
 .avatar-rec {
@@ -67,15 +59,6 @@
   display: flex;
   justify-content: center;
 }
-
-/* .datos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  height: 80vh;
-  margin-top: 15vh;
-} */
 
 @media (max-width: 450px) {
   .recomendacion {

@@ -73,7 +73,7 @@
 
   .buscador-movil input {
     width: 30vw;
-    color: var(--bg);
+    color: var(--bgb);
     border: none;
     border-bottom: 1px solid black;
     outline: none;

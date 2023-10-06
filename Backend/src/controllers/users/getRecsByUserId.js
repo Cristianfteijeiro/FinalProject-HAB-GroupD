@@ -17,7 +17,8 @@ const getRecsByUserId = async (idUser) => {
           LEFT JOIN votos v ON r.id = v.recomendacion_id
           LEFT JOIN comentarios c ON r.id = c.recomendacion_id
           WHERE r.user_id = ?
-          GROUP BY r.id, r.titulo, r.categoria, r.lugar, r.entradilla, r.texto, r.foto, r.fecha_creacion, r.user_id, u.nombre, u.avatar;
+          GROUP BY r.id, r.titulo, r.categoria, r.lugar, r.entradilla, r.texto, r.foto, r.fecha_creacion, r.user_id, u.nombre, u.avatar
+          ORDER BY r.fecha_creacion DESC;
     `,
       [idUser]
     );

@@ -112,3 +112,18 @@
     margin: 4vh;
   }
 }
+
+@media (min-width: 450px) and (max-width: 768px) {
+  .mispost {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    height: auto;
+    margin-bottom: 0vh;
+    background-color: var(--mainbg);
+  }
+
+  .mispost h1 {
+    margin: 4vh;
+  }
+}

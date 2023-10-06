@@ -23,7 +23,9 @@ export const RecList = ({ recs, removeRec }) => {
           })}
         </ul>
       ) : (
-        <h1 className="rec-list-title">No hay recomendaciones...</h1>
+        <h1 className="rec-list-title">
+          Todavía no tenemos ninguna recomendación, ¿Quieres ser el primero?
+        </h1>
       )}
     </div>
   );

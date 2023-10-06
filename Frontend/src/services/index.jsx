@@ -214,7 +214,7 @@ export const updateUserService = async (file, idUser, nuevoNombre, token) => {
   try {
     const formData = new FormData();
     formData.append("avatar", file);
-    formData.append("nuevoNombre", nuevoNombre); // Agrega el nuevo nombre al cuerpo de la solicitud
+    formData.append("nuevoNombre", nuevoNombre);
 
     const response = await fetch(`${baseURL}/usuarios/${idUser}`, {
       method: "PUT",

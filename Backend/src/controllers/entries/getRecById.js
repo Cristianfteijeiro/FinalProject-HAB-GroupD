@@ -5,7 +5,6 @@ const getRecomendationById = async (req, res) => {
   try {
     const { idRec } = req.params;
 
-    // Consulta para obtener los datos de la recomendación
     const [recomendationResult] = await connect.query(
       `
       SELECT
@@ -36,7 +35,6 @@ const getRecomendationById = async (req, res) => {
       [idRec]
     );
 
-    // Consulta para obtener los comentarios de la recomendación
     const [commentsResult] = await connect.query(
       `
       SELECT

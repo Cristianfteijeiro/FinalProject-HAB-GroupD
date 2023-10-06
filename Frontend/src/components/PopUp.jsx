@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 
 import { logInUserService } from "../services";
 import { AuthContext } from "../context/AuthContext";
@@ -8,11 +8,26 @@ import "../Styles/PopUp.css";
 
 export const PopUp = ({ onClose }) => {
   const navigate = useNavigate();
+  const popupRef = useRef(null);
 
   const [mail, setMail] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState("");
   const { login } = useContext(AuthContext);
+
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (popupRef.current && !popupRef.current.contains(e.target)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [onClose]);
 
   const handleForm = async (e) => {
     e.preventDefault();
@@ -29,7 +44,7 @@ export const PopUp = ({ onClose }) => {
   };
   return (
     <div className="popup">
-      <div className="popup-content">
+      <div className="popup-content" ref={popupRef}>
         <button className="close-button" onClick={onClose}>
           X
         </button>

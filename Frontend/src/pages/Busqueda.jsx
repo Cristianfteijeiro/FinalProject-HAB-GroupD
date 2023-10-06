@@ -9,6 +9,10 @@ import { getAllRecsService } from "../services";
 import useRecs from "../hooks/useRecs";
 import { SearchBarMovil } from "../components/BarraBusquedaMovil";
 
+const removeAccents = (str) => {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+};
+
 export const RecSearchPage = () => {
   const { removeRec } = useRecs();
   const [recs, setRecs] = useState([]);
@@ -40,35 +44,52 @@ export const RecSearchPage = () => {
   }, [query]);
   if (loading) return <Loading />;
 
-  const filteredRecs = recs.filter(
-    (rec) =>
-      rec.titulo.toLowerCase().includes(query.toLowerCase()) ||
-      rec.categoria.toLowerCase().includes(query.toLowerCase()) ||
-      rec.entradilla.toLowerCase().includes(query.toLowerCase()) ||
-      rec.lugar.toLowerCase().includes(query.toLowerCase()) ||
-      rec.texto.toLowerCase().includes(query.toLowerCase())
-  );
+  // const filteredRecs = recs.filter(
+  //   (rec) =>
+  //     rec.titulo.toLowerCase().includes(query.toLowerCase()) ||
+  //     rec.categoria.toLowerCase().includes(query.toLowerCase()) ||
+  //     rec.entradilla.toLowerCase().includes(query.toLowerCase()) ||
+  //     rec.lugar.toLowerCase().includes(query.toLowerCase()) ||
+  //     rec.texto.toLowerCase().includes(query.toLowerCase())
+  // );
+  const filteredRecs = recs.filter((rec) => {
+    const normalizedQuery = removeAccents(query).toLowerCase();
+    const normalizedTitle = removeAccents(rec.titulo).toLowerCase();
+    const normalizedCategory = removeAccents(rec.categoria).toLowerCase();
+    const normalizedEntradilla = removeAccents(rec.entradilla).toLowerCase();
+    const normalizedLugar = removeAccents(rec.lugar).toLowerCase();
+    const normalizedTexto = removeAccents(rec.texto).toLowerCase();
+
+    return (
+      normalizedTitle.includes(normalizedQuery) ||
+      normalizedCategory.includes(normalizedQuery) ||
+      normalizedEntradilla.includes(normalizedQuery) ||
+      normalizedLugar.includes(normalizedQuery) ||
+      normalizedTexto.includes(normalizedQuery)
+    );
+  });
 
   if (loading) return <Loading />;
   if (error) return <MensajeError message={error} />;
 
   return (
-    <section className="recomendaciones">
+    <section className="recomendaciones resultados-busqueda">
       <SearchBarMovil
         className="search-bar"
         query={query}
         onSearch={handleSearch}
       />
       <h1>Recomendaciones</h1>
-      {/* <RecSearchBar query={query} onSearch={handleSearch} /> */}
       <ul className="rec-list">
-        {filteredRecs.map((rec) => {
-          return (
+        {filteredRecs.length === 0 ? (
+          <img className="search-error" src="/Search.png" alt="" />
+        ) : (
+          filteredRecs.map((rec) => (
             <li key={rec.id} className="rec-list-items">
               <Rec rec={rec} removeRec={removeRec} />
             </li>
-          );
-        })}
+          ))
+        )}
       </ul>
     </section>
   );

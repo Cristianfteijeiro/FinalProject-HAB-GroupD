@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Englebert&family=Patrick+Hand+SC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
 
 * {
   margin: 0;
@@ -9,20 +10,22 @@
 :root {
   --title: "Englebert", sans-serif;
   --body: "Patrick Hand SC", cursive;
+  --sol: "Architects Daughter", cursive;
 }
+@media (min-width: 769px) {
+  ::-webkit-scrollbar {
+    width: 0.6rem;
+    background: var(--bgb);
+  }
 
-::-webkit-scrollbar {
-  width: 0.6rem;
-  background: var(--bg);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--mainbg);
-  border-radius: 0.5rem;
+  ::-webkit-scrollbar-thumb {
+    background: var(--mainbg);
+    border-radius: 0.5rem;
+  }
 }
 
 html {
-  --bg: #020202;
+  --bgb: #020202;
   --bright: #ffffff;
   --action: #a6934f;
   --error: #c84d4d;
@@ -46,7 +49,6 @@ main.app {
   min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr auto;
-  /* font-family: sans-serif; */
   background-color: var(--action);
 }
 

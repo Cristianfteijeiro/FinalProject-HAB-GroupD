@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 
+import "../Styles/Errores.css";
+
 export const NotFound = () => {
   return (
-    <div className="error-new-rec">
-      <h1>404 Not Found</h1>
-      <img src="/JT.gif" alt="" />
-      <Link to={"/"} className="recom">
+    <div className="error-notfound">
+      <img src="/e.404.png" alt="error 404" />
+      <Link to={"/"} className="recom recom-notfound">
         Volver a Inicio
       </Link>
     </div>

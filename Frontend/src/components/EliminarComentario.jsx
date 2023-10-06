@@ -18,15 +18,13 @@ export const EliminarComentario = ({
       console.log("recId", recId);
       console.log("recOwnerId", recOwnerId);
 
-      // Verificar si el comentario pertenece al usuario o si es su recomendación
       if (user.id === recOwnerId || user.id === commentOwnerId) {
-        // Llamar al servicio para eliminar el comentario
         await deleteCommentService({
           recId,
           idComment: commentId,
           token,
         });
-        // Actualizar el estado local o hacer cualquier otra acción necesaria
+
         onDelete(commentId);
       } else {
         setError("No tienes permiso para eliminar este comentario.");

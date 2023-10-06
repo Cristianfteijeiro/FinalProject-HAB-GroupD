@@ -23,7 +23,6 @@ export const UserPage = () => {
   const [isNameEdited, setIsNameEdited] = useState(false);
 
   const { user: loggedUser } = useContext(AuthContext);
-  console.log(loggedUser);
 
   const handleAvatarChange = (event) => {
     const file = event.target.files[0];
@@ -42,7 +41,7 @@ export const UserPage = () => {
       const response = await updateUserService(
         avatarFile,
         user[0].id,
-        isNameEdited ? newUserName : user[0].nombre, // Usa el nuevo nombre solo si ha sido editado
+        isNameEdited ? newUserName : user[0].nombre,
         token
       );
       console.log(response);
@@ -57,7 +56,6 @@ export const UserPage = () => {
 
   if (loading) return <Loading />;
   if (error) return <MensajeError message={error} />;
-
   return (
     <section className="user-page">
       <section className="user-data">
@@ -79,7 +77,8 @@ export const UserPage = () => {
             <p>Nick: {user[0].nombre}</p>
 
             <p>
-              Usuario desde: {new Date(user[0].fecha_registro).toLocaleString()}
+              Usuario desde:{" "}
+              {new Date(user[0].fecha_registro).toLocaleDateString()}
             </p>
           </div>
         </div>
@@ -87,7 +86,6 @@ export const UserPage = () => {
           <section className="user-update">
             <label>
               Nuevo Nick:{" "}
-              {/* Agrega un campo de entrada para el nuevo nombre */}
               <input
                 type="text"
                 value={newUserName}
@@ -122,7 +120,6 @@ export const UserPage = () => {
                     </svg>
                   </figure>
                 </label>
-                {/* <input type="file" accept="image/*" onChange={handleAvatarChange} /> */}
                 <figure onClick={handleAvatarUpload}>
                   <figcaption>Confirmar cambios</figcaption>
                   <svg

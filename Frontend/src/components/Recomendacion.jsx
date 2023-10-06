@@ -16,8 +16,6 @@ export const Rec = ({ rec, removeRec }) => {
     return null;
   }
 
-  console.log(rec);
-
   const deleteRec = async (id) => {
     try {
       await deleteRecService({ id, token });

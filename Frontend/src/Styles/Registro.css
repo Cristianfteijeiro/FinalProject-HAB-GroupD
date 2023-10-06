@@ -97,3 +97,17 @@
     display: none;
   }
 }
+
+@media (min-width: 450px) and (max-width: 768px) {
+  .register {
+    display: block;
+    height: 100%;
+  }
+
+  .register section {
+    height: auto;
+  }
+  .imagen-equipaje {
+    display: none;
+  }
+}

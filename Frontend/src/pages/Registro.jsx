@@ -128,10 +128,11 @@ export const Register = () => {
           </fieldset>
 
           <fieldset>
-            <label>
+            <label htmlFor="avatar">
               <input
                 type="file"
                 name="avatar"
+                id="avatar"
                 accept="image/"
                 onChange={(e) => setAvatar(e.target.files[0])}
                 className="input-file"

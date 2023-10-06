@@ -33,4 +33,22 @@
   .rec-list-items {
     width: 80vw;
   }
+
+  .resultados-busqueda {
+    min-height: 90vh;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 768px) {
+  .rec-list {
+    width: 100vw;
+  }
+
+  .rec-list-items {
+    width: 80vw;
+  }
+
+  .resultados-busqueda {
+    min-height: 90vh;
+  }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import { PopUp } from "./PopUp";
@@ -67,7 +67,7 @@ export const Header = () => {
               {user.avatar ? (
                 <Link to={`/usuarios/${user.id}/recomendaciones`}>
                   <img
-                    className="user-avatar"
+                    className="header-avatar"
                     src={`${baseURL}/uploads/avatarUser/${user.avatar}`}
                     alt={user.nombre}
                   />
@@ -82,7 +82,13 @@ export const Header = () => {
                 </Link>
               )}
 
-              <Link className="logout" onClick={() => logout()} to="/">
+              <Link
+                className="logout"
+                onClick={() => {
+                  if (window.confirm("¿Estás seguro?")) logout();
+                }}
+                to="/"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

@@ -5,7 +5,7 @@ const updateUser = async (req, res) => {
   const connect = await getDB();
   try {
     const { idUser } = req.params;
-    const { nuevoNombre } = req.body; // Supongamos que el nuevo nombre se envía en el cuerpo de la solicitud
+    const { nuevoNombre } = req.body;
 
     if (req.userInfo.id !== parseInt(idUser) && req.userInfo.role !== "admin") {
       return res
@@ -24,7 +24,6 @@ const updateUser = async (req, res) => {
     if (req.files && req.files.avatar) {
       const userAvatar = await savePhoto(req.files.avatar, "/avatarUser");
 
-      // Actualizar el avatar del usuario si se proporciona un archivo en la solicitud
       await connect.query(
         `UPDATE usuarios
          SET avatar=?

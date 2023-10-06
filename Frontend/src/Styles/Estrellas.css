@@ -18,7 +18,7 @@
   height: 2rem;
   overflow: visible;
   fill: transparent;
-  stroke: var(--bg);
+  stroke: var(--bgb);
   animation: idle 4s linear infinite;
   transition: stroke 0.2s, fill 0.5s;
 }
@@ -30,14 +30,14 @@
 }
 
 .rating label:hover svg {
-  stroke: var(--bg);
+  stroke: var(--bgb);
 }
 
 .rating input:checked ~ label svg {
   transition: 0s;
   animation: idle 4s linear infinite, yippee 0.75s backwards;
   fill: var(--fill);
-  stroke: var(--bg);
+  stroke: var(--bgb);
   stroke-opacity: 0;
   stroke-dasharray: 0;
   stroke-linejoin: miter;
@@ -61,7 +61,7 @@
     fill: var(--fill);
     fill-opacity: 0;
     stroke-opacity: 1;
-    stroke: var(--bg);
+    stroke: var(--bgb);
     stroke-dasharray: 10;
     stroke-width: 1px;
     stroke-linejoin: bevel;

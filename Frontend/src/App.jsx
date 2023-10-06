@@ -15,7 +15,6 @@ import { Conocenos } from "./pages/Conocenos";
 import { Cookies } from "./pages/Cookies";
 
 import "./App.css";
-import { Loading } from "./components/Loading";
 
 function App() {
   return (
@@ -36,7 +35,6 @@ function App() {
         <Route path="/conocenos" element={<Conocenos />} />
         <Route path="/cookies" element={<Cookies />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="/loading" element={<Loading />} />
       </Routes>
       <Footer />
     </main>

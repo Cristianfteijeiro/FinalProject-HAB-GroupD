@@ -15,13 +15,10 @@ const canDelete = async (req, res, next) => {
 
     connect.release();
 
-    //res.send(rec);
     if (req.userInfo.id !== rec[0].user_id && req.userInfo.role !== "admin") {
-      return res
-        .status(401)
-        .json({
-          message: "No tiene permisos para eliminar esta recomendación",
-        });
+      return res.status(401).json({
+        message: "No tiene permisos para eliminar esta recomendación",
+      });
     }
 
     next();

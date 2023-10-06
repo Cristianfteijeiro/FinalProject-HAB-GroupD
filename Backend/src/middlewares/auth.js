@@ -1,6 +1,5 @@
 const jwt = require("jsonwebtoken");
 const getDB = require("../database/db");
-// const { generateError } = require("../helpers");
 
 const authUser = async (req, res, next) => {
   const connect = await getDB();
@@ -11,21 +10,15 @@ const authUser = async (req, res, next) => {
       res.status(401).json({ message: "Falta cabecera de autenticación" });
     }
 
-    // Comprobamos que el token sea correcto
     let token;
 
     try {
       token = jwt.verify(authorization, process.env.SECRET_TOKEN);
-      //   console.log(token.id);
-      //   console.log(userId);
     } catch {
       throw new error("Token incorrecto", 401);
     }
 
-    // Metemos la información del token en la request para usarla en el controlador
     req.userId = token.id;
-
-    // Saltamos al controlador
   } catch (error) {
     next(error);
   } finally {

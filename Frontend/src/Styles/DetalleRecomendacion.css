@@ -42,7 +42,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid var(--bg);
+  border: 1px solid var(--bgb);
   border-radius: 5px;
   width: 45vw;
   padding: 0 1vw;
@@ -52,7 +52,7 @@
   font-family: var(--body);
   width: 40vw;
   height: 82vh;
-  border: solid 2.5px var(--bg);
+  border: solid 2.5px var(--bgb);
   border-radius: 5px;
   padding: 2rem;
   overflow-y: auto;
@@ -61,7 +61,7 @@
 }
 
 .comentario {
-  border-bottom: 1px solid var(--bg);
+  border-bottom: 1px solid var(--bgb);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -102,7 +102,7 @@
 
 .new-comment input {
   width: 30vw;
-  color: var(--bg);
+  color: var(--bgb);
   border: none;
   border-bottom: 1px solid black;
   outline: none;
@@ -115,8 +115,15 @@
     flex-direction: column;
   }
 
+  .rec-detalle-info {
+    width: 65vw;
+    display: flex;
+    flex-direction: column;
+  }
+
   .rec-detalle {
     width: 80vw;
+    min-height: 65vh;
   }
 
   .rec-detalle-foto {
@@ -129,6 +136,7 @@
 
   .comentarios {
     width: 80vw;
+    margin-bottom: 8vh;
   }
 
   .comentario {
@@ -141,6 +149,10 @@
     width: 70vw;
   }
 
+  .rec-detalle-avatar-user p {
+    padding-bottom: 1.5vh;
+  }
+
   .comentario-nombre {
     max-width: 70vw;
   }
@@ -150,5 +162,79 @@
     justify-content: space-between;
     align-items: center;
     width: 70vw;
+  }
+
+  .new-comment fieldset {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .new-comment input {
+    width: 60vw;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 768px) {
+  .rec-detalle-page {
+    flex-direction: column;
+  }
+
+  .rec-detalle-info {
+    width: 65vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rec-detalle {
+    width: 80vw;
+    min-height: 65vh;
+  }
+
+  .rec-detalle-foto {
+    max-width: 70vw;
+  }
+
+  .recDetalle-texto {
+    width: 70vw;
+  }
+
+  .comentarios {
+    width: 80vw;
+    padding-left: 8vw;
+    margin-bottom: 8vh;
+  }
+
+  .comentario {
+    flex-direction: column;
+    width: 62vw;
+  }
+
+  .avatar-nombre {
+    flex-direction: column;
+    width: 70vw;
+  }
+
+  .rec-detalle-avatar-user p {
+    padding-bottom: 1.5vh;
+  }
+
+  .comentario-nombre {
+    max-width: 70vw;
+  }
+
+  .tiempo-borrar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70vw;
+  }
+
+  .new-comment fieldset {
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+
+  .new-comment input {
+    width: 60vw;
   }
 }

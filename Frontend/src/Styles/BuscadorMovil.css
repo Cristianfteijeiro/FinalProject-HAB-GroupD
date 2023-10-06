@@ -10,10 +10,11 @@
   align-items: center;
   width: 80vw;
   color: var(--action);
+  display: none;
 }
 
 .input-movil {
-  color: var(--bg);
+  color: var(--bgb);
   font-family: var(--body);
   font-size: 1.5rem;
   background-color: transparent;
@@ -22,4 +23,10 @@
   padding-block: 0.35em;
   border: none;
   border-bottom: 1px solid var(--bg);
+}
+
+@media (max-width: 450px) {
+  .buscador-movil {
+    display: block;
+  }
 }

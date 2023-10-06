@@ -1,4 +1,3 @@
-// En el componente NewComment
 import { useContext, useState } from "react";
 
 import { AuthContext } from "../context/AuthContext";
@@ -36,6 +35,7 @@ export const NewComment = ({ id, addComment }) => {
             <input
               className="inputText"
               type="text"
+              id="comment"
               name="comment"
               placeholder="Añade tu comentario..."
               required

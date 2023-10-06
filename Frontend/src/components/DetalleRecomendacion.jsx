@@ -225,7 +225,6 @@ export const RecDetalle = ({ rec, removeRec }) => {
                       commentOwnerId={comentario.id_usuario}
                       recOwnerId={rec.recomendacion.user_id}
                       onDelete={() => {
-                        // if (window.confirm("¿Estás seguro?"))
                         deleteRecComment(comentario.id);
                       }}
                       onClick={() => {

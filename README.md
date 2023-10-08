@@ -12,7 +12,7 @@
 
 - [Funcionalidades](#funcionalidades)
 
-- [Aplicación](#aplicacion)
+- [Presentación](#apresentacion)
 
 - [Tecnologías utilizadas](#tecnologias-utilizadas)
 
@@ -27,8 +27,7 @@
  así como comentar y valorar las experiencias de otros usuarios.
 </p>
 
- <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/f12338d8-eac3-4aa5-b362-aafc2b9856e3" alt="home" width="800" height="600"/>
-
+ <img src="https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/64011f43-9d1a-4a5f-ab6e-ced1ff1b489c" alt="home" width="900" height="600"/>
 
   
   ## Funcionalidades
@@ -41,7 +40,9 @@
 
 :heavy_check_mark: `Funcionalidad 4:` Borrar tus propias publicaciones o comentarios en tu publicación.
 
-  ## Aplicación 
+  ## Presentación 
+
+https://github.com/Cristianfteijeiro/FinalProject-HAB-GroupD/assets/131007339/6769d8e2-8999-4117-9979-6d84e6da3daf
 
 
 
@@ -56,6 +57,8 @@
 
   
   ## Despliegue
+
+  ❗Para que la aplicación funcione correctamente la base de datos debe estar creada en workbench o el programa que se desee y nuestro backend se encarga de comppletar con las respectivas tablas.
 
   ```shell
 npm install

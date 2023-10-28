@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { getUserDataService } from "../services";
+import { getUserDataService, updateUserService } from "../services";
 import { AuthContext } from "../context/AuthContext";
 
 const useUser = (id) => {
@@ -26,7 +26,13 @@ const useUser = (id) => {
     loadUser();
   }, [id, token]);
 
-  return { user, error, loading };
+  const updateUser = async (file, idUser, nuevoNombre, token) => {
+    await updateUserService(file, idUser, nuevoNombre, token);
+    const newUser = await getUserDataService(idUser, token);
+    setUser(newUser);
+  };
+
+  return { user, error, loading, updateUser };
 };
 
 export default useUser;

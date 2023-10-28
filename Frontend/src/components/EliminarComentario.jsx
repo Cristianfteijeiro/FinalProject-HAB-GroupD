@@ -1,6 +1,9 @@
-import { useContext, useState } from "react";
+// EliminarComentario.js
+
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { deleteCommentService } from "../services";
+import { Confirmar } from "./Confirmar";
 
 export const EliminarComentario = ({
   commentId,
@@ -8,16 +11,19 @@ export const EliminarComentario = ({
   recOwnerId,
   onDelete,
   commentOwnerId,
+  setComments,
 }) => {
   const { token, user } = useContext(AuthContext);
   const [error, setError] = useState(null);
+  const [isConfirmPopupOpen, setIsConfirmPopupOpen] = useState(false);
+
+  const handleConfirmDelete = async () => {
+    await handleDelete();
+    toggleConfirmPopup();
+  };
 
   const handleDelete = async () => {
     try {
-      console.log("commentId", commentId);
-      console.log("recId", recId);
-      console.log("recOwnerId", recOwnerId);
-
       if (user.id === recOwnerId || user.id === commentOwnerId) {
         await deleteCommentService({
           recId,
@@ -26,6 +32,9 @@ export const EliminarComentario = ({
         });
 
         onDelete(commentId);
+        setComments((prevComments) =>
+          prevComments.filter((comment) => comment.id !== commentId)
+        );
       } else {
         setError("No tienes permiso para eliminar este comentario.");
       }
@@ -37,10 +46,14 @@ export const EliminarComentario = ({
     }
   };
 
+  const toggleConfirmPopup = () => {
+    setIsConfirmPopupOpen(!isConfirmPopupOpen);
+  };
+
   return (
     <>
       {error && <p>{error}</p>}
-      <button className="btn-eliminar" onClick={handleDelete}>
+      <button className="btn-eliminar" onClick={toggleConfirmPopup}>
         <figure>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -58,6 +71,15 @@ export const EliminarComentario = ({
           </svg>
         </figure>
       </button>
+
+      {isConfirmPopupOpen && (
+        <Confirmar
+          onClose={toggleConfirmPopup}
+          onConfirm={handleConfirmDelete}
+        />
+      )}
     </>
   );
 };
+
+// export default EliminarComentario;

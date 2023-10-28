@@ -30,6 +30,11 @@ export const Register = () => {
       return;
     }
 
+    if (avatar === null) {
+      setError("Selecciona un avatar");
+      return;
+    }
+
     const data = new FormData(e.target);
 
     try {
@@ -43,13 +48,14 @@ export const Register = () => {
       setAvatar(null);
       setRegistrationSuccess(true);
 
-      console.log(e.target);
+      // console.log(e.target);
 
       setTimeout(() => {
         navigate("/");
       }, 2000);
     } catch (error) {
       setError(error.message);
+      console.log(error);
     }
   };
   return (
@@ -140,20 +146,29 @@ export const Register = () => {
 
               <figure className="upload-image">
                 <figcaption>Subir Imagen</figcaption>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="var(--action)"
-                  className="recom"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
-                  />
-                </svg>
+                {avatar ? (
+                  <div className="header-avatar">
+                    <img
+                      className="header-avatar-image"
+                      src={URL.createObjectURL(avatar)}
+                    />
+                  </div>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="var(--action)"
+                    className="recom"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"
+                    />
+                  </svg>
+                )}
               </figure>
             </label>
           </fieldset>
@@ -166,7 +181,7 @@ export const Register = () => {
         </form>
       </section>
       <figure className="imagen-equipaje">
-        <img src="/equipaje.jpg" />
+        <img className="imagen-equipaje-image" src="/equipaje.jpg" />
       </figure>
     </div>
   );

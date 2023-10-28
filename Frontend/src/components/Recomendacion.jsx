@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { deleteRecService } from "../services";
 import { AuthContext } from "../context/AuthContext";
 import { FormatoFecha } from "./FormatoFecha";
+import { Confirmar } from "./Confirmar";
 
 import "../Styles/Recomendacion.css";
 
@@ -12,9 +13,16 @@ export const Rec = ({ rec, removeRec }) => {
   const navigate = useNavigate();
   const { token, user } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const [isConfirmPopupOpen, setIsConfirmPopupOpen] = useState(false);
+
   if (!rec) {
     return null;
   }
+
+  const handleConfirmDelete = (id) => {
+    deleteRec(id);
+    toggleConfirmPopup();
+  };
 
   const deleteRec = async (id) => {
     try {
@@ -29,6 +37,11 @@ export const Rec = ({ rec, removeRec }) => {
       setError(error.message);
     }
   };
+
+  const toggleConfirmPopup = () => {
+    setIsConfirmPopupOpen(!isConfirmPopupOpen);
+  };
+
   return (
     <article className="recomendacion">
       <Link to={`/recomendaciones/${rec.id}`} className="recomendacion-link">
@@ -58,11 +71,13 @@ export const Rec = ({ rec, removeRec }) => {
       <div className="recomendacion-info">
         <div>
           {rec.avatar ? (
-            <img
-              className="user-avatar"
-              src={`${baseURL}/uploads/avatarUser/${rec.avatar}`}
-              alt={rec.nombre}
-            />
+            <div className="user-avatar">
+              <img
+                className="user-avatar-image"
+                src={`${baseURL}/uploads/avatarUser/${rec.avatar}`}
+                alt={rec.nombre}
+              />
+            </div>
           ) : (
             <img
               className="user-avatar "
@@ -80,12 +95,13 @@ export const Rec = ({ rec, removeRec }) => {
         <p>{FormatoFecha(rec.fecha_creacion)}</p>
         {user && user.id === rec.user_id ? (
           <section>
-            <button
-              className="btn-eliminar"
-              onClick={() => {
-                if (window.confirm("¿Estás seguro?")) deleteRec(rec.id);
-              }}
-            >
+            <button className="btn-eliminar" onClick={toggleConfirmPopup}>
+              {isConfirmPopupOpen && (
+                <Confirmar
+                  onClose={toggleConfirmPopup}
+                  onConfirm={() => handleConfirmDelete(rec.id)}
+                />
+              )}
               <figure>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

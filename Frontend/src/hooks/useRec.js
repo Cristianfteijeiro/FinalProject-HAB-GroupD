@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
-import { getSingleRecService } from "../services";
+// useRec.js
 
-export const useRec = (id) => {
+import { useEffect, useState } from "react";
+import { getSingleRecService, deleteCommentService } from "../services";
+
+const useRec = (id) => {
   const [rec, setRec] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -24,5 +26,18 @@ export const useRec = (id) => {
     loadRec();
   }, [id]);
 
-  return { rec, error, loading };
+  const updateComments = async (commentId, token, setComments) => {
+    try {
+      await deleteCommentService({ idCom: commentId, token });
+      setComments((prevComments) =>
+        prevComments.filter((comment) => comment.id !== commentId)
+      );
+    } catch (error) {
+      console.error("Error al eliminar el comentario:", error);
+    }
+  };
+
+  return { rec, error, loading, updateComments };
 };
+
+export default useRec;

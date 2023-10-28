@@ -55,14 +55,22 @@ export const RecDetalle = ({ rec, removeRec }) => {
     setComments([...comments, comment]);
   };
 
-  const deleteRecComment = async (commentId) => {
-    try {
-      await deleteCommentService({ idCom: commentId, token });
-      setComments((prevComments) =>
-        prevComments.filter((comment) => comment.id !== commentId)
-      );
+  // const deleteRecComment = async (commentId) => {
+  //   try {
+  //     await deleteCommentService({ idCom: commentId, token });
+  //     setComments((prevComments) =>
+  //       prevComments.filter((comment) => comment.id !== commentId)
+  //     );
 
-      window.location.reload();
+  //     // window.location.reload();
+  //   } catch (error) {
+  //     setError(error.message);
+  //     console.error(error);
+  //   }
+  // };
+  const handleDeleteComment = async (commentId) => {
+    try {
+      await deleteRecComment(commentId);
     } catch (error) {
       setError(error.message);
       console.error(error);
@@ -224,13 +232,8 @@ export const RecDetalle = ({ rec, removeRec }) => {
                       recId={rec.recomendacion.id}
                       commentOwnerId={comentario.id_usuario}
                       recOwnerId={rec.recomendacion.user_id}
-                      onDelete={() => {
-                        deleteRecComment(comentario.id);
-                      }}
-                      onClick={() => {
-                        if (window.confirm("¿Estás seguro?"))
-                          deleteRecComment(comentario.id);
-                      }}
+                      onDelete={handleDeleteComment}
+                      setComments={setComments}
                     />
                   ) : null}
                 </div>

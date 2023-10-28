@@ -11,13 +11,15 @@ export const SearchBarMovil = ({ onSearch }) => {
 
   return (
     <div className="buscador-movil">
-      <input
-        className="input-movil"
-        type="search"
-        placeholder="Buscar..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
+      <form>
+        <input
+          className="input-movil"
+          type="search"
+          placeholder="Buscar..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </form>
       <button className="recom" onClick={handleSearch}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -19,7 +19,7 @@ const recExists = async (req, res, next) => {
     connect.release();
 
     if (rec.length === 0)
-      return res.status(404).josn({ message: "No existe esa recomendación" });
+      return res.status(404).json({ message: "No existe esa recomendación" });
 
     next();
   } catch (error) {

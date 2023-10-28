@@ -22,11 +22,12 @@
   padding-inline: 0.5em;
   padding-block: 0.35em;
   border: none;
-  border-bottom: 1px solid var(--bg);
+  border-bottom: 1px solid var(--bgb);
 }
 
 @media (max-width: 450px) {
   .buscador-movil {
-    display: block;
+    display: flex;
+    margin-bottom: 10px;
   }
 }

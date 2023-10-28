@@ -16,13 +16,13 @@ const baseURL = import.meta.env.VITE_API_URL;
 
 export const UserPage = () => {
   const { id } = useParams();
-  const { user, loading, error } = useUser(id);
+  const { user, loading, error, updateUser } = useUser(id);
   const [avatarFile, setAvatarFile] = useState(null);
   const [avatarError, setAvatarError] = useState(null);
   const [newUserName, setNewUserName] = useState("");
   const [isNameEdited, setIsNameEdited] = useState(false);
 
-  const { user: loggedUser } = useContext(AuthContext);
+  const { user: loggedUser, token } = useContext(AuthContext);
 
   const handleAvatarChange = (event) => {
     const file = event.target.files[0];
@@ -37,15 +37,20 @@ export const UserPage = () => {
   const handleAvatarUpload = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem("token");
-      const response = await updateUserService(
+      // const response = await updateUserService(
+      //   avatarFile,
+      //   user[0].id,
+      //   isNameEdited ? newUserName : user[0].nombre,
+      //   token
+      // );
+      // console.log(response);
+      // window.location.reload();
+      updateUser(
         avatarFile,
         user[0].id,
         isNameEdited ? newUserName : user[0].nombre,
         token
       );
-      console.log(response);
-      window.location.reload();
     } catch (error) {
       setAvatarError(
         "Error al subir el avatar. Por favor, inténtalo de nuevo."
@@ -61,11 +66,13 @@ export const UserPage = () => {
       <section className="user-data">
         <div className="foto-y-datos">
           {user[0].avatar ? (
-            <img
-              className="user-page-avatar"
-              src={`${baseURL}/uploads/avatarUser/${user[0].avatar}`}
-              alt={user[0].nombre}
-            />
+            <div className="user-page-avatar">
+              <img
+                className="user-page-avatar-image"
+                src={`${baseURL}/uploads/avatarUser/${user[0].avatar}`}
+                alt={user[0].nombre}
+              />
+            </div>
           ) : (
             <img
               className="user-page-avatar"

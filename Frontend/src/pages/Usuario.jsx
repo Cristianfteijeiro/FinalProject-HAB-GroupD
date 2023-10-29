@@ -5,6 +5,7 @@ import { updateUserService } from "../services";
 import { UserRecs } from "../components/RecomendacionesUsuario";
 import { MensajeError } from "../components/MensajeError";
 import { Loading } from "../components/Loading";
+import { ScrollToTopButton } from "../components/Scroll";
 
 import { AuthContext } from "../context/AuthContext";
 
@@ -162,6 +163,7 @@ export const UserPage = () => {
       <section className="user-recs">
         <UserRecs id={user[0].id} />
       </section>
+      <ScrollToTopButton />
     </section>
   );
 };

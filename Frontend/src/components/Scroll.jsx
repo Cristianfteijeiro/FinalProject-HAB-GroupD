@@ -13,26 +13,26 @@
 //     }
 //   };
 
-//   const scrollToTop = () => {
-//     window.scrollTo({
-//       top: 0,
-//       behavior: "smooth",
-//     });
-//   };
+// const scrollToTop = () => {
+//   window.scrollTo({
+//     top: 0,
+//     behavior: "smooth",
+//   });
+// };
 
 //   window.addEventListener("scroll", handleScroll);
 
 //   return (
-// <div className="scroll-button">
-//   <button
-//     className={`recom scroll-button-logo  ${
-//       isVisible ? "visible" : "hidden"
-//     }`}
-//     onClick={scrollToTop}
-//   >
-//     Volver Arriba
-//   </button>
-// </div>
+//     <div className="scroll-button">
+//       <button
+//         className={`recom scroll-button-logo  ${
+//           isVisible ? "visible" : "hidden"
+//         }`}
+//         onClick={scrollToTop}
+//       >
+//         Volver Arriba
+//       </button>
+//     </div>
 //   );
 // };
 
@@ -55,8 +55,10 @@ export const ScrollToTopButton = () => {
   }, []);
 
   const scrollToTop = () => {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (

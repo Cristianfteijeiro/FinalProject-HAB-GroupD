@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-
 import { Rec } from "../components/Recomendacion";
 import { MensajeError } from "../components/MensajeError";
 import { Loading } from "../components/Loading";
-
 import { getAllRecsService } from "../services";
 import useRecs from "../hooks/useRecs";
 import { SearchBarMovil } from "../components/BarraBusquedaMovil";
+import { OrdenarRecomendaciones } from "../components/OrdenarRecomendaciones";
+import { ScrollToTopButton } from "../components/Scroll";
 
 const removeAccents = (str) => {
   return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -44,14 +44,6 @@ export const RecSearchPage = () => {
   }, [query]);
   if (loading) return <Loading />;
 
-  // const filteredRecs = recs.filter(
-  //   (rec) =>
-  //     rec.titulo.toLowerCase().includes(query.toLowerCase()) ||
-  //     rec.categoria.toLowerCase().includes(query.toLowerCase()) ||
-  //     rec.entradilla.toLowerCase().includes(query.toLowerCase()) ||
-  //     rec.lugar.toLowerCase().includes(query.toLowerCase()) ||
-  //     rec.texto.toLowerCase().includes(query.toLowerCase())
-  // );
   const filteredRecs = recs.filter((rec) => {
     const normalizedQuery = removeAccents(query).toLowerCase();
     const normalizedTitle = removeAccents(rec.titulo).toLowerCase();
@@ -59,6 +51,8 @@ export const RecSearchPage = () => {
     const normalizedEntradilla = removeAccents(rec.entradilla).toLowerCase();
     const normalizedLugar = removeAccents(rec.lugar).toLowerCase();
     const normalizedTexto = removeAccents(rec.texto).toLowerCase();
+
+    console.log(recs);
 
     return (
       normalizedTitle.includes(normalizedQuery) ||
@@ -79,6 +73,10 @@ export const RecSearchPage = () => {
         query={query}
         onSearch={handleSearch}
       />
+      <OrdenarRecomendaciones
+        recs={filteredRecs}
+        setRecomendacionesOrdenadas={setRecs}
+      />
       <h1>Recomendaciones</h1>
       <ul className="rec-list">
         {filteredRecs.length === 0 ? (
@@ -91,6 +89,7 @@ export const RecSearchPage = () => {
           ))
         )}
       </ul>
+      <ScrollToTopButton />
     </section>
   );
 };

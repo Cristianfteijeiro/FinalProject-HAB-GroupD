@@ -232,9 +232,9 @@ header nav ul li span:nth-child(4) {
     height: 10vh;
   }
 
-  .buscadorHome {
+  /* .buscadorHome {
     width: 45vw;
-  }
+  } */
 
   .header-avatar {
     width: 40px;
@@ -246,6 +246,10 @@ header nav ul li span:nth-child(4) {
     min-width: 0;
     height: 11vh;
     width: 8vw;
+  }
+
+  .buscar {
+    display: none;
   }
 
   .recom {

@@ -139,10 +139,10 @@ export const UserPage = () => {
                 </figure>
               </div>
               {avatarFile ? (
-                <figure>
+                <figure className="user-page-avatar">
                   <img
                     src={URL.createObjectURL(avatarFile)}
-                    className="user-page-avatar preview-avatar"
+                    className="user-page-avatar-image"
                     alt="Preview"
                   />
                 </figure>

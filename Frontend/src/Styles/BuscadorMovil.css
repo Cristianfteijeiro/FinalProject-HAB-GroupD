@@ -25,9 +25,10 @@
   border-bottom: 1px solid var(--bgb);
 }
 
-@media (max-width: 450px) {
+@media (max-width: 1439px) {
   .buscador-movil {
     display: flex;
     margin-bottom: 10px;
+    justify-content: center;
   }
 }

@@ -277,3 +277,61 @@ header nav ul li span:nth-child(4) {
     display: none;
   }
 }
+
+@media (min-width: 769px) and (max-width: 1439px) {
+  header {
+    height: 8vh;
+    justify-content: center;
+    gap: 5vw;
+  }
+
+  header nav ul {
+    justify-content: space-between;
+    gap: 5vw;
+  }
+
+  /* .buscadorHome {
+    width: 45vw;
+  } */
+
+  .header-avatar {
+    width: 40px;
+    height: 40px;
+    /* margin-top: 1vh; */
+  }
+
+  .logo-recomendaciones {
+    min-width: 0;
+    height: 8vh;
+    width: 6vw;
+  }
+
+  .buscar {
+    display: none;
+  }
+
+  /* .recom {
+    height: 2rem;
+    min-width: none;
+  } */
+
+  .logo {
+    margin-left: 1rem;
+  }
+
+  .moñeco {
+    width: 2em;
+  }
+
+  .moñeco svg {
+    margin-top: 1.8vh;
+  }
+
+  .recomButton:hover {
+    color: inherit;
+  }
+
+  header nav ul li span {
+    display: none;
+  }
+}

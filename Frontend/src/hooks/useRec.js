@@ -1,10 +1,12 @@
-// useRec.js
-
 import { useEffect, useState } from "react";
-import { getSingleRecService, deleteCommentService } from "../services";
+import {
+  getSingleRecService,
+  sendCommentService,
+  deleteCommentService,
+} from "../services";
 
 const useRec = (id) => {
-  const [rec, setRec] = useState([]);
+  const [rec, setRec] = useState({ comments: [] });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -14,6 +16,7 @@ const useRec = (id) => {
         setLoading(true);
         await new Promise((resolve) => setTimeout(resolve, 2000));
         const data = await getSingleRecService(id);
+        console.log(data);
 
         setRec(data);
       } catch (error) {
@@ -26,18 +29,19 @@ const useRec = (id) => {
     loadRec();
   }, [id]);
 
-  const updateComments = async (commentId, token, setComments) => {
-    try {
-      await deleteCommentService({ idCom: commentId, token });
-      setComments((prevComments) =>
-        prevComments.filter((comment) => comment.id !== commentId)
-      );
-    } catch (error) {
-      console.error("Error al eliminar el comentario:", error);
-    }
+  const addComment = async (id, data, token) => {
+    const newComment = await sendCommentService({ id, data, token });
+    const newRec = await getSingleRecService(id);
+    setRec(newRec);
   };
 
-  return { rec, error, loading, updateComments };
+  const deleteComment = async (recId, idComment, token) => {
+    await deleteCommentService({ recId, idComment, token });
+    const newRec = await getSingleRecService(id);
+    setRec(newRec);
+  };
+
+  return { rec, error, loading, addComment, deleteComment };
 };
 
 export default useRec;

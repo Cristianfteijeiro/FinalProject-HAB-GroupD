@@ -1,7 +1,7 @@
 .footer {
   color: var(--action);
   background-color: var(--bgb);
-  height: 2vh;
+  /* height: 2vh; */
   display: flex;
   justify-content: space-around;
 }

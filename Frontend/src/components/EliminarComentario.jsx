@@ -9,7 +9,7 @@ export const EliminarComentario = ({
   commentId,
   recId,
   recOwnerId,
-  onDelete,
+  deleteComment,
   commentOwnerId,
   setComments,
 }) => {
@@ -25,16 +25,16 @@ export const EliminarComentario = ({
   const handleDelete = async () => {
     try {
       if (user.id === recOwnerId || user.id === commentOwnerId) {
-        await deleteCommentService({
-          recId,
-          idComment: commentId,
-          token,
-        });
+        // await deleteCommentService({
+        //   recId,
+        //   idComment: commentId,
+        //   token,
+        // });
 
-        onDelete(commentId);
-        setComments((prevComments) =>
-          prevComments.filter((comment) => comment.id !== commentId)
-        );
+        await deleteComment(recId, commentId, token);
+        // setComments((prevComments) =>
+        //   prevComments.filter((comment) => comment.id !== commentId)
+        // );
       } else {
         setError("No tienes permiso para eliminar este comentario.");
       }

@@ -160,3 +160,15 @@
     margin-top: 1vh;
   }
 }
+
+@media (min-width: 769px) and (max-width: 1439px) {
+  .user-page-avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .foto-y-datos {
+    width: 45vw;
+    justify-content: space-evenly;
+  }
+}

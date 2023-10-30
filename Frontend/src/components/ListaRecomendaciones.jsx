@@ -69,9 +69,9 @@ export const RecList = ({ recs, removeRec }) => {
           Ordenar por Votos
         </button>
       )}
-      <Link to="/recomendar">
+      {/* <Link to="/recomendar">
         <button className="recom">Cuéntanos tu experiencia.</button>
-      </Link>
+      </Link> */}
       {recomendacionesOrdenadas.length ? (
         <ul className="rec-list">
           {recomendacionesOrdenadas.map((rec) => {

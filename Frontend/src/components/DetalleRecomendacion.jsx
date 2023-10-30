@@ -11,7 +11,7 @@ import { EliminarComentario } from "./EliminarComentario";
 import "../Styles/Recomendacion.css";
 import "../Styles/DetalleRecomendacion.css";
 
-export const RecDetalle = ({ rec, removeRec }) => {
+export const RecDetalle = ({ rec, addComment, deleteComment, removeRec }) => {
   const baseURL = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const { token, user } = useContext(AuthContext);
@@ -51,18 +51,19 @@ export const RecDetalle = ({ rec, removeRec }) => {
     }
   };
 
-  const addComment = (comment) => {
-    setComments([...comments, comment]);
-  };
+  // const addComment = (comment) => {
+  //   setComments([...comments, comment]);
+  // };
 
   // const deleteRecComment = async (commentId) => {
   //   try {
-  //     await deleteCommentService({ idCom: commentId, token });
-  //     setComments((prevComments) =>
-  //       prevComments.filter((comment) => comment.id !== commentId)
-  //     );
+  //     await deleteComment()
+  //     // await deleteCommentService({ idCom: commentId, token });
+  //     // setComments((prevComments) =>
+  //     //   prevComments.filter((comment) => comment.id !== commentId)
+  //     // );
 
-  //     // window.location.reload();
+  //     // // window.location.reload();
   //   } catch (error) {
   //     setError(error.message);
   //     console.error(error);
@@ -70,7 +71,7 @@ export const RecDetalle = ({ rec, removeRec }) => {
   // };
   const handleDeleteComment = async (commentId) => {
     try {
-      await deleteRecComment(commentId);
+      await deleteComment(id, commentId, token);
     } catch (error) {
       setError(error.message);
       console.error(error);
@@ -232,7 +233,7 @@ export const RecDetalle = ({ rec, removeRec }) => {
                       recId={rec.recomendacion.id}
                       commentOwnerId={comentario.id_usuario}
                       recOwnerId={rec.recomendacion.user_id}
-                      onDelete={handleDeleteComment}
+                      deleteComment={deleteComment}
                       setComments={setComments}
                     />
                   ) : null}

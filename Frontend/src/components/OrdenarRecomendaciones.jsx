@@ -36,5 +36,3 @@ export const OrdenarRecomendaciones = ({
     </div>
   );
 };
-
-// export default OrdenarRecomendaciones;

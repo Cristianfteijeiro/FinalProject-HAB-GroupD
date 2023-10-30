@@ -51,24 +51,6 @@ export const RecDetalle = ({ rec, addComment, deleteComment, removeRec }) => {
     }
   };
 
-  // const addComment = (comment) => {
-  //   setComments([...comments, comment]);
-  // };
-
-  // const deleteRecComment = async (commentId) => {
-  //   try {
-  //     await deleteComment()
-  //     // await deleteCommentService({ idCom: commentId, token });
-  //     // setComments((prevComments) =>
-  //     //   prevComments.filter((comment) => comment.id !== commentId)
-  //     // );
-
-  //     // // window.location.reload();
-  //   } catch (error) {
-  //     setError(error.message);
-  //     console.error(error);
-  //   }
-  // };
   const handleDeleteComment = async (commentId) => {
     try {
       await deleteComment(id, commentId, token);

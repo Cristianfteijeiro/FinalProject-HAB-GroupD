@@ -1,8 +1,5 @@
-// EliminarComentario.js
-
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { deleteCommentService } from "../services";
 import { Confirmar } from "./Confirmar";
 
 export const EliminarComentario = ({
@@ -25,16 +22,7 @@ export const EliminarComentario = ({
   const handleDelete = async () => {
     try {
       if (user.id === recOwnerId || user.id === commentOwnerId) {
-        // await deleteCommentService({
-        //   recId,
-        //   idComment: commentId,
-        //   token,
-        // });
-
         await deleteComment(recId, commentId, token);
-        // setComments((prevComments) =>
-        //   prevComments.filter((comment) => comment.id !== commentId)
-        // );
       } else {
         setError("No tienes permiso para eliminar este comentario.");
       }
@@ -81,5 +69,3 @@ export const EliminarComentario = ({
     </>
   );
 };
-
-// export default EliminarComentario;

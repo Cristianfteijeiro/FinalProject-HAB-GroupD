@@ -23,6 +23,7 @@
 .rec-list-items {
   width: 40vw;
   list-style: none;
+  background-color: #c1ae6b;
 }
 
 @media (max-width: 450px) {

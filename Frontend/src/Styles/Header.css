@@ -148,8 +148,8 @@ header nav ul li span:nth-child(4) {
 }
 
 .header-avatar {
-  width: 50px;
-  height: 50px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   border: solid 1px;
   margin-right: 1rem;
@@ -181,7 +181,6 @@ header nav ul li span:nth-child(4) {
     height: 40px;
     border-radius: 50%;
     border: solid 1px;
-    /* margin-right: 1rem; */
     overflow: hidden;
   }
 
@@ -230,11 +229,23 @@ header nav ul li span:nth-child(4) {
 @media (min-width: 451px) and (max-width: 768px) {
   header {
     height: 10vh;
+    justify-content: center;
+    gap: 5vw;
   }
 
-  /* .buscadorHome {
-    width: 45vw;
-  } */
+  header nav ul {
+    gap: 0;
+    margin-right: 0;
+    gap: 5vw;
+  }
+
+  header .recom li {
+    width: 5vw;
+  }
+
+  header span img {
+    display: none;
+  }
 
   .header-avatar {
     width: 40px;
@@ -244,8 +255,7 @@ header nav ul li span:nth-child(4) {
 
   .logo-recomendaciones {
     min-width: 0;
-    height: 11vh;
-    width: 8vw;
+    max-height: 3rem;
   }
 
   .buscar {
@@ -253,12 +263,13 @@ header nav ul li span:nth-child(4) {
   }
 
   .recom {
+    margin: 0;
     height: 2rem;
     min-width: none;
   }
 
   .logo {
-    margin-left: 1rem;
+    margin-left: 0;
   }
 
   .moñeco {
@@ -290,30 +301,19 @@ header nav ul li span:nth-child(4) {
     gap: 5vw;
   }
 
-  /* .buscadorHome {
-    width: 45vw;
-  } */
-
   .header-avatar {
     width: 40px;
     height: 40px;
-    /* margin-top: 1vh; */
   }
 
   .logo-recomendaciones {
     min-width: 0;
-    height: 8vh;
-    width: 6vw;
+    height: 3rem;
   }
 
   .buscar {
     display: none;
   }
-
-  /* .recom {
-    height: 2rem;
-    min-width: none;
-  } */
 
   .logo {
     margin-left: 1rem;

@@ -73,6 +73,7 @@
   font-size: 1rem;
   padding: 20px;
   box-shadow: 11px 11px 4px rgba(0, 0, 0, 0.2);
+  background-color: #c1ae6b;
 }
 
 .user-update input {

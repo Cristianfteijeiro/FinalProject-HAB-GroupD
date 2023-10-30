@@ -74,10 +74,6 @@ main.app {
   color: #b52a2a;
 }
 
-.scroll-button-logo {
-  height: 50px;
-}
-
 @media (max-width: 450px) {
   main.app {
     display: flex;

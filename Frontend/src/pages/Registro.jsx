@@ -48,8 +48,6 @@ export const Register = () => {
       setAvatar(null);
       setRegistrationSuccess(true);
 
-      // console.log(e.target);
-
       setTimeout(() => {
         navigate("/");
       }, 2000);

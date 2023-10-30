@@ -38,14 +38,6 @@ export const UserPage = () => {
   const handleAvatarUpload = async (e) => {
     e.preventDefault();
     try {
-      // const response = await updateUserService(
-      //   avatarFile,
-      //   user[0].id,
-      //   isNameEdited ? newUserName : user[0].nombre,
-      //   token
-      // );
-      // console.log(response);
-      // window.location.reload();
       updateUser(
         avatarFile,
         user[0].id,

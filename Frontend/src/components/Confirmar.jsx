@@ -23,7 +23,7 @@ export const Confirmar = ({ onClose, onConfirm }) => {
 
   return (
     <div className="popup">
-      <div className="popup-content" ref={popupRef}>
+      <div className="popup-content-confirm" ref={popupRef}>
         <button className="close-button" onClick={onClose}>
           X
         </button>
